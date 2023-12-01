@@ -1,0 +1,148 @@
+1-. En los sistemas operativos Windows, para comprobar la configuración de red en la consola, se usa el comando...
+
+	a) ifconfig
+	b) idconfig
+	c) ipconfig ------
+	d) dsconfig
+
+2-. El fichero de configuración /etc/hostname de linux indica...
+ 
+	a) La lista de nombres de servidores de linux
+	b) El nombre de la ip del que se encuentra conectado
+	c) La direccion del bucle interno
+	d) El nombre del servidor de linux ------
+
+3-. Para reiniciar la máquina de ubunthu se usa el comando...
+
+	a) reboot ------
+	b) reprise
+	c) restart
+	d) reset
+
+4-. Para probar la comunicacion entre varios equipos se usa el comando...
+
+	a) ring 
+	b) ping ------
+	c) bing
+	d) link
+
+5-. Los puertos que escuchan las conexiones externas se denominan...
+
+	a) TCP y UDP ------
+	b) TVP y RDP 
+	c) TAP y JDP
+	d) THP y KDP
+
+6-. El comando nslookup sirve para...
+
+	a) Para esconder las IP de los dominios asociados
+	b) Para obtener la IP asociada al nombre DNS ------
+	c) Para listar los puertos de escucha del servidor
+	d) Para recibir informacion de la direccion IP
+
+7-. Un servidor primario sobre una zona de resolucion directa...
+
+	a) Tiene autoridad sobre el nombre de un dominio ------
+	b) Tiene autoridad sobre la ip de la red
+	c) Tiene autoridad sobre ambas cosas
+	d) No tiene autoridad sobre ninguna
+
+8-. Si escribimos en la consola el comando "nslookup 192.168.1.17" ...
+
+	a) Nos devuelve el nombre y direccion del servidor DNS ------
+	b) Nos devuelve el nombre y direccion del cliente DNS 
+	c) Nos devuelve el nombre y direccion del servidor y cliente DNS 
+	d) Esta mal escrito, no existe el comando "nslookup" 
+
+9-. El comando "/etc/init.d/networking restart"...
+	
+	a) Reinicia todas las ip del sistema de ubuntu
+	b) Reinicia el equipo
+	c) Reinicia las redes del sistema de ubuntu
+	d) Reinicia el servicio de red del sistema de ubuntu ------
+
+10-. El firewall por defecto de windows permite...
+
+	a) La respuesta de pings
+	b) No permite la respuesta de pings ------
+	c) Directamente no permite los pings
+	d) Los pings se encuentran inactivos
+
+11-. Para hacer cambios de configuracion en los sistemas de windows y linux siempre es recomendable...
+
+	a) Guardar una copia de seguridad 
+	b) Ejecutar como administrador 
+	c) Reiniciar el equipo despues de los cambios
+	d) La opcion b y c son correctas ------
+
+12-. Un servidor configurado como solo cache... 
+
+	a) Esta autorizado a todas las zonas
+	b) No esta autorizado en ninguna zona ------
+	c) No responde a consultas recursivas
+	d) Todas las opciones son correctas
+
+13-. Para habiltar una regla de entrada de Windows, hay que acceder a...
+
+	a) La consola de de comandos
+	b) Configuracion de redes 
+	c) Menu de Inicio
+	d) Firewall ------
+
+14-. Para acceder a un servidor DNS en Windows2008 server, primero hay que...
+
+	a) Habilitar la consola
+	b) Ejecutar el comando nslookup 192.168.XXX.XXX
+	c) Instalar un servidor DNS ------
+	d) Acceder al Menu de Inicio
+
+15-. Para crear un host nuevo para un dominio de resolución directa hay que crear...
+	
+	a) Un registro de puntero (PTR) asociado
+	b) Un host nuevo
+	c) Un CNAME para los alias
+	d) La opcion a es incorrecta ------
+
+16-. Si las maquinas virtuales tienen la misma direccion MAC...
+
+	a) Tendrán el mismo identificador de tarjeta ------
+	b) Tendrán la misma dirección IP
+	c) Tendrán la misma configuracion
+	d) Tendrán el mismo nombre de equipo virtual
+
+17-. El Protocolo de internet que configuramos para obtener las ip es...
+
+	a) CIDR
+	b) El CIDR no existe
+	c) IPv6
+	d) IPv4 ------
+
+18-. El comando que se usa para obtener las IP asociadas a un dominio es...
+
+	a) nslookup ------
+	b) ifconfig
+	c) getipgroup
+	d) dig 
+
+19-. El comando para obtener los nombres de un dominio de una direccion es...
+
+	a) nslookup 
+	b) ifconfig
+	c) getipgroup
+	d) dig ------
+
+20-. Que significa DNS?
+
+	a) Dominity Name System
+	b) Domain Name System ------
+	c) Device Name Server
+	d) Disc Noun Service
+
+
+
+
+
+
+
+
+
