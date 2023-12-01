@@ -60,8 +60,8 @@ public class enviaEmail extends HttpServlet {
             
             
             //Establecemos el correo desde el que estamos enviando el correo (remitente)
-            String userRemi = "contactoladronazi@gmail.com";
-            String contraRemi = "ketegano2013";
+            String userRemi = "";
+            String contraRemi = "";
             
             //Obtenemos los parametros recibidos del formulario
             String nombre = request.getParameter("nombre"); 
