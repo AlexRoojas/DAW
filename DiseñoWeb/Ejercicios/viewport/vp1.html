@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>Documento sin título</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#centrado{
+			text-align: center;
+			line-height: 60vh;
+			background-color: rgba(126,255,100,1.00);
+			height: 60vh;
+			width: 60vw;
+			margin: 20vh auto;
+		}
+		#centrado p{
+			font-size: 3vmax;
+		}
+		@media only screen and (max-width: 400px){
+			#centrado{
+				width: 100vw;
+				height: 100vh;
+				line-height: 100vh;
+				margin: 0vh auto;
+			}
+			p{
+				font-size: 2vmax;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="centrado">
+		<p>Centrado Vertical y Horizontal. Usando Viewport Units</p>
+	</div>
+</body>
+</html>

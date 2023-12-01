@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Efecto Flip</title>
+	<style>
+		*{
+			box-sizing:border-box;
+			margin:0;
+			padding:0;
+		}
+		.wrap{
+			width:1100px;
+			margin:50px auto;
+			display:flex;
+			justify-content: center;
+		}
+		.tarjeta-wrap{
+			margin:10px;
+			-webkit-perspective:800;
+		}
+		.tarjeta{
+			width:300px;
+			height:350px;
+			background:orange;
+			position:relative;
+			transform-style: preserve-3d;
+			transition: 1s ease;
+			box-shadow: 0 10px 15px -5px rgba(0,0,0,0.65);
+		}
+		.adelante, .atras{
+			width: 100%;
+			height: 100%;
+			position:absolute;
+			top:0;
+			left:0;
+			-webkit-backface-visibility:hidden;
+			backface-visibility:hidden;
+		}
+		.adelante{
+			width:100%;
+		}
+		.atras{
+			transform:rotateY(180deg);
+			-webkit-backface-visibility:hidden;
+			backface-visibility:hidden;
+			padding:15px;
+			display:flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			color:white;
+			font-family:Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+		}
+		.tarjeta-wrap:hover .tarjeta{
+			transform: rotateY(180deg);
+		}
+		.card1{
+			background-image:url("img/5terre.jpg");
+			background-size:cover;
+			background-position:60% 0;
+		}
+		.card2{
+			background-image:url("img/ds.jpg");
+			background-size:cover;
+			background-position:0 30%;
+		}
+		.card3{
+			background-image:url("img/juan.jpg");
+			background-size:cover;
+			background-position:80% 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="tarjeta-wrap">
+			<div class="tarjeta">
+				<div class="adelante card1">
+				</div>
+				<div class="atras">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam quo earum, quos ipsa provident quaerat. Facere sequi velit debitis autem laudantium.</p>
+				</div>
+			</div>
+		</div>
+		<div class="tarjeta-wrap">
+			<div class="tarjeta">
+				<div class="adelante card2">
+				</div>
+				<div class="atras">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam quo earum, quos ipsa provident quaerat. Facere sequi velit debitis autem laudantium.</p>
+				</div>
+			</div>
+		</div>
+		<div class="tarjeta-wrap">
+			<div class="tarjeta">
+				<div class="adelante card3">
+					
+				</div>
+				<div class="atras">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam quo earum, quos ipsa provident quaerat. Facere sequi velit debitis autem laudantium.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Animacion</title>
+	<style>
+		body{
+			
+			background-color: black;
+			margin: 0;
+		}
+		#cielo{
+			height: 140px;
+			background: url("IMAGES/sky.png") repeat-x;
+			animation: mover 25s infinite linear reverse;
+			animation-fill-mode: backwards;
+			
+		}
+		#suelo{
+			width: 100%;
+			height: 140px;
+			background: url("IMAGES/sea.png");
+			background-repeat: repeat-x;
+			animation: mover 15s infinite linear reverse;
+		}
+		#mun{
+			height: 156px;
+			width: 112px;
+			position: absolute;
+			top: 100px;
+			left: 650px;
+			background: url("IMAGES/muñeco.png");
+			animation: muneco 1s infinite linear;
+		}
+		@keyframes mover{
+			0%{
+				background-position: -550px;
+			}
+			100%{
+				background-position: 550px;
+			}
+		}
+		@keyframes muneco{
+			0%{
+				background-position: 0px;
+			}
+			49.99%{
+				background-position: 0px;
+			}
+			50%{
+				background-position: 112px;
+			}
+			100%{
+				background-position: 112px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="cielo"></div>
+	<div id="suelo"></div>
+	<div id="mun"></div>
+</body>
+</html>

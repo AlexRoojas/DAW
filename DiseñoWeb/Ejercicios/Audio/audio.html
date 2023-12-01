@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<script> 
+		function tiempoPista(){
+			var audio = document.getElementById("player");
+			var tiempo = document.getElementById("tiempo");
+			var tAhora = document.getElementById("tAhora");
+			var tTotal = document.getElementById("tTotal");
+			
+			audio.currenTime=tiempo.value;
+			
+			tAhora.innerHTML=audio.currenTime+"s";
+			tTotal.innerHTML=audio.duration+"s";
+		}
+	</script>
+</head>
+
+<body>
+	<h1>Audio</h1>
+	<audio id="player" src="Coldplay.mp3" ontimeupdate="tiempoPista();"></audio>
+	<div>
+		<button onClick="player.play();">Play</button>
+		<button onClick="player.pause();">Pausa</button>
+		<button onClick="player.volume+=0.1;">+</button>
+		<button onClick="player.volume-=0.1;">-</button>
+		
+		<input type="range" id="volumen" step="0.1" min="0" max="1" value="player.volume" onChange="player.volume = this.value">
+		<p id="tAhora">0</p>
+		<input type="range" id="tiempo" min="0" max="258" >
+		<p id="tTotal">0</p>
+	</div>
+</body>
+</html>

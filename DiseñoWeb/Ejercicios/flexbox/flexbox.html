@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		.contenedor{
+			margin: auto;
+			border: solid red 3px;
+			width: 60vw;
+			height: 80vh;
+			font-size: 2vmax;
+			overflow: hidden;
+			
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			align-items: stretch;
+			align-content: space-around;
+		}
+		p{
+			width: 30%;
+			
+		}
+		img{
+			width: 100%;
+		}
+		.uno{
+			background-color: rgba(0,255,243,1.00);
+		}
+		.dos{
+			background-color: rgba(205,76,255,1.00);
+			order: 1;
+		}
+		.tres{
+			background-color: rgba(255,245,0,1.00);
+			order: -1;
+		}
+		
+	</style>	
+</head>
+
+<body>
+	
+	<div class="contenedor">
+		<p class="uno">1 . Lorem ipsum   </p>
+		<p class="dos">2 . Lorem ipsum dolor   </p>
+		<p class="tres"> <img src="demo.png"> 3. Lorem ipsum dolor sit amet, consectetur </p>
+		
+	</div>
+	<span>4. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, in nobis impedit ab, obcaecati nam voluptas reprehenderit, et esse eos tenetur officia corporis magnam modi ea sit voluptatem, consequuntur unde.</span>
+</body>
+</html>

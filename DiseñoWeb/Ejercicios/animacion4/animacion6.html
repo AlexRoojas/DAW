@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		body, html{
+			height: 100%;
+			display: table;
+			margin: 0 auto;
+			background-color: rgba(95,92,92,1.00);
+		}
+		
+		div{
+			width: 40%;
+			text-align: center;
+			display: table-cell;
+   			vertical-align: middle;
+		}
+		h1{
+			transform-origin: center;
+			animation: cambiaColor 10s linear infinite;
+			color: blue;
+		}
+		input{
+			background: none;
+			border: solid rgba(255,76,76,1.00) 2px;
+			color: rgba(255,76,76,1.00);
+			padding: 10px;
+			font-size: 1em;
+		}
+		@keyframes cambiaColor{
+			0%{
+				color: rgba(196,49,51,1.00);
+			}
+			10%{
+				color: rgba(208,149,74,1.00);
+			}
+			20%{
+				color: rgba(182,207,68,1.00);
+			}
+			30%{
+				color: rgba(95,212,94,1.00);
+			}
+			40%{
+				color: rgba(59,193,128,1.00);
+			}
+			50%{
+				color: rgba(59,162,179,1.00);
+			}
+			60%{
+				color: rgba(56,123,204,1.00);
+			}
+			70%{
+				color: rgba(57,85,213,1.00);
+			}
+			80%{
+				color: rgba(77,58,201,1.00);
+			}
+			90%{
+				color: rgba(177,58,209,1.00);
+			}
+			100%{
+				color: rgba(216,51,169,1.00);
+			}
+			
+		}
+		
+	</style>
+</head>
+
+<body>
+	<div>
+		<h1>I.E.S. Martín Rivero</h1>
+		<input type="button" value="Visitar Web">
+	</div>
+</body>
+</html>

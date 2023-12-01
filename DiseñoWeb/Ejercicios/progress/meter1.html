@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		meter{
+			width: 150px;
+		}
+	</style>
+</head>
+
+<body>
+	<ul>
+		<li>Meter Vacio:<meter value="0"></meter></li>
+		<li>Meter Lleno<meter value="1"></meter></li>
+		<li>Meter con valores decimales<meter min="0" max="100" value="32.2"></meter></li>
+		<li>Calificaciones se considera como no aprobado puntuaciones inferiores a 4 <br>
+			0<meter min="0" max="10" low="4.1" value="4"></meter>10
+		</li>
+		<li>Cantidad de Tráfico <br>
+			Valor aceptable de tráfico entre 2048 y 8192 <br>
+			0<meter min="0" max="10000" low="2048" high="8192" value="3000"></meter>10000
+		</li>
+		<li>Alumnos suspensos curso 2017/2018 <br>
+			Entre 4 y 8 valor aceptable<br>
+			0<meter min="0" max="20" low="4.1" high="8" value="2" optimum="2"></meter>20
+		</li>
+		<li>Nivel de oxigeno<br>
+			Entre 200 y 700 valor aceptable<br>
+			0<meter min="0" max="1000" low="200" high="700" value="800"></meter>700
+		</li>
+	</ul>
+</body>
+</html>

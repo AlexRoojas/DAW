@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Web invierno paso a paso</title>
+	<style>
+		body{
+			width:  700px;
+			margin: 0 auto;
+		}
+		
+		.fila{
+			display: table-row;
+			
+		}
+		.cell{
+			height: 30px;
+			padding-top: 10px;
+			text-align: center;
+			display: table-cell;
+			
+			vertical-align: middle;
+			
+			width: 10%;
+			
+			background-color: rgba(246,255,163,1.00);
+			border: solid black 1px;
+			color: blue;
+			border-collapse: separate;
+		}
+		.cell:hover{
+			background-color: rgba(194,203,146,1.00);
+		}
+		#invierno{
+			width: 100%;
+		}
+		.cell a{
+			display: block;
+			text-decoration: none;
+			color: blue;
+		}
+		#cuerpo{
+			float: left;
+			width: 400px;
+		}
+		aside{
+			margin-top: 20px;
+			float: right;
+			color:rgba(92,92,92,1.00);
+			background-color: rgba(198,212,249,1.00);
+			width: 250px;
+		}
+		aside h2{
+			color: beige;
+			background-color: rgba(82,97,255,1.00);
+			padding: 5px;
+			margin: 0;
+		}
+		footer{
+			clear: both;
+		}
+		#cuerpo{
+			color:rgba(92,92,92,1.00); 
+			
+		}
+		button{
+			background-color: antiquewhite;
+		}
+		#buscador label{
+			padding: 5px;
+			cursor: crosshair;
+		}
+		#registro{
+			padding: 5px;
+			padding-left: 10px;
+		}
+		aside a{
+			color: blue;
+		}
+		footer a{
+			color: blue;
+		}
+		footer{
+			border-top: solid black 1px;
+		}
+	</style>
+
+</head>
+
+<body>
+<div id="contenedor">
+	<div id="cabecera">
+		<img src="invierno.png" alt="" id="invierno">
+		<div class="fila">
+			<div class="cell"><a href="#">Portada</a></div>
+			<div class="cell"><a href="#">Invierno</a></div>
+			<div class="cell"><a href="#">Diciembre a marzo</a></div>
+			<div class="cell"><a href="#">La chimenea</a></div>
+			<div class="cell"><a href="#">Deportes de invierno</a></div>
+			<div class="cell"><a href="#">Contacto</a></div>
+			
+		</div>
+		
+    </div>
+    
+    
+	<div id="cuerpo">
+		<h1>Título de la página</h1>
+		<p>		
+		En este artículo vamos a conocer la maquetación de paginas utilizando Hojas de estilos en cascada (CSS). Veremos cómo realizar este tipo de maquetación, junto con algunas ventajas e inconvenientes. Para muchos será todavía un campo por explorar. Aunque no vamos a entrar en grandes detalles, vamos a intentar dar a conocer la maquetación con CSS para que cubrir la posible laguna por parte del lector. En capítulos sucesivos ampliaremos la información y ofreceremos tutoriales más prácticos. 
+		</p>
+		<p>		
+		Como se ha podido aprender en el Manual de CSS, las hojas de estilo en cascada ayudan a separar el contenido de la forma, es decir, los elementos que componen una página de la forma con la que se muestran. Además, CSS ayuda en gran medida a la definición de estilos en la página, ya que permite ajustar de una manera mucho más precisa cualquier aspecto de cualquier elemento de la página. 
+		</p>
+		<p>		
+		La maquetación con CSS lleva la utilización de las hojas de estilo a su grado máximo, de manera que cualquier definición del aspecto de la página se realiza en la declaración CSS que enlazamos con el documento HTML. Para definir la situación de los elementos en la página se utilizan las capas, a las que se aplica un posicionamiento a través también de las hojas de estilo. 
+		</p>
+
+		<p>		
+		Para crear las capas se utilizan etiquetas &lt;DIV&gt;, en las que se introducen los elementos que queramos que aparezcan en la página. Los elementos dentro de los &lt;DIV&gt; también se pueden anidar, para heredar las propiedades y posicionamiento de las capas padre. 
+		</p>
+		<p>		
+		En la maquetación por capas se definen únicamente etiquetas &lt;DIV&gt; y las tablas sólo se utilizan para mostrar información tabulada, es decir, mostrada en filas y columnas. Cabe señalar que en la maquetación tradicional se utilizan las tablas para ajustar la posición.
+		</p>
+
+	</div>
+    
+	<aside>
+		<h2>Buscar</h2>
+		<form>
+		<div id="buscador">
+			<label for="busca">Criterio busqueda</p>
+			<input type="text" id="busca">
+			<button>Go</button>
+			<br>
+			<input type="radio"  name="bus" id="op1" value="invierno">
+			<label for="op1">En la Web del invierno</label><br>
+			<input type="radio"  name="bus" id="op2" value="normal">
+			<label for="op2">En toda la Web</label><br>
+		</div>
+		</form>
+	  <h2>Registro</h2>
+      <div id="registro">
+			<a href="#">Registrese con nosotros</a> y obtenga muchas mas ventajas.
+		</div>
+		
+	  <h2>Otras informaciones</h2>
+		<div>
+			<ul>
+				<li><a href="#">Quienes somos</a></li>
+				<li><a href="#">Nuestra mision</a></li>
+				<li><a href="#">Agenda de eventos</a></li>
+			</ul>
+		</div>
+	</aside>
+
+
+	<!-- El pie hará que el contenedor (padre) crezca verticalmente, ya que las otras
+         capas flotan. -->
+	<footer>
+		<a href="#">Volver</a>
+		<a href="#">Portada</a>
+		<a href="#">Mapa del sitio</a>
+		Pruebas de maquetación 
+    </footer>
+</div><!-- Fin contenedor -->
+</body>
+</html>

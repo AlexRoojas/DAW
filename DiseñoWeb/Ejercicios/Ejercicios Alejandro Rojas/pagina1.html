@@ -1,0 +1,314 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		body{
+			font: 62.5%/1.6 "Gill Sans", Futura, "Lucida Grande", Geneva, sans-serif;
+		}
+		
+		#cabeDer{
+			float: right;
+		}
+		header{
+			background-color: rgba(50,49,49,1.00);
+			height: 50px;
+			line-height: 50px;
+			padding: 1%;
+			font-size: 1.3em;
+			box-shadow: rgba(0,255,195, 0.4) 5px 5px, rgba(0,255,195, 0.3) 10px 10px, rgba(0,255,195, 0.2) 15px 15px, rgba(0,255,195, 0.1) 20px 20px, rgba(0,255,195, 0.05) 25px 25px;
+			margin-bottom: 40px;
+			color: rgba(0,255,243,1.00);
+			
+			
+		}
+		form input{
+			width: 50%;
+		}
+		#logo{
+			width: 109px;
+			height: 51px;
+		}
+		#buscador{
+			width: 13px;
+			height: 11px;
+		}
+		#navegador{
+			box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+			float: left;
+			background-color: rgba(111,252,223,1.00);
+			width: 15%;
+			height: auto;
+		}
+		ul{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			
+			text-decoration: none;
+			list-style: none;
+		}
+		li a{
+			padding: 10px;
+			color: black;
+			display: block;
+			font-size: 2em;
+			text-decoration: none;
+			text-indent: 1.5em;
+		}
+		li a:hover{
+		
+			background-color: rgba(0,0,0);
+			color: rgba(255,75,78,1.00);
+		}
+		.active{
+			background-color: rgba(255,255,255,0.6);
+			color: black;
+		}
+		
+		main{
+			
+			left: 10%;
+			margin: 0 auto;
+			
+			width: 70%;
+			height: auto;
+			float: left;
+			background-color: rgba(228,228,228,1.00);
+			color: black;
+			overflow: hidden;
+			box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+		}
+		main h1{
+			text-align: center;
+		}
+		article{
+			text-align: justify;
+			width: 40%;
+			padding: 20px;
+			padding-left: 70px;
+			font-size: 1.3em;
+			float: left;
+			
+		}
+		article img{
+			width: 50px;
+			height: 50px;
+			padding-right: 20px;
+			padding-bottom: 5px;
+		}
+		.flota{
+			float: left;
+		}
+		footer{
+			background-color: #c3fbc7;
+		}
+		.carrito{
+			width: 20px;
+			height: 20px;
+			position: relative;
+			left: 70px;
+			top: 10px;
+		}
+		#botonCompra{
+			
+		}
+		
+		footer span{
+			padding-left: 10px;
+			padding-right: 40%;
+		}
+		#patrocinadores{
+			font-size: 1.4em;
+			padding: 20px;
+			color: white;
+			float: left;
+			width: 12%;
+			background-color: rgba(30,30,30,1.00);
+		}
+		.link{
+			color: white;
+			text-decoration: none;
+		}
+		.patrocinador{
+			border-bottom:solid rgba(0,255,147,1.00) 1px;
+		}
+		#pie{
+			text-align: center;
+			clear: both;
+			width: auto;
+			height: 40px;
+			background-color: rgba(34,34,34,1.00);
+			font-size: 2em;
+			color: white;
+		}
+		a[href^="mailto:"]{
+		color: white;
+		background: url("images/EMAIL.PNG") no-repeat top right;
+		padding-right: 15px;
+	}
+	</style>
+</head>
+
+<body>
+	<header>
+		<img src="images/logo-F1.png" alt="" id="logo">
+			<form action="" id="cabeDer">
+				<span>Buscador</span>
+				<input type="text">
+				<img src="images/lupa.png" alt="" id="buscador">
+			</form>
+	</header>
+	<aside id="navegador">
+		<ul>
+			<li><a href="#">Inicio</a></li>
+			<hr>
+			<li><a href="#" class="active">Articulos</a></li>
+			<hr>
+			<li><a href="#">Proovedores</a></li>
+			<hr>
+			<li><a href="#">Anuncios</a></li>
+			<hr>
+			<li><a href="#">Informacion</a></li>
+			<hr>
+			<li><a href="#">Ayuda</a></li>
+		</ul>
+	</aside>
+	<main>
+		<h1>Listado de artículos</h1>
+		<article class="izqu">
+			<img src="posi/31.jpg" alt="" class="flota">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ea ullam laborum maxime itaque suscipit recusandae vero, cupiditate, ipsa possimus sapiente, eligendi qui. Dolorem vitae sed illo accusamus dolorum distinctio eum enim animi neque commodi illum nemo, esse architecto assumenda blanditiis, ratione hic velit ipsam accusantium officia! Pariatur, nulla magnam.</p>
+			<footer>
+				<span>Precio: 50€</span>
+				<input type="button" value="Comprar">
+				<img src="https://image.flaticon.com/icons/png/512/107/107831.png" alt="" class="carrito">
+			</footer>
+		</article>
+		<article class="der">
+			<img src="posi/31.jpg" alt="" class="flota">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ea ullam laborum maxime itaque suscipit recusandae vero, cupiditate, ipsa possimus sapiente, eligendi qui. Dolorem vitae sed illo accusamus dolorum distinctio eum enim animi neque commodi illum nemo, esse architecto assumenda blanditiis, ratione hic velit ipsam accusantium officia! Pariatur, nulla magnam.</p>
+			<footer>
+				<span>Precio: 50€</span>
+				<input type="button" value="Comprar">
+				<img src="https://image.flaticon.com/icons/png/512/107/107831.png" alt="" class="carrito">
+			</footer>
+		</article>
+		<article class="izqu">
+			<img src="posi/31.jpg" alt="" class="flota">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ea ullam laborum maxime itaque suscipit recusandae vero, cupiditate, ipsa possimus sapiente, eligendi qui. Dolorem vitae sed illo accusamus dolorum distinctio eum enim animi neque commodi illum nemo, esse architecto assumenda blanditiis, ratione hic velit ipsam accusantium officia! Pariatur, nulla magnam.</p>
+			<footer>
+				<span>Precio: 50€</span>
+				<input type="button" value="Comprar">
+				<img src="https://image.flaticon.com/icons/png/512/107/107831.png" alt="" class="carrito">
+			</footer>
+		</article>
+		<article class="der">
+			<img src="posi/31.jpg" alt="" class="flota">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ea ullam laborum maxime itaque suscipit recusandae vero, cupiditate, ipsa possimus sapiente, eligendi qui. Dolorem vitae sed illo accusamus dolorum distinctio eum enim animi neque commodi illum nemo, esse architecto assumenda blanditiis, ratione hic velit ipsam accusantium officia! Pariatur, nulla magnam.</p>
+			<footer>
+				<span>Precio: 50€</span>
+				<input type="button" value="Comprar">
+				<img src="https://image.flaticon.com/icons/png/512/107/107831.png" alt="" class="carrito">
+			</footer>
+		</article>
+		<article class="izqu">
+			<img src="posi/31.jpg" alt="" class="flota">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ea ullam laborum maxime itaque suscipit recusandae vero, cupiditate, ipsa possimus sapiente, eligendi qui. Dolorem vitae sed illo accusamus dolorum distinctio eum enim animi neque commodi illum nemo, esse architecto assumenda blanditiis, ratione hic velit ipsam accusantium officia! Pariatur, nulla magnam.</p>
+			<footer>
+				<span>Precio: 50€</span>
+				<input type="button" value="Comprar">
+				<img src="https://image.flaticon.com/icons/png/512/107/107831.png" alt="" class="carrito">
+			</footer>
+		</article>
+		<article class="der">
+			<img src="posi/31.jpg" alt="" class="flota">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ea ullam laborum maxime itaque suscipit recusandae vero, cupiditate, ipsa possimus sapiente, eligendi qui. Dolorem vitae sed illo accusamus dolorum distinctio eum enim animi neque commodi illum nemo, esse architecto assumenda blanditiis, ratione hic velit ipsam accusantium officia! Pariatur, nulla magnam.</p>
+			<footer>
+				<span>Precio: 50€</span>
+				<input type="button" value="Comprar">
+				<img src="https://image.flaticon.com/icons/png/512/107/107831.png" alt="" class="carrito">
+			</footer>
+		</article>
+		<article class="izqu">
+			<img src="posi/31.jpg" alt="" class="flota">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ea ullam laborum maxime itaque suscipit recusandae vero, cupiditate, ipsa possimus sapiente, eligendi qui. Dolorem vitae sed illo accusamus dolorum distinctio eum enim animi neque commodi illum nemo, esse architecto assumenda blanditiis, ratione hic velit ipsam accusantium officia! Pariatur, nulla magnam.</p>
+			<footer>
+				<span>Precio: 50€</span>
+				<input type="button" value="Comprar">
+				<img src="https://image.flaticon.com/icons/png/512/107/107831.png" alt="" class="carrito">
+			</footer>
+		</article>
+		<article class="der">
+			<img src="posi/31.jpg" alt="" class="flota">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ea ullam laborum maxime itaque suscipit recusandae vero, cupiditate, ipsa possimus sapiente, eligendi qui. Dolorem vitae sed illo accusamus dolorum distinctio eum enim animi neque commodi illum nemo, esse architecto assumenda blanditiis, ratione hic velit ipsam accusantium officia! Pariatur, nulla magnam.</p>
+			<footer>
+				<span>Precio: 50€</span>
+				<input type="button" value="Comprar">
+				<img src="https://image.flaticon.com/icons/png/512/107/107831.png" alt="" class="carrito">
+			</footer>
+		</article>
+		<article class="izqu">
+			<img src="posi/31.jpg" alt="" class="flota">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ea ullam laborum maxime itaque suscipit recusandae vero, cupiditate, ipsa possimus sapiente, eligendi qui. Dolorem vitae sed illo accusamus dolorum distinctio eum enim animi neque commodi illum nemo, esse architecto assumenda blanditiis, ratione hic velit ipsam accusantium officia! Pariatur, nulla magnam.</p>
+			<footer>
+				<span>Precio: 50€</span>
+				<input type="button" value="Comprar">
+				<img src="https://image.flaticon.com/icons/png/512/107/107831.png" alt="" class="carrito">
+			</footer>
+		</article>
+		<article class="der">
+			<img src="posi/31.jpg" alt="" class="flota">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ea ullam laborum maxime itaque suscipit recusandae vero, cupiditate, ipsa possimus sapiente, eligendi qui. Dolorem vitae sed illo accusamus dolorum distinctio eum enim animi neque commodi illum nemo, esse architecto assumenda blanditiis, ratione hic velit ipsam accusantium officia! Pariatur, nulla magnam.</p>
+			<footer>
+				<span>Precio: 50€</span>
+				<input type="button" value="Comprar">
+				<img src="https://image.flaticon.com/icons/png/512/107/107831.png" alt="" class="carrito">
+			</footer>
+		</article>
+		<article class="izqu">
+			<img src="posi/31.jpg" alt="" class="flota">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ea ullam laborum maxime itaque suscipit recusandae vero, cupiditate, ipsa possimus sapiente, eligendi qui. Dolorem vitae sed illo accusamus dolorum distinctio eum enim animi neque commodi illum nemo, esse architecto assumenda blanditiis, ratione hic velit ipsam accusantium officia! Pariatur, nulla magnam.</p>
+			<footer>
+				<span>Precio: 50€</span>
+				<input type="button" value="Comprar">
+				<img src="https://image.flaticon.com/icons/png/512/107/107831.png" alt="" class="carrito">
+			</footer>
+		</article>
+		<article class="der">
+			<img src="posi/31.jpg" alt="" class="flota">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ea ullam laborum maxime itaque suscipit recusandae vero, cupiditate, ipsa possimus sapiente, eligendi qui. Dolorem vitae sed illo accusamus dolorum distinctio eum enim animi neque commodi illum nemo, esse architecto assumenda blanditiis, ratione hic velit ipsam accusantium officia! Pariatur, nulla magnam.</p>
+			<footer>
+				<span>Precio: 50€</span>
+				<input type="button" value="Comprar" id="botonCompra">
+				<img src="https://image.flaticon.com/icons/png/512/107/107831.png" alt="" class="carrito">
+			</footer>
+		</article>
+	</main>
+	
+	<aside id="patrocinadores">
+		<div class="patrocinador">
+			<h3>Redbull</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nemo tenetur voluptatem. Odio, ducimus porro quisquam blanditiis adipisci magnam error, ea fuga ex sint consequatur amet! Sint quas libero, tempora praesentium hic error, provident soluta quos voluptate porro, voluptatibus commodi voluptatem amet saepe odio, natus officia recusandae esse rerum unde.</p>
+			<a href="redbull.es" class="link">Página Web</a>
+		</div>
+		<div class="patrocinador">
+			<h3>Mercedes</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nemo tenetur voluptatem. Odio, ducimus porro quisquam blanditiis adipisci magnam error, ea fuga ex sint consequatur amet! Sint quas libero, tempora praesentium hic error, provident soluta quos voluptate porro, voluptatibus commodi voluptatem amet saepe odio, natus officia recusandae esse rerum unde.</p>
+			<a href="redbull.es" class="link">Página Web</a>
+		</div>
+		<div class="patrocinador">
+			<h3>Ibai</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos nemo tenetur voluptatem. Odio, ducimus porro quisquam blanditiis adipisci magnam error, ea fuga ex sint consequatur amet! Sint quas libero, tempora praesentium hic error, provident soluta quos voluptate porro, voluptatibus commodi voluptatem amet saepe odio, natus officia recusandae esse rerum unde.</p>
+			<a href="redbull.es" class="link">Página Web</a>
+		</div>
+	</aside>
+	<footer id="pie">
+		<p>Contacte con 
+			<a href="mailto:info@mrivero.es">nosotros</a><br>
+		</p>
+	</footer>
+</body>
+</html>

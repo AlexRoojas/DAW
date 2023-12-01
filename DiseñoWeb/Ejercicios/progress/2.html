@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		progress{
+			appearance: none
+		}
+		progress::-webkit-progress-bar{
+			border: dotted gray 1px;
+			background-color: rgba(148,143,143,1.00);
+		}
+		progress::-webkit-progress-value {
+			background: linear-gradient(90deg, rgba(235,237,123,1) 0%, rgba(255,27,27,1) 100%);
+			border-radius: 0 15px 15px 0;
+		}
+		h1{
+			color: rgba(255,88,49,1.00);
+		}
+	</style>
+	
+</head>
+
+<body>
+	<h1>Eliminando</h1>
+	<progress id="elimina"></progress>
+	
+	<script>
+		var barrNAv = document.getElementById("elimina");
+		barrNAv.min=0;
+		barrNAv.max=100;
+		setInterval(function(){barrNAv.value++;},45);
+	</script>
+</body>
+</html>

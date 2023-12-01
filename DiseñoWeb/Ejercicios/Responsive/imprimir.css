@@ -1,0 +1,36 @@
+@charset "utf-8";
+body{
+	background-color: white;
+}
+h2{
+	text-align: center;
+}
+header{
+	padding:0 3%;
+	text-align: center;
+
+}
+header h1{
+	text-align: center;
+	font-size: 5em;
+}
+article{
+	padding: 0 6%;
+}
+#fondo{
+	display: none;
+}
+footer{
+	text-align: center;
+}
+.author{
+	font-size: 2em;
+}
+#anilloImpresion{
+    filter: grayscale(100%);
+	width: 300px;
+	float: left;
+}
+footer img{
+	display: none;
+}

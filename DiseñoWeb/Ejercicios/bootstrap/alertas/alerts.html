@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Alertas</title>
+	  <script>
+		  $(document).ready(function(){
+			  $("#formu").submit(function(ev){
+				  ev.preventDefault();
+				  $("#alerta").addClass("show"); 
+			  });
+			  
+			  $("#enlace").click(function(){
+				  $("#alerta").removeClass("show"); 
+			  });
+			  
+			  $("#alerta").on("close.bs.alert",function(){
+				  alert("Cambios Guardados");
+			  });
+			  
+			  
+			  
+		  });
+		  
+	  </script>
+  </head>
+  <body>
+
+    <div id="alerta" class="alert alert-warning alert-dismissible fade d-flex align-items-center"  role="alert">
+		
+		<i class="bi bi-watch"></i><h2>Confirme los datos de envio</h2>
+		
+		<a id="enlace" href="#" class="alert-link">Aceptar</a>
+		
+		<button class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+		</button>
+	  </div>
+	  
+	  <h1>Prueba con Alert</h1>
+	  <form action="#" id="formu">
+		  <label>Introduzca nombre:
+		  <input type="text"></label>
+		  <input type="submit" id="boton">
+	  </form>
+	  
+		<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="Dismissible popover" data-bs-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>  
+	  
+	  
+	  
+	  <div id="liveAlertPlaceholder"></div>
+	  <button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button>
+	  
+	
+	  
+	  
+	  <script>
+		var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+		var alertTrigger = document.getElementById('liveAlertBtn')
+
+		function alert(message, type) {
+		  var wrapper = document.createElement('div')
+		  wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+		  alertPlaceholder.append(wrapper)
+		}
+
+		if (alertTrigger) {
+		  alertTrigger.addEventListener('click', function () {
+			alert('Nice, you triggered this alert message!', 'success')
+		  })
+		}
+		  var popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
+				  trigger: 'focus'
+				});
+		  
+	  </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    
+  </body>
+</html>

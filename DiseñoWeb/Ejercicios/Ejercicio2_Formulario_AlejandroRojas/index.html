@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+		@import url(https://weloveiconfonts.com/api/?family=entypo);
+		.oculto{
+			position: absolute;
+			left: -10000px;
+		}
+		*{
+			font-family: 'Open Sans', sans-serif;
+		}
+		form{
+			margin: 0 auto;
+			width: 20%;
+			text-align: center;
+			background-color: rgba(197,194,194,1.00);
+			padding: 20px;
+			border-radius:0 0 20px 20px;
+		}
+		h2{
+			background-color: rgba(197,194,194,1.00);
+			color: black;
+			margin: 0 auto;
+			width: 20%;
+			text-align: center;
+			padding: 20px;
+			border-radius: 20px 20px 0 0;
+			border-bottom: solid black 1px;
+		}
+		
+		.botones:first-child{
+			height:40px;
+			border-bottom: solid black 1px;
+		}
+		.cuerpo{
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		
+		[class*="entypo-"]:before {
+  			font-family: 'entypo', sans-serif;
+			font-size: 20px;
+			position: relative;
+			left: -10px;
+			top: 3px;
+			background-color: rgba(50,48,215,1.00);
+			padding: 5px;
+			color: white;
+		}
+		.cuerpo input{
+			margin: 7px;
+			border: solid red 1px;
+			padding: 5px;
+			
+		}
+		input{
+			outline: 0;
+		}
+		.ultimo{
+			font-size: 15px;
+		}
+		.ultimo p {
+			text-align: left;
+			width: 50%;
+		}
+		.ultimo input{
+			position: relative;
+			top: -80px;
+			left: 80px;
+			background-color: rgba(50,48,215,1.00);
+			color: white;
+			padding: 5px;
+			box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+			font-weight: bold;
+		}
+		.cuerpo input:invalid{
+			  border: 1px solid red;
+		}
+		.cuerpo input:valid { 
+			border: 1px solid gray;
+		}
+/*al ser invalido el campo pondremos el borde de color rojo, luego al ser valido cumpliendo del formato del tipo del input pues se le cambiara el color a gris*/
+		.botones label{
+			cursor: pointer;
+		}
+		
+		input[type="radio"]{
+    		visibility:  hidden;
+		}
+		.circulo{
+			position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+			background-color: rgba(50,48,215,1.00);
+			margin-left: 20px;
+			text-align: center;
+			border-radius:250px;
+		}
+		.tick {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+			margin-left: 20px;
+			text-align: center;
+			left: -19px;
+        }
+
+        .tick::before {
+            position: absolute;
+            left: 6px;
+            top: 45%;
+            height: 38%;
+            width: 3px;
+            background-color: white;
+            content: "";
+            transform: rotate(-45deg);
+        }
+        .tick::after {
+            position: absolute;
+            left: 7px;
+            bottom: 7px;
+            height: 3px;
+            width: 47%;
+            background-color: white;
+            content: "";
+            transform: rotate(-45deg);
+        }
+		
+		.tick{
+			opacity: 0;
+		}
+
+        input:checked+.circulo>.tick {
+            opacity: 1;
+
+        }
+	</style>
+	<script>
+		function valida(input){
+			var estilo = input.style.borderColor;
+			if(input.validity.valid){
+				estilo = "grey";
+			}else{
+				estilo = "red";
+			}
+		}
+	</script>
+	
+</head>
+
+<body>
+	<h2>Registro</h2>
+	<form action="#">
+		<div class="botones">
+			<input type="radio" name="tipo" value="Personal" id="Personal" checked><div class="circulo"><div class="tick"></div></div><label for="Personal">Personal</label><span class="oculto">Personal o Empresa</span>
+			<input type="radio" name="tipo" value="Empresa" id="Empresa"><div class="circulo"><div class="tick"></div></div><label for="Empresa">Empresa</label>
+		</div>
+		<div class="cuerpo">
+		<span class="entypo-user"></span><input type="text" name="usuario" placeholder="Nombre de usuario" onKeyUp="valida(this)" required><br>
+		<span class="entypo-mail"></span><input type="email" name="correo" placeholder="Direccion online" onKeyUp="valida(this)" required><br>
+		<span class="entypo-key"></span><input type="password" name="contra" placeholder="Contraseña" onKeyUp="valida(this)" required>
+		</div>
+		<div class="botones">
+			<input type="radio" name="sex" value="Mujer" id="rM" checked><div class="circulo"><div class="tick"></div></div><label for="rM">Mujer</label><span class="oculto">Mujer u Hombre</span>
+			<input type="radio" name="sex" value="Hombre" id="rH"><div class="circulo"><div class="tick"></div></div><label for="rH">Hombre</label>
+		</div>
+		<div class="ultimo"> 
+			<p>Haciendo click en el Registro, usted está aceptando nuestros<a href="#"> términos y condiciones</a></p>
+		<input type="submit" value="Crear Cuenta">
+		</div>
+	</form>
+</body>
+</html>

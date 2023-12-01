@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Reloj</title>
+	<style>
+		.reloj{
+			position: relative;
+			background: url("clockFace.png") no-repeat;
+			width: 378px;
+			height: 378px;
+		}
+		.horas{
+			position: absolute;
+			background: url("hourHand.png") no-repeat;
+			width: 378px;
+			height: 378px;
+			animation: mover 43200s linear infinite;
+		}
+		.minutos{
+			position: absolute;
+			background: url("minuteHand.png") no-repeat;
+			width: 378px;
+			height: 378px;
+			animation: mover 3060s linear infinite;
+			
+		}
+		.segundos{
+			position: absolute;	
+			background: url("secondHand.png") no-repeat;
+			width: 378px;
+			height: 378px;
+			animation: mover 60s steps(30) infinite;
+		}
+		@keyframes mover{
+			0%{
+				transform: rotate(0deg);
+			}
+			100%{
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reloj">
+		<div class="horas"></div>
+		<div class="minutos"></div>
+		<div class="segundos"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documento sin título</title>
+	<link rel="stylesheet" href="reset.css">
+<style>
+	.contenedor{
+		margin: 0 auto;
+		width: 90%;
+		max-width: 1200px;
+	}
+	header, .pie{
+		background-color: #2C3E50;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		color: white;
+		padding: 50px 20px;
+	}
+		header img{
+			display: flex;
+			width: 20vw;
+			flex-basis: 100px;
+			flex-grow: 1;
+		}
+		header nav{
+			margin-left: 30px;
+			display: flex;
+			flex-grow: 2;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+		header nav a{
+			background-color: #C0392B;
+			color: white;
+			text-decoration: none;
+			display: flex;
+			justify-content: center;
+			flex-grow: 1;
+			padding: 10px;
+			transition: all 1s ease;
+		}
+		header nav a:hover,.pie .links a:hover{
+			background-color: #E74C3C;
+		}
+main{
+		display: flex;
+	}	
+	.cuerpo{
+		display: flex;
+
+	}
+		.card{
+			max-width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-around;
+
+		}
+		.contenido{
+			margin: 10px;
+		}
+
+		.card:first-child footer{
+			border-bottom: solid #2C3E50 1px;
+		}
+		.contenido h2{
+			font-size: 1.5vmax;
+			font-weight: bold;
+		}
+		.contenido p{
+			font-size: 0.9vmax;
+		}
+		.card footer {
+			text-align: center;
+			width: 98%;
+		}
+		footer button{
+			cursor: pointer;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			min-width: 100%;
+			max-width: 100%;
+			min-height: 40px;
+			font-size: 1vmax;
+		}
+	
+	main aside{
+		background-color: #E67E22;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		max-width: 30%;
+		min-width: 30%;
+		margin: 0;
+	}
+		.publi{
+			color: white;
+			display: block;
+			padding: 40px;
+			background-color: #D35400;
+			font-size: 1.3vmax;
+			font-weight: bold;
+		}
+
+	.pie{
+		background-color: #2C3E50;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		color: white;
+		padding: 50px 20px;
+	}
+	.pie img{
+		width: 5vw;
+	}
+	.pie .links {
+		margin-right: 30px;
+		display: flex;
+		flex-grow: 2;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+	.pie .links a{
+		background-color: #C0392B;
+		color: white;
+		text-decoration: none;
+		display: flex;
+		justify-content: center;
+		flex-grow: 1;
+		padding: 10px;
+		transition: all 1s ease;
+	}
+	
+	@media only screen and (max-width:700px){
+		.contenedor{
+			width: 100%;
+		}
+		header, .pie{
+			flex-direction: column;
+			width: 100vw;
+			padding: 0;
+			margin: 0;
+		}
+			header img{
+				width: 100vw;
+			}
+			header nav{
+				width: 100%;
+				margin: 0;
+			}
+		
+		main{
+			display: flex;
+			flex-direction: column;
+		}
+		.contenido{
+			margin:20px;
+		}
+			.contenido h2{
+				font-size: 3vmax;
+			}
+			.contenido p{
+				font-size: 2vmax;
+			}
+			.card footer {
+				width: 90%;
+			}
+			footer button{
+				font-size: 2vmax;
+			}
+		
+		
+		main aside{
+			max-width: 100%;
+			min-width: 100%;
+			margin: 0;
+		}
+			.publi{
+				padding: 40px 30%;
+				margin: 20px;
+				font-size: 3vmax;
+			}
+		.pie{
+			flex-direction: row;
+		}
+	}
+	
+	
+	@media only screen and (max-width:415px){
+		
+		main aside{
+			max-width: 100%;
+			min-width: 100%;
+			margin: 0;
+		}
+			.publi{
+				padding: 40px;
+				margin: 20px;
+				font-size: 3vmax;
+			}
+		.pie img{
+			display: none;
+		}
+		.pie section {
+			width: 100%;
+			margin-left: 30px;
+		}
+	}
+</style>	
+</head>
+
+<body>
+<div class="contenedor">
+<header>
+
+	<img src="logos/logo300x300.jpg" alt="logo">
+	
+	<nav>
+		<a href="#">Inicio</a>
+		<a href="#">Blog</a>
+		<a href="#">Proyectos</a>
+		<a href="#">Contacto</a>
+	</nav>
+</header>
+	<main>
+<div .class="cuerpo">
+	<section class="card uno">
+		  <div class="contenido">
+			    <h2>Lorem ipsum dolor sit amet. </h2>
+		  </div>
+		<div class="contenido">
+	   			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam sed voluptatum quisquam suscipit? Fuga, aperiam temporibus iusto minus doloribus labore odit neque dolore est et, minima, ipsam! Esse reiciendis sed porro iste natus, voluptatem rerum, aut, aperiam, ratione id assumenda nam dolor facere dolorem distinctio voluptate amet quis illo dolorum. Doloribus laboriosam reiciendis fuga expedita, aspernatur possimus dignissimos eveniet, fugit, saepe aperiam maxime accusantium sint nemo esse eaque temporibus maiores alias distinctio cum est magni ad facere! Sint laboriosam accusantium, nostrum aut facilis. Unde nam recusandae, minus dolorem possimus autem doloribus sint, dicta tenetur nemo quibusdam laborum iusto alias iure.</p>
+	    </div>
+		  
+		  <footer>
+	    		<button>Leer más</button>
+		  </footer>
+	  </section>
+	<section class="card dos">
+		  <div class="contenido">
+			    <h2>Lorem ipsum dolor sit amet. </h2>
+	   	</div>
+		<div class="contenido">
+	   			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam sed voluptatum quisquam suscipit? Fuga, aperiam temporibus iusto minus doloribus labore odit neque dolore est et, minima, ipsam! Esse reiciendis sed porro iste natus, voluptatem rerum, aut, aperiam, ratione id assumenda nam dolor facere dolorem distinctio voluptate amet quis illo dolorum. Doloribus laboriosam reiciendis fuga expedita, aspernatur possimus dignissimos eveniet, fugit, saepe aperiam maxime accusantium sint nemo esse eaque temporibus maiores alias distinctio cum est magni ad facere! Sint laboriosam accusantium, nostrum aut facilis. Unde nam recusandae, minus dolorem possimus autem doloribus sint, dicta tenetur nemo quibusdam laborum iusto alias iure.</p>
+	    </div>
+		  <footer>
+	    		<button>Leer más</button>
+		  </footer>
+	  </section>
+</div>
+	
+
+<aside>
+	
+	<div class="publi"><p>Bloque publicitario</p></div>
+	<div class="publi"><p>Bloque publicitario</p></div>
+	<div class="publi"><p>Bloque publicitario</p></div>
+
+
+
+</aside>
+</main>
+<footer class="pie">
+	<section class="links">
+		<a href="#">Inicio</a>
+		<a href="#">Blog</a>
+		<a href="#">Proyectos</a>
+		<a href="#">Contacto</a>
+	</section>
+
+
+		<img src="LOGOS/Marca ER ISO 9001INF.jpg"   alt=""/> 
+		<img src="LOGOS/ga-gestion-ambiental-14001-inf.jpg"  alt=""/>
+		<img src="LOGOS/IQNET-9001.png"   alt=""/>
+
+</footer>
+	</div>
+</body>
+</html>

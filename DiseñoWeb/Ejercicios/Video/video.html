@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<script>
+		function playpau(){
+		   if (player.paused || player.ended) {
+			  play.style.backgroundPosition="-384px -136px";
+			  player.play();
+		   } else {
+			  play.style.backgroundPosition="-324px -136px";
+			  player.pause();
+		   }
+
+		}
+		function ponerFondo(){
+			if(player.volume >0.5){
+				iconoVolumen.style.backgroundPosition = "-308px -29px";
+			}else{
+				iconoVolumen.style.backgroundPosition = "-199px -29px";
+			}
+		}
+	</script>
+	<style>
+		.controles{
+			
+			width: 60%;
+			height: 100px;
+		}
+		.controles input{
+			background-image: url("iconosSonidos.jpg");
+			background-repeat: no-repeat;
+			background-size: 532px;
+			width: 67px;
+			height: 66px;
+			border: 0;
+			cursor: pointer;
+		}
+		#play{
+			background-position: -324px -136px;
+		}
+		#stop{
+			background-position: -456px -136px;
+		}
+		#back{
+			background-position: -172px -136px;
+		}
+		#go{
+			background-position: -246px -136px;
+		}
+		#iconoVolumen{
+			background-position: -308px -29px;
+		}
+		input[type="range"]{
+			width: 100px;
+		}
+	</style>
+</head>
+
+<body>
+	<video width="500px" height="100%" src="ANDALUCIA TE QUIERE.mp4" preload id="player" poster="andalucia.png" controls>
+		<source src="" type="video/mp4;codecs">
+		<source src="" type="video/webm;codecs">
+		<source src="" type="video/ogg;codecs">
+	</video>
+	<div class="controles">
+		<input type="button" onClick="playpau()" id="play">
+		<input type="button" onClick="player.pause()" id="stop">
+		<input type="button" onClick="player.currentTime -= 5" id="back">
+		<input type="button" onClick="player.currentTime += 5" id="go">
+		
+		<input type="button" for="volumen" id="iconoVolumen">
+		<input type="range" id="volumen" step="0.1" min="0" max="1" value="player.volume"  onChange="player.volume = this.value; ponerFondo();" >
+		
+	</div>
+</body>
+</html>

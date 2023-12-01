@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mario Coche</title>
+	<script>
+		function mover(ev){
+			var tecla = ev.which;
+			var mario = document.getElementById("marioM");
+			var pos = mario.offsetLeft;
+			switch(tecla){
+				case 97://A
+					mario.style.animation=" correr 0.5s 3 linear";
+				break;
+				case 100://D
+					
+					mario.style.left=pos+6+"px";
+					
+				break;
+				case 119://W
+					
+				break;
+				case 115://S
+					
+				break;
+			}
+		}
+	</script>
+	<style>
+		div.mario{
+			position: relative;
+			background:lightblue url("img/f02.png") no-repeat left bottom;
+			height: 300px;
+			width: 100%;
+			border: solid black 1px;
+			overflow: hidden;
+			z-index: 1;
+	}
+		div.nubes{
+			position: relative;
+			background: url("img/f03.png") repeat-x;
+			height: 73px;
+			width: 100%;
+			animation: nubes 30s infinite linear reverse;
+		}
+		div.suelo{
+			position: absolute;
+			bottom: 0;
+			background: url("img/f01.png") repeat-x left bottom;
+			height: 14px;
+			width: 100%;
+		}
+		.correr{
+			background: url("img/correr2.png");
+			background-repeat: repeat-x;
+			width: 19px;
+			height: 31px;
+			: correr 1s 3 linear,
+						mover 3s 1 linear forwards,
+						salto 2s linear 3s forwards,
+						agacha 2s linear 5.5s forwards;
+			position: absolute;
+			top: 256px;
+			left: 100px;
+			z-index: 2;
+		}
+		.tubo{
+			background: url("img/tuboL.png");
+			background-repeat: repeat-x;
+			width: 113px;
+			height: 97px;
+			position: absolute;
+			top: 224px;
+			left: 189px;	
+		}
+		.tubo2{
+			background: url("img/tubo.png");
+			background-repeat: repeat-x;
+			width: 113px;
+			height: 97px;
+			position: absolute;
+			top: 188px;
+			left: 141px;
+			z-index: 3;
+		}
+		.rampa{
+			background: url("img/rampa.png");
+			background-repeat: repeat-x;
+			width: 501px;
+			height: 212px;
+			position: absolute;
+			top: 129px;
+			left: 390px;
+		}
+		.coche1{
+			background: url("img/kart1.png");
+			background-repeat: repeat-x;
+			background-size: contain;
+			width: 30px;
+			height: 40px;
+			position: absolute;
+			top: 255px;
+			left: 213px;
+			z-index: -1;
+			animation: coche1 3s linear 8.5s forwards,
+						volar 2s linear 11.4s forwards;
+		}
+		.canon{
+			background: url("img/canon.png");
+			background-repeat: repeat-x;
+			background-size: contain;
+			width: 30px;
+			height: 40px;
+			position: absolute;
+			top: 146px;
+			left: 710px;
+			animation: cohete 0.2s linear 11.4s forwards;
+		}
+		body{
+			background-color: #79C7B2;
+		}
+		@keyframes volar{
+			0%{
+				top: 146px;
+				left: 710px;
+				transform: rotate(0deg);
+			}
+			50%{
+				transform: rotate(360deg);
+			}
+			100%{
+				transform: rotate(0deg);
+				top: -200px;
+				left: 2010px;
+			}
+		}
+		@keyframes cohete{
+			0%{
+				opacity: 1;
+			}
+			100%{
+				opacity: 0;
+			}
+		}
+		@keyframes coche1{
+			0%{
+				top: 255px;
+				left: 213px;
+				
+			}
+			49.9%{
+				top: 255px;
+				left:461px;
+				transform: rotate(0deg);
+			}
+			50%{
+				top: 255px;
+				left:462px;
+				transform: rotate(337deg);
+			}
+			100%{
+				top: 146px;
+				left: 710px;
+				transform: rotate(337deg);
+			}
+		}
+		@keyframes nubes{
+			0%{
+				background-position: -550px;
+			}
+			100%{
+				background-position: 550px;
+			}
+		}
+		@keyframes mover{
+			0%{
+				left: -20px
+			}
+			100%{
+				left: 100px;
+			}
+		}
+		@keyframes salto{
+			0%{
+				background-image: url("img/salto2.png");
+				background-size: contain;
+				left: 100px;
+			}
+			49.9%{
+				background-image: url("img/salto2.png");
+				background-size: contain;
+			}
+			50%{
+				background-image: url("img/agacha.png");
+				background-repeat: no-repeat;
+				top: 184px;
+				left: 137px;
+			}
+			100%{
+				background-image: url("img/agacha.png");
+				background-repeat: no-repeat;
+				background-size: contain;
+				top: 220px;
+				left: 179px;
+			}
+		}
+		@keyframes agacha{
+			0%{
+				height: 59px
+			}
+			100%{
+				top: 241px;
+			}
+		}
+		@keyframes correr{
+			0%{
+				background-position: 0px;
+			}
+			49.99%{
+				background-position: 0px;
+			}
+			50%{
+				background-position: 19px;
+			}
+			100%{
+				background-position: 19px;
+			}
+		}
+	</style>
+</head>
+
+<body onKeyPress="mover(event);">
+	<div class="mario">
+		<div class="nubes"></div>
+		<div class="suelo"></div>
+		<div class="tubo"></div>
+		<div class="tubo2"></div>
+		<div class="rampa"></div>
+		<div class="coche1"></div>
+		<div class="canon"></div>
+		<div id="marioM" class="correr"></div>
+	</div>
+</body>
+</html>

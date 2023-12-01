@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background: url("img mozilla/fondo.png") no-repeat ;
+	background-size: cover;
+	background-attachment: fixed;
+	text-align: center;
+}
+h1{
+	color: white;
+	font-size: 3em;
+	font-weight: bold;
+}
+h2{
+	position: relative;
+	top: -10px;
+	left: 60px;
+	line-height: 50px;
+	border-radius: 0px 0px 20px 20px;
+	margin: auto;
+	padding: 20px;
+	width: 100px;
+	font-size: 2em;
+	font-weight: bold;
+	background-color: white;
+	
+}
+p{
+	color: white;
+	font-weight: bold;
+}
+div#botones{
+	position: relative;
+	top: 50px;
+}
+img#Firefox{
+	position: relative;
+	right: 100px;
+}
+img.boton{
+	width: 152px;
+	height: 45px;
+}

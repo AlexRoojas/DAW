@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		body{
+			margin: 0;
+		}
+		nav{
+			width: 200px;
+			margin: 0;
+		}
+		ul{
+			list-style: none;
+			
+		}
+		li a{
+			list-style: none;
+			color: black;
+			text-decoration: none;
+			display: block;
+		}
+		li{
+			background-color: rgba(167,252,182,1.00);
+			border: solid rgba(91,91,91,1.00) 1px;
+			padding: 5px;
+			position: relative;
+		}
+		li:hover > ul{
+			display: block;
+			position:absolute;
+			left:118px;
+			top: -1px;
+			width: 200px;
+		}
+		.submenu{
+			display: none;
+	</style>
+</head>
+
+<body>
+	<nav>
+	<ul id="navega">
+		<li><a href="#">Inicio</a></li>
+		<li><a href="#">Acerca de</a>
+			<ul class="submenu">
+				<li><a href="#">Autor</a></li>
+				<li><a href="#">Director</a></li>
+				<li><a href="#">Profesores</a></li>
+				<li><a href="#">Alumnos</a></li>
+				<li><a href="#">Lugar</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Servicios</a>
+			<ul class="submenu">
+				<li><a href="#">Mantenimiento</a></li>
+				<li><a href="#">Limpieza</a></li>
+				<li><a href="#">Atencion al cliente</a></li>
+
+			</ul>
+		</li>
+		<li><a href="#">Contacto</a>
+			<ul class="submenu">
+				<li><a href="#">Telefono</a></li>
+				<li><a href="#">Correo</a></li>
+				<li><a href="#">Lugar</a></li>
+				<li><a href="#">Fecha</a></li>
+			</ul>
+		</li>
+	</ul>
+	</nav>
+</body>
+</html>

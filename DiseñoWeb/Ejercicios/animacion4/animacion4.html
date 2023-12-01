@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		#cab{
+			width: 30%;
+		}
+		header input{
+			background: none;
+			border: solid white 1px;
+			color: white;
+			padding: 10px;
+			font-size: 1em;
+			transition: all 1s linear;
+		}
+		header input:hover{
+			background-color: white;
+			color: black;
+			transition: all 1s linear;
+		}
+		header{
+			
+			background: url("Escritorio.jpg") no-repeat;
+			background-size: cover;
+			animation: desliza 60s infinite linear;
+		}
+		#deg{
+			background-image: linear-gradient(90deg, rgba(255,0,0,0.3) 0%, rgba(0,95,255,0.3) 100%);
+			
+			padding: 10px;
+			padding-left: 30px;
+			padding-bottom: 50px;			
+			color: white;
+		}
+		main{
+			width: 50%;
+			padding-left: 30px;
+		}
+		main h2{
+			color: rgba(0,95,255,1);
+		}
+		@keyframes desliza{
+			0%{background-position: top;}
+			50%{background-position: bottom;}
+			100%{background-position: top;}
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<div id="deg">
+		<h1>IES Martín Rivero</h1>
+		<p id="cab">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore adipisci vitae, doloribus doloremque alias minima quis officia eaque, obcaecati eligendi unde consectetur. Cum neque, voluptatibus assumenda quibusdam blanditiis eveniet quam recusandae maxime explicabo aperiam quis pariatur tenetur voluptates, officiis consectetur?</p>
+		<input type="button" value="Ver mas detalles">
+		</div>
+	</header>
+	<main>
+		<h2>Diseño Web</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa id ipsum odio, consequuntur quisquam quo aspernatur vitae rerum voluptatibus voluptas? Labore in qui corporis eum odio modi aliquid soluta numquam.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nobis doloribus tempora quaerat, laboriosam accusamus? Debitis possimus nostrum veritatis earum, vero deserunt reiciendis excepturi odit suscipit mollitia aut quisquam sapiente, odio alias fuga. Eveniet quam porro repellendus, illo, eligendi reiciendis ullam ad quae voluptatum laborum odit nihil placeat soluta magni.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla eius alias qui ratione repellat perferendis illo quisquam facilis quia quas.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nam, minima. Earum, modi adipisci illum quas cumque, ad nisi tempore ipsa repudiandae voluptatum ullam molestias dignissimos dolorum! Corporis dolore, deserunt.</p>
+	</main>
+</body>
+</html>

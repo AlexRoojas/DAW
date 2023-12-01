@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+header{
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	color: green;
+	border: solid red 1px;
+	font-size: 0.6em;
+	text-decoration: underline dotted;
+	background-color: white;
+	z-index: 1;
+	padding-left: 1%;
+	clear: both;
+}
+div.izquierda{
+	font-size: 1em;
+	position: fixed;
+	bottom: 0;
+	top: 4em;
+	left: 0;
+	width: 10%;
+	border: dotted purple 1px;
+	margin: 0.5em;
+	padding: 1%;
+}
+div.derecha{
+	position: relative;
+	top: 55px;
+	float: right;
+	width: 85%;
+	z-index: 0;
+	
+}

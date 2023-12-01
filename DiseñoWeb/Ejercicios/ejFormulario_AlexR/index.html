@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Método de pago AR</title>
+	<style>
+		form{
+			margin: 0 auto;
+			width: 40%;
+			text-align: center;
+			background-color: white;
+			padding: 20px;
+		}
+		.botones{
+			height: 50px;
+			background: linear-gradient(180deg, rgba(0,35,255,1) 0%, rgba(0,250,255,1) 100%);
+			padding: 10px;
+			
+		}
+		.botones input[type="radio"]{
+    		display:  none;
+  		
+		}
+		.botones label{
+			
+			float: left;
+			width: 50%;
+			line-height:47px;
+			color: white;
+			text-align: center;
+			cursor: pointer;
+			height: auto;
+		}
+		.botones input:checked + label{
+			background-color: white;
+			color: black;
+			border-radius: 6px;
+			
+		}
+		fieldset{
+			text-align: left;
+			
+		}
+		fieldset input{
+			width: 100%;
+			height: 30px;
+			margin-bottom: 20px;
+		}
+		fieldset input[type="radio"]{
+			width: auto;
+			margin-bottom: 0;
+		}
+		
+		.final{
+			text-align: center;
+			width: 100%;
+		}
+		
+		 
+		legend{
+			margin-bottom: 20px;
+		}
+		fieldset:enabled{
+			border: dotted green 3px;
+		}
+		fieldset input:enabled{
+			background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(119,255,187,1) 100%);
+		}
+		fieldset input[type="button"], fieldset input[type="submit"]{
+			width: auto;
+			box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+			margin: 10px;
+			cursor: pointer;
+			background: none;
+		}
+		fieldset input[type="button"]:hover, input[type="submit"]:hover{
+			box-shadow: 0px 0px 5px 2px blue;	
+		}
+	</style>
+	<script>
+		function cambiaField(selec){
+			var tarj = document.getElementById("tarjeta");
+			var banco = document.getElementById("banco");
+			var credito = document.getElementById("credit");
+			var trans = document.getElementById("trans");
+			if(selec == cred){
+				tarj.style.display="block";
+				banco.style.display="none";
+				tarj.disabled=false;
+				credito.checked=true;
+			}else{
+				banco.style.display="block";
+				tarj.style.display="none";
+				banco.disabled=false;
+				trans.checked=true;
+			}
+		}
+		
+		function foco(input){
+			input.style.background="none";
+			input.previousElementSibling.style.color="green";
+			input.previousElementSibling.style.fontWeight="bold";
+			input.style.border="solid red 1px";
+		}
+		
+		function recupera(input){
+			input.style.background="linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(119,255,187,1) 100%)";
+			input.previousElementSibling.style.color="black";
+			input.previousElementSibling.style.fontWeight="100";
+			
+		}
+	</script>
+</head>
+
+<body>
+	<h1>Método de pago</h1>
+	<h2>Porfavor seleccione un método de pago</h2>
+	<p>Métodos de pagos aceptados:</p>
+	
+	
+	<form method="post">
+		<div class="botones">
+			<input type="radio" name="tipo" value="credito" id="cred" checked onClick="cambiaField(this)"><label for="cred">Tarjeta de crédito</label>
+			<input type="radio" name="tipo" value="banco" id="banc" onClick="cambiaField(this)"><label for="banc">Transferencia bancaria</label>
+		</div>
+		<fieldset id="tarjeta" style="display:block" disabled>
+			<legend><label for="credit">Tarjeta de crédito</label></legend>
+			
+			<label for="nomApe">Nombre y apellidos:</label>
+			<input type="text" name="info" id="nomApe" placeholder="Nombre que figura en la tarjeta" onClick="foco(this)" onBlur="recupera(this)">
+			
+			<label for="numTar">Número de tarjeta:</label>
+			<input type="text" name="info" id="numTar" placeholder="6331 1019 9000 0016" pattern="5[1-5][0-9]{14}$" onClick="foco(this)"onBlur="recupera(this)">
+			
+			<label for="caduce">Fecha de caducidad:</label>
+			<input type="month" name="info" id="caduce" placeholder="---- de ----" onClick="foco(this)" onBlur="recupera(this)">
+			
+			<label for="cod">Código de seguridad</label>
+			<input type="number" name="info" id="cod" min="100" max="999" pattern="[0-9]{3}" placeholder="3 dígitos" onClick="foco(this)" onBlur="recupera(this)">
+			<div class="final">
+				<input type="button" value="<-- Atrás"> 
+				<input type="submit" value="Siguiente -->"> 
+			</div>
+		</fieldset>
+		
+		<fieldset id="banco" style="display:none" disabled>
+			<legend><label for="trans">Transferencia bancaria</label></legend>
+			
+			<label for="entidad">Nombre de entidad bancaria:</label>
+			<input type="text" name="info" id="entidad" onClick="foco(this)" onBlur="recupera(this)">
+			
+			<label for="titular">Nombre del titular de la cuenta:</label>
+			<input type="text" name="info" id="titular" onClick="foco(this)" onBlur="recupera(this)">
+			
+			<label for="iban">Número de cuenta:</label>
+			<input type="text" name="info" id="iban" placeholder="Indicar IBAN" pattern="/[a-zA-Z]{2}[0-9]{20}$/g" onClick="foco(this)" onBlur="recupera(this)">
+			
+			<div class="final">
+				<input type="button" value="<-- Atrás"> 
+				<input type="submit" value="Siguiente -->"> 
+			</div>
+		</fieldset>
+	</form>
+	
+</body>
+</html>

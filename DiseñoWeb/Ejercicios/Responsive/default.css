@@ -1,0 +1,39 @@
+@charset "utf-8";
+body{
+	background-color: lightgoldenrodyellow;
+}
+h2{
+	background-color: black;
+	color: white;
+	text-align: center;
+	box-shadow: 8px 7px 16px 0px black;
+}
+header{
+	padding:0 3%;
+	text-align: center;
+
+}
+header h1{
+	position: relative;
+	top: -135px;
+	left: 25%;
+	background-color: white;
+	color: gold;
+	font-family: 'Moon Dance', cursive;
+	font-size: 4em;
+	-webkit-text-stroke: 0.01px black;
+	width: 50%;
+}
+article{
+	padding: 0 6%;
+}
+#fondo{
+	width: 94%;
+	box-shadow: 8px 7px 16px 0px black;
+}
+footer{
+	text-align: center;
+}
+.author{
+	font-size: 2em;
+}

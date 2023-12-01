@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>BlackFriday</title>
+	<style>
+		
+		html, body{
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		
+		/* ENCABEZADO 1 */
+		
+		body > header:first-of-type{
+			background-color: black;
+			width: 100%;
+			
+			display: table;
+			
+			position: fixed;
+			top: 0px;
+			left:0px;
+		}
+		
+		body > header > div{
+			display: table-cell;
+			vertical-align: bottom;
+			
+			width: 50%;		
+		}
+		
+		body > header > div > a{
+			margin-top: 10px;
+			color: #c5e63b;
+			text-decoration: none;
+			float: right;
+			margin-right: 100px;
+			text-align: center;
+		}
+		
+		body > header > div:nth-of-type(2) > a{
+			float: left;
+			margin-left: 100px;
+		}
+		
+		/* ENCABEZADO 2 */
+		
+		#contenedor{
+			width: 100%;
+			box-sizing: border-box;
+			min-width: 850px;
+			width: 80%;
+			margin: 0 auto;
+			margin-top: 120px;
+			overflow: auto;
+		}
+		
+		#contenedor header{
+			position: relative;
+		}
+		
+		#contenedor header h2{
+			color: red;
+			letter-spacing: 3px;
+		}
+		
+		#contenedor header span{
+			color: black;
+		}
+		
+		#contenedor > header > img{
+			position: absolute;
+			bottom: 3em;
+			right: 0;
+		}
+		
+		#contenedor header p{
+			width: 100%;
+			box-sizing: border-box;
+			font-size: 2em;
+			clear: both;
+			background-color: #921611;
+			color: white;
+			text-align: center;
+			padding: 5px;
+		}
+		
+		/* CUERPO */
+		
+		#contenedor main article{
+			width: 30%;
+			display: inline-block;
+			margin: 0px 10px;
+		}
+		
+		#contenedor main article a:first-of-type{
+			width: 100%;
+			margin: 0px;
+			font-size: 1em;
+			color: black;
+			text-align: center;
+			text-decoration: none;
+			display: block;
+		}
+		
+		#contenedor main article a:first-of-type img{
+			text-align: center;
+		}
+		
+		#contenedor main article a:first-of-type p{
+			border-top: 1px solid grey;
+			padding-top: 10px;
+			text-align: left;
+		}
+		
+		#contenedor main article > p{
+			font-weight: bold; 
+		}
+		
+		#contenedor main article a{
+			margin: 10px;	
+		}
+		
+		#contenedor main article a:nth-of-type(2){
+			color: red;
+			
+		}
+		
+		#contenedor main article a:nth-of-type(3){
+			color: darkgrey;
+			text-decoration: line-through;
+			font-size: 1em;
+		}
+		
+		#contenedor main article a:last-of-type{
+			background-color: red;
+			padding: 15px;
+			color: white;
+		}
+		
+		#contenedor main article input{
+			width:100%;
+			padding: 10px;
+			background-color: greenyellow;
+			border: none;
+			margin-top: 25px;
+		}
+		
+		#contenedor main article input:hover{
+			background-color: darkgreen;
+			color: white;
+			cursor: pointer;
+		}
+		
+		#contenedor{
+			padding-bottom: 40px;
+		}
+		
+		/* FOOTER */
+		
+		footer{
+			width: 100%;
+			padding: 0px 10px 10px 10px;
+			box-sizing: border-box;
+			background-color: lightgrey;
+			text-align: center;
+			font-weight: bold;	
+		}
+		
+		footer > p:first-of-type{
+			margin: 0 auto;
+			width: 80%;
+			padding: 10px;
+			border-top: 5px solid grey;
+		}
+		
+		footer > a{
+			margin: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="contenedor">
+		<header>
+			<a href=""><img src="img/logo.gif" alt="Logo" title="Logo"></a>
+			<h2>BLACK<span>FRIDAY</span></h2>
+			<img src="img/dias.jpg" alt="Días para el Black Friday" title="Días para el Black Friday">
+			<p>Solo 4 días Para adelantar tus compras de Navidad</p>
+		</header>
+		
+		<main>
+			<article>
+				<a href=""><img src="img/movil_440x440.jpg" width="200px" alt="Smartphone" title="Smartphone Motorola">
+				<p>Smartphone libre Motorola Moto X Play Negro 5.5'</p>
+				</a>
+				
+				<p>MOTOROLA</p>
+				
+				<a>698,97€</a>
+				<a>700€</a>
+				<a>-12%</a>
+				
+				<input type="button" value="AÑADIR A LA CESTA">
+			</article>
+			
+			<article>
+				<a href=""><img src="img/tv_440x440.jpg" width="200px" alt="TV LED Panasonic" title="TV LED Panasonic">
+				<p>TV LED 48'' Panasonic TX-48CX400E UHD 4k, 3D, WIFI integrado</p>
+				</a>
+				
+				<p>PANASONIC</p>
+				
+				<a>699€€</a>
+				<a>999€</a>
+				<a>-30%</a>
+				
+				<input type="button" value="AÑADIR A LA CESTA">
+			</article>
+			
+			<article>
+				<a href=""><img src="img/tablet_440x440.jpg" width="200px" alt="Portátil convertible Lenovo" title="Portátil convertible Lenovo">
+				<p>Portátil convertible 2 en 1 Lenovo 14'' Yoga 5, Procesador Intel i7 ...</p>
+				</a>
+				
+				<p>LENOVO</p>
+				
+				<a>299,01€</a>
+				<a>395€</a>
+				<a>-24%</a>
+				
+				<input type="button" value="AÑADIR A LA CESTA">
+			</article>
+		</main>
+	</div>
+	
+	<header>
+		<div>
+		<a href="">
+			<img src="img/identif1.jpg" alt="Identifícate" title="Identifícate">
+			<p>Identifícate</p>
+		</a>
+		</div>
+			
+		<div>
+		<a href="">
+			<img src="img/icono_ayuda3.png" alt="Ayuda" title="Ayuda">
+			<p>Ayuda</p>
+		</a>
+		</div>
+	</header>
+	
+	<footer>
+		<p>Síguenos en:</p>
+		<a href=""><img src="img/facebook.png" alt="Facebook" title="Facebook"></a>
+		<a href=""><img src="img/TWITTER.PNG" alt="Twitter" title="Twitter"></a>
+		<a href=""><img src="img/instagram.png" alt="Instagram" title="Instagram"></a>
+		<a href=""><img src="img/flickr.jpg" alt="Flickr" title="Flickr"></a>
+		<p>Autor: Ignacio Guerrero Jiménez 2ºDAW</p>
+	</footer>
+</body>
+</html>

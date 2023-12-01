@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=4.0, user-scalable=0">
+        <title>Examen Ignacio Guerrero</title>
+		<link href="reseteo.CSS" type="text/css" rel="stylesheet">
+        <style>
+			
+			body {
+				background-color: lightgrey;
+			}
+			
+			.contenedor {
+				width: 90%;
+				margin: 0 auto;
+				background-color: white;
+				max-width: 1200px;
+				min-width: 320px;
+			}
+
+			/* --------------------------------------- HEADER ----------------------------------------------*/
+			
+			header {
+				display: flex;
+				align-items: center;
+				background-color: #20294A;
+				padding: 10px;
+			}
+			
+			header img {
+				width: 30%;
+			}
+			
+			nav, footer {
+				display: flex;
+				border: 3px solid black;
+				background-color:darkred;
+				flex-grow: 2;
+				margin: 15px;
+			}
+			
+			nav a {
+				color: white;
+				padding: 10px;
+				text-decoration: none;
+				flex-grow: 1;
+				display: flex;
+				justify-content: center;
+			}
+			
+			nav a:hover {
+				background-color: #FF4447;
+			}
+			
+			/* --------------------------------------- MAIN ----------------------------------------------*/
+			
+			main {
+				display: flex;
+				width: 100%;
+			}
+			
+			/* -------------------------------------- ARTICULOS -------------------------------------------*/
+			
+			#articulos {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+			}
+			
+			article {				
+				padding: 15px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				border-bottom: 1px solid black;
+			}
+			
+			article:last-of-type {
+				border: none;
+			}
+			
+			article > h3 {
+				display: flex;
+				justify-content: center;
+				font-size: 1.5vw;
+				font-weight: bold;
+			}
+			
+			article > p {
+				font-size: 1.3vw;
+				margin: 25px 0px;
+			}
+			
+			article > button {
+				padding: 15px;
+			}
+			
+			article > button:hover {
+				background-color: orange;
+				color: white;
+			}
+			
+			/* --------------------------------------- ASIDE ----------------------------------------------*/
+			
+			aside {
+				min-width: 30%;
+				background-color: darkorange;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+			
+			aside > h3 {
+				background-color: orangered;
+				margin: 15px;
+				flex-grow: 1;
+				color: white;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			/* --------------------------------------- FOOTER ----------------------------------------------*/
+			
+			footer {
+				margin: 0;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				background-color: #20294A;
+				padding: 10px;
+			}
+			
+			.links {
+				display: flex;
+				border: 3px solid black;
+				background-color:darkred;
+				margin: 15px;
+				flex-grow: 1;
+			}
+			
+			.links a {
+				color: white;
+				padding: 10px;
+				text-decoration: none;
+				flex-grow: 1;
+				display: flex;
+				justify-content: center;
+			}
+			
+			.links a:hover {
+				background-color: #FF4447;
+			}
+						
+			.imagenes {
+				display: flex;
+				max-width: 50%;
+				justify-content: flex-end;
+				align-self: stretch;
+			}
+			
+			footer img {
+				width: 10%;
+			}
+			
+			@media only screen and (max-width: 700px){
+				header {
+					flex-direction: column;
+					padding: 1px;
+				}
+				
+				article > h3 {
+					font-size: 3vw;
+				}
+				
+				article > p {
+					font-size: 2.5vw;
+				}
+				
+				header > img {
+					width: 100%;
+				}
+				
+				header > nav {
+					margin: 0;
+					width: 100%;
+					box-sizing: border-box;
+					border-width: 1px;
+				}
+				
+				main {
+					flex-direction: column;
+				}
+				
+				aside > h3 {
+					padding: 20px;
+				}
+				
+				footer img {
+					min-width: 25px;
+				}
+			}
+			
+			@media only screen and (max-width: 320px){
+				footer > .imagenes {
+					display: none;
+				}
+			}
+        </style>	
+    </head>
+
+    <body>
+        <div class="contenedor">
+            <header>
+
+				<img src="logos/logo300x300.jpg" alt=""/>
+				
+                <nav>
+                    <a href="#">Inicio</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Proyectos</a>
+                    <a href="#">Contacto</a>
+                </nav>
+            </header>
+
+			<main>
+				<div id="articulos">
+					<article>
+						<h3>Lorem ipsum dolor sit amet</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos necessitatibus, reprehenderit deleniti sequi aspernatur accusamus nemo, eligendi dolorum veritatis ipsum tempora minima repudiandae tenetur earum reiciendis fugiat provident ipsam a blanditiis alias mollitia in. Minima officiis nihil aperiam rerum.</p>
+						<button>Leer más...</button>
+					</article>
+
+					<article>
+						<h3>Lorem ipsum dolor sit amet</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos necessitatibus, reprehenderit deleniti sequi aspernatur accusamus nemo, eligendi dolorum veritatis ipsum tempora minima repudiandae tenetur earum reiciendis fugiat provident ipsam a blanditiis alias mollitia in. Minima officiis nihil aperiam rerum.</p>
+						<button>Leer más...</button>
+					</article>
+				</div>
+		
+				<aside>
+					<h3>Bloque publicitario</h3>
+					<h3>Bloque publicitario</h3>
+					<h3>Bloque publicitario</h3>
+				</aside>
+			</main>
+
+            <footer>
+                <section class="links">
+                    <a href="#">Inicio</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Proyectos</a>
+                    <a href="#">Contacto</a>
+                </section>
+				
+				<section class="imagenes">
+					<img src="LOGOS/Marca ER ISO 9001INF.jpg"   alt=""/> 
+					<img src="LOGOS/ga-gestion-ambiental-14001-inf.jpg"  alt=""/>
+					<img src="LOGOS/IQNET-9001.png"   alt=""/>
+				</section>
+            </footer>
+        </div>
+    </body>
+</html>

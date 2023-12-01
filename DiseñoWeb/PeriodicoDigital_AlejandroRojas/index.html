@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Alejandro Rojas</title>
+	<style>
+		@font-face{
+			font-family: SourceSansProBold;
+			src: url("Source_Sans_Pro/SourceSansPro-Bold.ttf");
+			
+		}
+		@font-face{
+			font-family: SourceSansPro;
+			src: url("Source_Sans_Pro/SourceSansPro-Black.ttf");
+		}
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+		header{
+			text-align: center;
+			border-bottom: solid rgba(28,152,255,1.00);
+			background: linear-gradient(180deg, rgba(148,249,251,1) 23%, rgba(250,250,250,1) 100%);
+			padding-top: 20px;
+		}
+		header h1:first-child{
+			font-family: SourceSansProBold;
+			margin-top: 0px;
+			text-shadow: 4px 4px 8px rgba(90,90,90,0.8);
+		}
+		header h2:last-child{
+			font-family: SourceSansPro;
+		}
+		body{
+			margin-top: 0;
+			width: 60%;
+			margin: 0 auto;
+		}
+		#inicio img{
+			width: 30%;
+			float: left;
+			margin-right: 30px;
+			margin-bottom: 20px;
+		}
+		#inicio:nth-child(1)::first-letter, #nudo p:first-letter{
+			font-size: 300%;
+			float: left;
+			margin-right: 10px;
+			color :rgba(28,152,255,1.00);
+		}
+		
+		p{
+			font-family: 'Roboto', sans-serif;
+			word-spacing: 5px;
+		}
+		div{
+			margin-bottom: 50px;
+		}
+		#final, #informacion{
+			width: 45%;
+			font-size: 100%;
+		}
+		#final{
+			
+			height: 300px;
+		}
+		#informacion{
+			display: table;
+			width: 45%;
+			float: right;
+			text-align: center;
+			
+			border: solid black 1px;
+		}
+		.fila{
+			display: table-row;
+			
+		}
+		.fila:nth-child(1){
+			background: radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(148,249,251,1) 78%);
+
+		}
+		.celda{
+			display: table-cell;
+			border: solid black 1px;
+		}
+		footer{
+			text-align: center;
+			clear: both;
+			height: 60px;
+			background: linear-gradient(0deg, rgba(148,249,251,1) 23%, rgba(250,250,250,1) 100%);
+			border-top: solid rgba(28,152,255,1.00);
+		}
+		footer:last-child{
+			font-size: 100%;
+		}
+		main{
+			padding: 5px;
+			border-left: dashed black 1px;
+			border-right: dashed black 1px;
+			
+		}
+		p[lang=de]{
+			color: rgba(52,51,146,1.00);
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>Periódico digital EL PAIS</h1>
+		<h2>El engaño de Volkswagen se extiende a las pruebas de dióxido de carbono</h2>
+	</header>
+	<main>
+	<div id="inicio">
+		<img src="coches.jpg" alt="coche">
+		<p>El escándalo Volkswagen alcanza una nueva proporción. Hasta el momento la compañía solo había reconocido la instalación de un software en 11 millones de vehículos de todo el mundo que trucaba las emisiones de óxidos de nitrógeno (NOx). Esta tarde, la empresa alemana ha reconocido en un comunicado que la investigación interna ha sacado a la luz “incoherencias inexplicables” en otras emisiones, las de dióxido de carbono, en al menos 800.000 coches. La empresa puso cifras al coste que le supondrá la nueva irregularidad: en torno a 2.000 millones de euros, que vienen a sumarse a los 6.700 millones de euros que ya provisionó para hacer frente a la crisis del software trampa.</p>
+	</div>
+	<div id="nudo">
+		<p>Volkswagen no ofreció más detalles del nuevo descubrimiento. Lo único claro es que es un caso distinto al del software fraudulento y que implica nuevas emisiones. No dijo en qué países se vendieron los coches afectados, cuándo se fabricaron o en cuánto se exceden los niveles permitidos. Solo apuntó el coste del problema: 2.000 millones. Eso significa que la reparación por coche sería de 2.500 euros por vehículo, frente a los 600 por unidad que provisionó por el escándalo de septiembre.</p>
+	</div>
+		<div id="informacion">
+		<div class="fila">
+			<div class="celda"><caption><h3>MÁS INFORMACIÓN</h3></caption></div>
+		</div>
+		<div class="fila"><div class="celda"><p lang="de">Volkswagen afronta una oleada de demandas en todo el mundo</p></div></div>
+		<div class="fila"><div class="celda"><p>El estudio de 60.000 euros que puede arruinar a Volkswagen</p></div></div>
+		<div class="fila"><div class="celda"><p>EE UU acusa también a Porsche de haber falseado las emisiones</p></div></div>
+		<div class="fila"><div class="celda"><p>Volkswagen avisará por ‘mail’ a los dueños de coches trucados</p></div></div>
+	</div>
+	<div id="final">
+		<p>Si se confirmara que hay problemas con las emisiones de dióxido de carbono en coches europeos, el caso Volkswagen podría alcanzar una nueva dimensión. El dióxido de carbono influye directamente en el cambio climático, y a diferencia de las emisiones NOx, las emisiones de dióxido de carbono sí son un criterio que utiliza, por ejemplo, el Ministerio de Industria español a la hora de conceder ayudas a los fabricantes de automóviles.</p>
+	</div>
+	
+	</main>
+	<footer><h4>Agencia EuropaPress2016</h4></footer>
+</body>
+</html>

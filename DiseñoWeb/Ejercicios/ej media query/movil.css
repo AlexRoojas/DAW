@@ -1,0 +1,85 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background-color: rgba(156,102,102,1.00);
+}
+
+header img{
+	float: left;
+	margin-left: 10vw;
+	background-color: white;
+	min-width: 74px;
+	max-width: 74px;
+}
+header{
+	text-align: center;
+	font-size: 1.3vmax;
+	margin-bottom: 3vh;
+}
+h3{
+	display: none;
+}
+
+#login{
+	background-color: #C98D94;
+	border-radius: 5px;
+	padding: 20px;
+	margin: 5vh 3vw 2vh;
+	text-align: center;
+}
+.contra{
+	position: relative;
+	left: -20vw;
+}
+input[type="text"], input[type="password"]{
+	width: 80%;
+	height: 2.5vh;
+	margin: 20px auto 15px 5px;
+}
+input[type="submit"]{
+	cursor: pointer;
+	width: 50%;
+	margin: 30px auto 5px;
+	height: 2.8vh;
+	font-size: 1.8vmax;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+#recor-contra{
+	position: relative;
+	left: 55vw;
+	width: 30vw;
+}
+footer{
+	background-color: rgba(59,26,27,1.00);
+	padding: 5px;
+	border-top: solid lightgrey 1px;
+	clear: both;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+footer img{
+	height: 10vh;
+}
+footer input{
+	position: absolute;
+	top: 1.5vh;
+	right: 10vw;
+	padding: 3vh;
+}
+
+.material-icons-outlined {
+	font-size: 20px;
+	position: relative;
+	top:0.9vh;
+	left: -6vw;
+}
+
+#login>label{
+	display: none;
+}
+#intro{
+	display: none;
+}

@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Reproductor Música</title>
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"
+      rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round"
+      rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp"
+      rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone"
+      rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300&display=swap" rel="stylesheet">
+	<style>
+		html,body{
+			margin: 0;
+			height: 100%;
+			font-family: 'Outfit', sans-serif;
+			
+		}
+		header{
+			background-color: black;
+			color: white;
+			padding: 0 4%;
+			height: 80px;
+		}
+		header img{
+			height: 82px;
+		}
+		header img:nth-child(2){
+			height: 50px;
+			position: relative;
+			top: -15px;
+			left: 80%;
+			cursor: pointer;
+		}
+		nav{ 
+			background-color: black;
+			color: white;
+			width: 20%;
+			height: 100%;
+		}
+		ul{
+			list-style: none;
+			padding: 10px;
+			padding-top: 30px;
+			margin: 0;
+		}
+		li{
+			padding: 5px;
+			height: 29px;
+			transition: all 0.2s linear;
+			border-radius: 20px;
+			padding-left: 10px;
+			margin-bottom: 5px;
+		}
+		
+		li a{
+			text-decoration: none;
+			color: inherit;
+			display: block;
+			position: relative;
+			margin-right: 0px;
+			font-size: 20px;
+			
+		}
+		li:hover{
+			background-color: rgba(212,163,253,1.00);
+			color: black;
+		}
+		.activo{
+			background-color: rgba(163,190,253,1.00);
+			color: black;
+		}
+		span{
+			width: 40px;
+			
+		}
+		.material-icons-outlined {
+			position: relative;
+			top: 4px;
+			
+			font-size: 24px;
+		}
+		main{
+			float: right;
+			background: url("img/fondo.jpg") no-repeat;
+			background-size: cover;
+			width: 80%;
+			height: 100%;
+		}
+		#deg{
+			margin: 0;
+			height: 94.5%;
+			width: 95%;
+			background-color: rgba(38,38,38,0.5);
+			padding-top: 50px;
+			padding-right: 5%;
+		}
+		#deg h2{
+			position: relative;
+			
+			left: 50px;
+			color: wheat;
+		}
+		.caja{
+			position: relative;
+			display: inline-block;
+			top: 50px;
+			left: 50px;
+			width: 225px;
+			height: 350px;
+			margin-right: 50px;
+			text-align: center;
+			color: wheat;
+		}
+		.caja p{
+			font-size: 50px;
+			cursor: pointer;
+		}
+		.caja img{
+			width: 100%;
+			height: 230px;
+			border-radius: 100%;
+			cursor: pointer;
+		}
+		footer{
+			bottom: 0;
+			position: fixed;
+			height: 96px;
+			width: 100%;
+			background-color: rgba(29,29,29,1.00);
+			text-align: center;
+		}
+		#tiempo{
+			color: rgba(252,78,246,1.00);
+		}
+		#varTiempo{
+			width: 30%;
+		}
+		#vol{
+			position: absolute;
+			width:100px;
+		}
+		.play{
+			opacity: 0;
+			position: absolute;
+			left: 65px;
+			font-size: 6em;
+			text-shadow: 2px 2px 2px black;
+			cursor: pointer;
+			transition: all 0.5s ease;
+			
+		}
+		.can:hover + .play{
+			top: 68px;
+			opacity: 1;
+			transition: all 0.5s ease;
+		}
+		.play:hover{
+			top: 68px;
+			opacity: 1;
+		}
+		#play{
+			display: block;
+		}
+		#pause{
+			display: none;
+		}
+		.bot{
+			width: 40px;
+			position: absolute;
+			cursor: pointer;
+			left: 49%;
+		}
+		#vol{
+			position: relative;
+			left: 100px;
+		}
+		.caja span.info{
+			display: block;
+			height: 100px;
+			color: rgba(0,0,0,0.00);
+			position: relative;
+			top: -30px;
+			left: 38%;
+		}
+		.caja p:hover + span{
+			color: wheat;
+		}
+	</style>
+	<script>
+		
+		var cancionAct;
+		var playy=0;
+		function reproducir(ele){
+			if(cancionAct!=undefined){
+				cancionAct.currenTime=0;
+				cancionAct.pause();
+			}
+			cancionAct=ele.parentElement.getElementsByTagName("audio")[0];
+			suena();
+			
+		}
+		function modificarRango(input){
+			
+			if(input.id=="vol"){
+				 cancionAct.volume=input.value*0.01; 
+			}else{
+				 cancionAct.currentTime=input.value;
+			}
+		}
+		function suena(){
+			if(playy==0){
+				cancionAct.play();
+				
+				play.style.display="none";
+				pause.style.display="block";
+				playy=1;
+			}else{
+				cancionAct.pause();
+				play.style.display="block";
+				pause.style.display="none";
+				
+				playy=0;
+			}
+		}
+		const updateProgress = (ele) =>{
+			if (ele.currentTime >0){
+				const barra = document.getElementById("varTiempo");
+				barra.value = (ele.currentTime / ele.duration) * 100;
+
+				var duracionSegundos= ele.duration.toFixed(0);
+				dura=secondsToString(duracionSegundos);
+				var actualSegundos = ele.currentTime.toFixed(0);
+				actual=secondsToString(actualSegundos);
+
+				duracion= actual +' / '+ dura;
+				document.getElementById("tiempo").innerText=duracion;
+			}
+			if (ele.ended){
+				nextMusic();//Reproducir la siguiente pista
+			} 
+		}
+		
+		
+		function adelantar(e){
+			const scrubTime = (e.offsetX / varTiempo.offsetWidth) * cancionAct.duration;
+			cancionAct.currentTime = scrubTime;
+
+		}
+		
+		function secondsToString(seconds) {
+			var hour="";
+			if (seconds>3600){
+				hour = Math.floor(seconds / 3600);
+				hour = (hour < 10)? '0' + hour : hour;
+				hour+=":"
+			}
+		   var minute = Math.floor((seconds / 60) % 60);
+		  minute = (minute < 10)? '0' + minute : minute;
+		  var second = seconds % 60;
+		  second = (second < 10)? '0' + second : second;
+		  return hour  + minute + ':' + second;
+		}
+		
+	</script>
+</head>
+
+<body>
+	<header><img src="img/icono.png" alt="icono Aplicacion"><img src="img/barra.png" alt="Barra de herramientas"></header>
+	
+	<main>
+		<div id="deg">
+			<h2>Lo que no te puedes perder</h2>
+			<div class="caja">
+				<img class="can" id="of" src="img/of.png" alt="of">
+				<span class="material-icons-outlined play boton"  onClick="reproducir(this);">play_circle</span>
+				<p class="material-icons-outlined">info</p>
+				
+				<span class="info">Cancion: OnlyFans 2 Remix</span>
+				<audio ontimeupdate="updateProgress(this);">
+					<source src="musica/only.mp3">
+				</audio>
+				
+			</div>
+			<div class="caja">
+				<img id="tiroteo" src="img/tiro.png" alt="tiro" onClick="reproducir(this);">
+				<span class="material-icons-outlined play boton"  onClick="reproducir(this);">play_circle</span>
+				<p class="material-icons-outlined">info</p>
+				
+				<span class="info">Cancion: Tiroteo 3 Remix</span>
+				<audio ontimeupdate="updateProgress(this);">
+					<source src="musica/tiroteo.mp3">
+				</audio>
+			</div>
+			<div class="caja">
+				<img id="nome" src="img/nome.png" alt="nomeconoce" onClick="reproducir(this);">
+				<span class="material-icons-outlined play boton"  onClick="reproducir(this);">play_circle</span>
+				<p class="material-icons-outlined">info</p>
+				
+				<span class="info">Cancion: No me conoce</span>
+				<audio ontimeupdate="updateProgress(this);">
+					<source src="musica/nome.mp3">
+				</audio>
+			</div>
+			<div class="caja">
+				<img src="img/ochako 1.jpg" alt="of">
+				<span class="material-icons-outlined play boton"  onClick="reproducir(this);">play_circle</span>
+				<p class="material-icons-outlined">info</p>
+				
+				<span class="info">Cancion: Mi Cancion Remix</span>
+				<audio ontimeupdate="updateProgress(this);">
+					<source src="musica/miCancionAlexR.mp3" type="audio/mp3">
+					<source src="musica/miCancionAlexR.ogg" type="audio/ogg">
+					<source src="musica/miCancionAlexR.wav" type="audio/wav">
+				</audio>
+			</div>
+			
+			
+		</div>
+		
+	</main>
+	<nav>
+		<ul>
+			<li class="activo"><a href="inicio.html" ><span class="material-icons-outlined">home</span>Inicio</a></li>
+			<li><a href=""><span class="material-icons-outlined">search</span>Buscar</a></li>
+			<li><a href="video.html"><span class="material-icons-outlined">movie</span>Videos</a></li>
+		</ul>
+	</nav>
+	
+	<footer>
+		<img class="bot" src="img/play-button.png" alt="play" id="play" onClick="suena();">
+		<img class="bot" src="img/pause.png" alt="pause" id="pause" onClick="suena();">
+		<br>
+		<input type="range"  id="vol" onChange="modificarRango(this);" min="0" max="100" value="50">
+		<br>
+		<input type="range"  id="varTiempo" min="0" max="cancionAct.duration" value="0" onClick="adelantar(event);">
+		<div id="tiempo">00:00 / 00:00</div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		body{
+			background-color: rgba(35,172,213,1.00);
+			
+		}
+		#escenario{
+			background-color: white;
+			width: 200px;
+			height: 100px;
+			border-style: inset;
+			overflow: none;
+		}
+		#bici{
+			background-image: url("BG-BIKE.PNG");
+			background-repeat: no-repeat;
+			background-size: 15px;
+			background-position: 118px;
+			position: relative;
+			left: 0px;
+			/*ORDEN: name duration timing delay count direction fill-mode*/
+			animation: girar 5s infinite;
+		}
+		@keyframes desplaza{
+			0%{
+				left: -200px;
+				
+			}
+			50%{
+				left: 30px;
+			}
+			100%{
+				left: 250px;
+			}
+		}
+		@keyframes girar{
+			0%{
+				left: -200px;
+				
+			}
+			50%{
+				left: 30px;
+				transform: translateX(100%);
+			}
+			70%{
+				left: 30px;
+				transform: scaleX(-1);
+			}
+			100%{
+				left: -250px;
+				transform: scaleX(-1);
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="escenario">
+		<div id="bici">IES Martin Rivero</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		body, html{
+			height: 100%;
+			display: table;
+			margin: 0 auto;
+			background-color: rgba(95,92,92,1.00);
+		}
+		
+		div{
+			width: 40%;
+			text-align: center;
+			display: table-cell;
+   			vertical-align: middle;
+		}
+		h1{
+			transform-origin: center;
+			animation: mueve 2s linear infinite;
+			color: blue;
+		}
+		input{
+			background: none;
+			border: solid rgba(255,76,76,1.00) 2px;
+			color: rgba(255,76,76,1.00);
+			padding: 10px;
+			font-size: 1em;
+		}
+		@keyframes mueve{
+			0%{
+				
+			}
+			25%{
+				transform: rotate(15deg);
+			}
+			50%{
+				transform: rotate(-15deg);
+			}
+			75%{
+				transform: rotate(5deg);
+			}
+		}
+		
+	</style>
+</head>
+
+<body>
+	<div>
+		<h1>I.E.S. Martín Rivero</h1>
+		<input type="button" value="Visitar Web">
+	</div>
+</body>
+</html>

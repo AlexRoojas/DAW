@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>Ejemplo 3. imágenes flexibles y unidades ViewPort</title>
+
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#contenedor{
+		border: solid rgb(255, 0, 0) 5px;
+		padding: 10px;
+		max-width: 80vw;
+		min-width: 407px;
+		margin:0 auto;
+	}
+	#contenedor img{
+		width: 50vw;
+		min-width: 275px;
+		max-width: 800px;
+		height: auto;
+		float: left;
+		margin: 10px;
+	}
+	h1{
+		font-size: 4vmax;
+	}
+	p{
+		font-size: 2vmax;
+	}
+	@media only screen and (max-width:500px){
+		#contenedor{
+			border: none;
+			padding: 0;
+			min-width: 300px;
+			max-width: none;
+			margin: 0px;
+		}
+		#contenedor img{
+			margin: 4px 0;
+			float: none;
+			width: 100vw;
+		}
+		p{
+			font-size: 2vh;
+		}
+	}
+	
+
+</style>
+
+</head>
+<body>
+<div id="contenedor">
+	<h1>Ronda, Ciudad Soñada</h1>
+	<img src="RONDA1.jpg" alt="panoramica Ronda">
+    <p>Ronda es una ciudad española perteneciente a la comunidad autónoma de Andalucía, situada en el noroeste de la provincia de Málaga. Es la cabeza del partido judicial homónimo y la capital de la comarca de la Serranía de Ronda.
+
+En el año 2009 contaba con 36.827 habitantes, que la convierten en el segundo municipio más poblado del interior de la provincia tras Antequera.6 Su término municipal se extiende sobre una meseta conocida como depresión de Ronda y por las sierras que la circundan. Tiene una superficie de 481,31 km² y una densidad de población de 76,51 hab/km².
+
+Ronda tiene su origen en la Arunda romana que se constituiría a partir de asentamientos ibéricos existentes. Los visigodos le dieron continuidad hasta la llegada de los musulmanes, quienes consolidaron su papel de cabecera comarcal y su entidad urbana. Su emplazamiento facilitó la defensa de la ciudad y la puso en una situación estratégica para dominar los pasos y caminos hacia la Baja Andalucía. Esto y la disponibilidad de tierras aptas para la agricultura le concedieron finalmente una importancia histórica notable.
+    </p>
+
+</div>
+</body>
+</html> 

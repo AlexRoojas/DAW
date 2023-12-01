@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		table{
+			width: 80%;
+			
+		}
+		
+		thead tr th{
+			background-color:rgba(62,31,15,1.00);
+			color: white;
+			border-bottom:solid rgba(118,209,61,1.00) 2px;
+			height: 50px;
+		}
+		.primera{
+			width: 200px;
+		}
+		thead tr th.vacia{
+			background: none;
+			border-bottom:none;
+		}
+		tbody tr td.vacia{
+			background: none;
+			border-bottom:none;
+		}
+		td:empty{
+			background-color: none !important;
+			border: none;
+		}
+		tfoot tr td{
+			background-color:rgba(62,31,15,1.00);
+			color: white;
+			border-top:solid rgba(118,209,61,1.00) 2px;
+			height: 30px;
+		}
+		tbody tr td{
+			background-color: #DDF0BD;
+			border: solid rgba(58,255,0,1.00) 1px;
+			empty-cells: hide;
+		}
+		.lugares{
+			background-color: rgba(197,232,148,1.00);
+			text-align: right;
+		}
+		.lugares:hover ~td.pinta{
+			background-color: #066A08 ;
+			color: white;
+		}
+		a{
+		background: url("../images/externalLink.gif") no-repeat top right;
+		padding-right: 10px;
+	}
+	</style>
+</head>
+
+<body>
+	<table summary="comprayventea">
+		<caption>Exportaciones paises y regiones de europa</caption>
+	<thead>
+		<tr>
+			<th colspan="2" rowspan="2" class="primera vacia" ></th>
+			<th colspan="2" id="Ropa">Ropa</th>
+			<th colspan="2">Zapatos</th>
+			<th colspan="2"></th>
+			
+		</tr>
+		<tr>
+			
+			<th id="pantalones">Pantalones</th>
+			<th>Chaqueta</th>
+			<th>Deportivos</th>
+			<th>Tacones</th>
+			<th>Descargar info</th>
+		</tr>
+	</thead>
+		<tbody>
+			<tr>
+				<td rowspan="3"  class="lugares">España</td>
+				<td id="and" class="lugares">Andalucia</td>
+				<td headers="Ropa pantalones and" class="pinta">46</td>
+				<td class="pinta">18</td>
+				<td class="pinta">50</td>
+				<td class="pinta">50</td>
+				<td class="pinta"><a>Descargar</a></td>
+			</tr>
+			<tr>
+				<td class="lugares">Madrid</td>
+				<td class="pinta">76</td>
+				<td class="pinta">8</td>
+				<td class="vacia"></td>
+				<td class="pinta">150</td>
+				<td class="pinta"><a>Descargar</a></td>
+			</tr>
+			<tr>
+				<td class="lugares encima">Galicia</td>
+				<td class="pinta">36</td>
+				<td class="vacia"></td>
+				<td class="pinta">0</td>
+				<td class="pinta">350</td>
+				<td class="pinta"><a>Descargar</a></td>
+			</tr>
+			<tr>
+				<td rowspan="2" class="lugares encima">Francia</td>
+				<td class="lugares">Paris</td>
+				<td class="pinta">86</td>
+				<td class="pinta">68</td>
+				<td class="pinta">50</td>
+				<td class="pinta">50</td>
+				<td class="pinta"><a>Descargar</a></td>
+			</tr>
+			<tr>
+				<td class="lugares encima">Burdeos</td>
+				<td class="pinta">846</td>
+				<td class="pinta">77</td>
+				<td class="pinta">5</td>
+				<td class="vacia"></td>
+				<td class="pinta"><a>Descargar</a></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="2">Total</td>
+				<td>1938</td>
+				<td>237</td>
+				<td>135</td>
+				<td>636</td>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+</html>

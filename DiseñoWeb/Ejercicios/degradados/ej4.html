@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		button{
+			outline: 0;
+		}
+		button:first-child{
+			background-color: rgba(0,124,255,1.00);
+			color: white;
+			width: 100px;
+			height: 40px;
+			cursor: pointer;
+			
+		}
+		
+		button:last-child{
+			background-color: rgba(0,124,255,1.00);
+			color: white;
+			width: 100px;
+			height: 40px;
+			box-shadow:5px 5px 5px 1px black;
+			cursor: pointer;
+		}
+		button:last-child:active{
+			background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,74,255,1) 53%, rgba(8,8,8,1) 100%);
+			box-shadow:3px 3px 2px 1px black;
+		}
+	</style>
+</head>
+
+<body>
+	<button>Plano</button>
+	<button>Elevado</button>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Transaciones</title>
+	<style>
+		ul {
+			list-style:none; 
+		}
+		
+		li{
+			display: block;
+			float: left;
+			width: 100px;
+			height: 55px;
+			text-align: center;
+			line-height: 50px;
+			background-color: black;
+			position: relative;
+			cursor: pointer;
+		}
+		a{
+			display: block;
+			text-decoration: none;
+			color: white;
+			position: absolute;
+			width: 100px;
+			height: 0%;
+			transition: height 1.5s ease;
+		}
+		
+		li:hover > a{
+			height: 100%;
+		}
+		.azul{
+			background-color: rgba(44,96,134,1.00);
+		}
+		.primero{
+			border-top: solid rgba(44,96,134,1.00) 7px;
+		}
+		.rojo{
+			background-color: rgba(134,57,58,1.00);
+		}
+		.seg{
+			border-top: solid rgba(134,57,58,1.00) 7px;
+		}
+		.amarillo{
+			background-color: rgba(170,167,94,1.00);
+		}
+		.ter{
+			border-top: solid rgba(170,167,94,1.00) 7px;
+		}
+		.verde{
+			background-color: rgba(78,143,89,1.00);
+		}
+		.cuar{
+			border-top: solid rgba(78,143,89,1.00) 7px;
+		}
+	</style>
+</head>
+
+<body>
+	<nav>
+		<ul>
+			<li class="primero"><a href="#" class="azul">Inicio</a></li>
+			<li class="seg"><a href="#" class="rojo">Centro</a></li>
+			<li class="ter"><a href="#" class="amarillo">Informacion</a></li>
+			<li class="cuar"><a href="#" class="verde">Ayuda</a></li>
+			
+		</ul>
+	</nav>
+</body>
+</html>

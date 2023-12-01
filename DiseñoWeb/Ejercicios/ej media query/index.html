@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=4.0, user-scalable=0">
+
+<title>Ejemplo 3. Utilizando @media. Desarrollo del mockup del login. </title>
+
+<style type="text/css">
+/* Estilo por defecto*/
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background-color: rgba(156,102,102,1.00);
+}
+
+header img{
+	float: left;
+	margin-left: 30vw;
+	background-color: white;
+	min-width: 134px;
+	max-width: 134px;
+}
+header h1{
+	font-size: 2.5vmax;
+}
+header h2{
+	font-size: 1.5vmax;
+}
+header{
+	text-align: center;
+	font-size: 1.3vmax;
+	margin-bottom: 3vh;
+}
+h3{
+	font-size: 1.3vmax;
+}
+
+#login{
+	background-color: #C98D94;
+	border-radius: 5px;
+	padding: 20px;
+	margin: 3vh 20vw 2vh;
+	text-align: center;
+}
+.contra{
+	position: relative;
+	left: -20vw;
+	font-size: 1vmax;
+	font-weight: bold;
+}
+.contra input{
+	cursor: pointer;
+	transform: scale(1.5);
+	position: relative;
+	left: 1vw;
+}
+input[type="text"], input[type="password"]{
+	width: 40%;
+	height: 2.5vh;
+	margin: 20px auto 5px;
+}
+input[type="submit"]{
+	cursor: pointer;
+	width: 30%;
+	margin: 30px auto 5px;
+	height: 2.8vh;
+	font-size: 1vmax;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+#recor-contra{
+	cursor: pointer;
+	position: relative;
+	left: 55vw;
+}
+footer{
+	background-color: rgba(59,26,27,1.00);
+	padding: 5px;
+	border-top: solid lightgrey 1px;
+	clear: both;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+footer img{
+	height: 10vh;
+}
+footer input{
+	position: absolute;
+	top: 1.5vh;
+	right: 10vw;
+	padding: 3vh;
+}
+#huella{
+	display: none;
+}
+#recor-contra{
+	
+	width: 15%;
+	font-size: 1vmax;
+}
+.material-icons-outlined {
+	font-size: 25px;
+	position: relative;
+	top:0.9vh;
+	left: -2vw;
+}
+
+#login>label{
+	display: block;
+	font-size: 20px;
+}
+#intro{
+	margin: 0 auto;
+	display: block;
+	font-size: 1vmax;
+	padding-left: 200px;
+	padding-top: 100px;
+	width: 57vw;
+}
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+  rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"
+  rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round"
+  rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp"
+  rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone"
+  rel="stylesheet">
+	
+<link rel="stylesheet" media="only screen and (min-width: 280px) and (max-width: 415px)" href="movil.css">
+<link rel="stylesheet" media="only screen and (min-width: 768px) and (max-width: 1024px)" href="tablet.css">
+</head>
+<body>
+<div id="container">
+    <header>
+		<img src="iesMartinRivero.png" width="20%" alt="Logotipo del Centro">
+    	<h1>IES. Martín Rivero</h1>
+	    <h2>Gestión de Calificaciones</h2>
+        <h3>Herramienta de ayuda al profesorado</h3>
+    </header>
+    <form action="#" id="formulario">
+      <div id="login">
+          <label for="usuario">Usuario Idea:</label> <input type="text" id="usuario"><span class="material-icons-outlined">perm_identity</span>
+          <label for="clave">Clave de Acceso:</label><input type="password" id="clave"><span class="material-icons-outlined">lock</span>
+		  <br>
+          <input type="submit" value="Entrar">
+          <div class="contra">
+          	<label for="guardar">Guardar contraseña:
+            <input type="checkbox" id="guardar" checked> </label>
+          </div> 
+           <div class="contra">
+          <label for="mostrar">Mostrar Contraseña:<input type="checkbox" id="mostrar" ></label>
+          </div>
+      </div>
+       
+     </form>
+    
+     <section id="recordar">
+		<input id="recor-contra" type="button" value="Recordar Contraseña">
+     </section>
+     
+     <section id="intro">
+       <p>Con nuestra aplicación podrás gestionar cualquier tipo de calificación sobre los alumnos de tus respectivos grupos. </p>
+     </section>
+     
+    <footer>
+	     <img id="cali" src="logo-iqnet.jpg" alt="Logotipo calidad">
+         <img id="ambiente" src="ISO_14001.jpg" alt="Logotipo del ambiental">
+         <input type="button" id="huella" value="Acceso con huella dactilar">
+	</footer>
+</div>
+</body>
+</html> 

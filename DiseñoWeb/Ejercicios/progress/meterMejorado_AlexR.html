@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		h1{
+			color: red;
+		}
+		meter{
+			width: 120px;
+			height: 30px;
+			margin: 0 10px;
+			box-sizing: content-box;
+			padding: 10px 10px 0 10px;
+			position: relative;
+			box-shadow: 5px 5px 15px rgba(24,3,0,0.2) inset;
+			padding-bottom: 14px;
+		}
+		meter::before{
+			content: "0%";
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin-left: 10px;
+		}
+		meter::after{
+			content: "100%";
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin-right: 10px;
+		}
+		meter::-webkit-meter-bar{
+			background-color:  rgba(63,79,255,1.00);
+		}
+		meter::-webkit-meter-optimum-value{
+			background-color: rgba(0,255,211,1.00);
+		}
+		meter::-webkit-meter-suboptimum-value{
+			background-color: rgba(121,0,255,1.00);
+		}
+		meter::-webkit-meter-even-less-good-value{
+			background-color: rgba(255,0,229,1.00);
+		}
+		#contador{
+			position: relative;
+			top: -1px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Incrementando dinero</h1>
+	<label>Fondos Transferidos:<span id="contador">0</span></label>
+	<meter id="meterJS"></meter>
+	
+	<script>
+		var meterJS = document.getElementById("meterJS");
+		var contador = document.getElementById("contador");
+		meterJS.min=0;
+		meterJS.max=100;
+		meterJS.low=20;
+		meterJS.high=60;
+		meterJS.optimum=61;
+		
+		
+		Periodo=setInterval(function(){meterJS.value++;
+									   contador.innerHTML=meterJS.value+"%";
+									   contador.style.left =meterJS.value+57+"px";
+									   if(meterJS.value==100)
+										   clearInterval(Periodo);
+							  },45);
+		
+		
+	</script>
+</body>
+</html>
