@@ -13,7 +13,7 @@
 
     <title>Taller AR Customs | Página Principal</title>
     
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBTSt9QLWeHKFpWWPtgXrkApb6oWdWec90"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key="></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
     <script src="/webjars/jquery/jquery.min.js"></script>
