@@ -1,0 +1,390 @@
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Taller AR Customs | Citas</title>
+    
+    
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBTSt9QLWeHKFpWWPtgXrkApb6oWdWec90"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+	  <link rel="stylesheet" href="estilo/estiloPrincipal.css"/>
+    <link rel="stylesheet" href="estilo/estiloCitas.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="img/icon.png">
+    
+    
+    
+    <script>
+	    $(document).ready(function(){
+	    	
+	    	function initMap() {
+	  		  // The location of Uluru
+	  		  const uluru = { lat: 36.7515224, lng: -5.1631092 };
+	  		  // The map, centered at Uluru
+	  		  const map = new google.maps.Map(document.getElementById("map"), {
+	  		    zoom: 15,
+	  		    center: uluru,
+	  		  });
+	  		  // The marker, positioned at Uluru
+	  		  const marker = new google.maps.Marker({
+	  		    position: uluru,
+	  		    map: map,
+	  		  });
+	  		}
+	
+	
+			initMap();
+			});
+	    
+	</script>
+  </head>
+  <body>
+
+	<div class="container-fluid p-0">
+		  
+		 <!-- HEADER--> 
+      <div class="sticky-top">
+       <div class="container-fluid p-0">
+
+        <div class="row barra">
+        </div>
+
+        <header class="sticky-top fondoBarra">
+          <div class="container-fluid">
+            <div class="row">
+                <div class="col d-flex flex-column flex-md-row justify-content-start align-items-center">
+                  <a class="navbar-brand fs-3 m-0" href="irInicio"><img class="img-responsive logo" height="100" src="img/1.png" alt="Logotipo del taller"/></a>
+                  <form class="d-flex ms-md-5 formxd" action="irTienda">
+                    <input class="form-control me-2" type="search" name="busca" placeholder="Buscar..." aria-label="Buscador Principal de artículos">
+                    <button type="submit" class="btn amarillo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                    </button>  
+                  </form>
+                </div>
+                <div class="col-12 col-md-4 d-flex justify-content-around align-items-center">
+                  <button class="btn fw-bold letraAma" type="button"><a href="irMapa" class="text-decoration-none sinDeco d-block encesta"><i class="fa-solid fa-location-dot  me-2"></i>UBICACIÓN</a></button>
+                  <c:choose>
+                  	<c:when test="${not empty sessionScope.usuario}">
+                  		<button class="btn letraAma fw-bold dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" type="button"><i class="fa-solid fa-user me-2"></i>${usuario.nombreusu}</button>
+		                  <ul class="dropdown-menu">
+		                    
+		                    <c:choose>
+		                    	<c:when test="${sessionScope.usuario.tipousu == 'M'}">
+		                    		<li class="p-2"><button type="button" class="btn  mb-2 mb-md-0 btn-subs btn-subsC btn-block "><a href="verCitasMec" class="text-decoration-none sinDeco d-block encesta">Ver Citas</a></button></li>
+		                    	</c:when>
+		                    	<c:when test="${sessionScope.usuario.tipousu == 'A'}">
+		                    		<li class="p-2"><button type="button" class="btn  mb-2 mb-md-0 btn-subs btn-subsC btn-block "><a href="verAdmin" class="text-decoration-none sinDeco d-block encesta">Administración</a></button></li>
+		                    	</c:when>
+		                    	<c:otherwise>
+		                    		<c:choose>
+				                    	<c:when test="${not empty sessionScope.codigoFact}">
+				                    		<li class="p-2"><button type="button" class="btn  mb-2 mb-md-0 btn-subs btn-block"><a href="verEstadoCita" class="text-decoration-none sinDeco d-block encesta">Estado Cita</a></button></li>
+				                    		<li class="p-2"><button type="button" class="btn  mb-2 mb-md-0 btn-subs btn-subsC btn-block"><a href="cargaFactura" class="text-decoration-none sinDeco d-block encesta">Última Factura</a></button></li>
+				                    	</c:when>
+				                    	<c:otherwise>
+				                    		<li class="p-2"><button type="button" class="btn  mb-2 mb-md-0 btn-subs btn-subsC btn-block"><a href="verEstadoCita" class="text-decoration-none sinDeco d-block encesta">Estado Cita</a></button></li>
+					                  		<li class="p-2"><button type="button" class="btn  mb-2 mb-md-0 btn-subs btn-subsC btn-block "><a href="cargaFactura" class="text-decoration-none sinDeco d-block encesta">Última Factura</a></button></li>
+					                  	</c:otherwise>
+				                    	
+				                    </c:choose>
+		                    	</c:otherwise>
+		                    </c:choose>
+		                    
+		                    
+		                    
+		                    
+		                    <li><hr class="dropdown-divider"></li>
+		                    <li class="p-2"><button type="button" class="btn  mb-2 mb-md-0 btn-subs btn-block"><a href="cerrarSesion" class="text-decoration-none sinDeco cerSes">Cerrar Sesión</a></button></li>
+		                  </ul>
+		                  
+		                  <button class="btn letraAma fw-bold dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-cart-shopping me-2"></i>CESTA ${prodTotal}</button>
+		                  <ul class="dropdown-menu">
+		                    <li class="dropdown-item">Productos en total : <span>${prodTotal}</span></li>
+		                    <li class="dropdown-item">Total: <span>${precioTotal}</span>$</li>
+		                    <li><hr class="dropdown-divider"></li>
+		                    <li class="px-2"><button type="button" class="btn  mb-2 mb-md-0 btn-subs btn-subsC btn-block btnVerCesta"><a href="irCesta" class="text-decoration-none sinDeco d-block encesta">Ver Cesta</a></button></li>
+		                  </ul>
+                  	</c:when>
+                  	<c:otherwise>
+                  		<button class="btn letraAma fw-bold" type="button"><a href="irLogin" class="text-decoration-none sinDeco"><i class="fa-solid fa-user me-2"></i>MI CUENTA</a></button>
+                  	</c:otherwise>
+                  </c:choose>
+                  
+                  
+                </div>
+              </div>
+              <div class="row">
+                <div class="col fondo2">
+
+                  <nav class="navbar navbar-expand-lg navbar-light bg-light p-0">
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center " id="navbarScroll">
+                      
+                      <ul class="nav barrita">
+                        <li class="nav-item">
+                          <a class="nav-link px-3 py-4 " aria-current="page" href="irInicio">INICIO</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link px-3 py-4" href="irTienda">TIENDA</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link px-3 py-4 activo" href="cargaCita">CITAS</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link px-3 py-4" href="#" >CONTACTO</a>
+                        </li>
+                      </ul>
+                    </div>
+                </nav>
+
+                  
+                  
+                </div>
+              </div>
+          </div>
+        </header>
+       </div>
+     </div>
+     <!--FIN HEADER--> 
+    <div class="container mt-3">
+      <h1 class="nombreCategoriaCarga"></h1>
+      <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item text-black"><a href="irInicio" aria-label="Volver a la página principal" class="text-decoration-none"><i class="fa-solid fa-house"></i> Inicio</a></li>
+            <li class="breadcrumb-item active " aria-current="page"> Citas</li>
+            <c:choose>
+            	<c:when test="${not empty sessionScope.usuario}">
+            		<button class="btnCit mb-3 mr-3 btn-indigo ms-auto"><a href="verEstadoCita" class="text-decoration-none sinDeco cerSes" title="Enlace pare ver el estado de tu cita">Ver Estado Cita</a></button>
+            	</c:when>
+            	<c:otherwise>
+            	<div data-bs-toggle="tooltip" class="ms-auto" data-bs-placement="bottom" title="Inicia sesión ver el estado de tu cita">
+            		<button type="button" class="btnCit mb-3 mr-3 btn-indigo  disabled" disabled>Ver Estado Cita</button>
+            	</div>	
+            	</c:otherwise>
+            </c:choose>
+            
+          </ol>
+          
+      </nav>
+      
+    </div>
+    <div class="col-12 d-flex justify-content-center mt-4">
+      <a href="#cajcita" class="linkCita" title="Te desplazas hacia el formulario de la cita"><h2><i class="fa-solid fa-angle-down"></i> Rellena tu Cita <i class="fa-solid fa-angle-down"></i></h2></a>
+    </div>
+    <div class="col-12 d-flex justify-content-end mt-4 ">
+      
+    </div>
+
+     <!-- CAJA PRINCIPAL -->
+    <div class="container-fluid mt-5 d-flex flex-wrap justify-content-center">
+      <div class="col-12 mb-5 text-center">
+        <img src="img/c1.png" class="img-fluid" alt="Prestaciones Taller AR Customs: Coge cita para cualquier de nuestros servicios">
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-2 card m-2">
+        <h3 class="text-center mb-5">Neumáticos</h3>
+        <img src="img/1.jpg" class="img-fluid bordeImg card-img-top p-3" alt="Reparacion Ruedas">
+        <ul class="lista mt-3 card-body">
+          <li>Montaje y Equilibrado</li>
+          <li>Pinchazos</li>
+          <li>Alineación</li>
+          <li>Inflado Nitrógeno</li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-6 col-lg-2 card m-2">
+        <h3 class="text-center mb-5">Aceite</h3>
+        <img src="img/2.jpg" class="img-fluid bordeImg card-img-top p-3" alt="Mantenimiento Aceite">
+        <ul class="lista mt-3 card-body">
+          <li>Revisión Oficial</li>
+          <li>Cambio de Aceite</li>
+          <li>Revisión para Viajes</li>
+          <li>Líquido de Frenos</li>
+          <li>Líquido Refrigerante</li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-6 col-lg-2 card m-2">
+        <h3 class="text-center mb-3">Mantenimiento Y Revisiones</h3>
+        <img src="img/revision-coche.png" class="img-fluid bordeImg card-img-top p-3" alt="Mantenimiento Y Reparaciones">
+        <ul class="lista mt-3 card-body">
+          <li id="cajcita">Frenado</li>
+          <li>Aire Acondicionado</li>
+          <li>Baterías</li>
+          <li>Dirección y suspensión</li>
+          <li>Descarbonización</li>
+          <li>Visibilidad</li>
+          <li>Transmisión, Embragues</li>
+          <li>Escapes</li>
+          <li >Elevalunas</li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-6 col-lg-2 card m-2">
+        <h3 class="text-center mb-3">Instalación y Equipamiento</h3>
+        <img src="img/4.png" class="img-fluid bordeImg card-img-top p-3" alt="Instalacion y Equipamiento">
+        <ul class="lista mt-3 card-body">
+          <li>Barras Y Maleteros</li>
+          <li>Sistema de Sonido</li>
+          <li>Portabicicletas</li>
+          <li>Enganches para Remolques</li>
+          <li>Matrícula</li>
+        </ul>
+      </div>
+	  </div>
+     <!-- FIN CAJA PRINCIPAL-->
+    <!--CAJA CITAS-->
+    
+    <div class="col-md-10 offset-md-1 border border-warning border-3 rounded-3 my-5">
+        <h3 class="text-center mt-2 mb-5">Genera Tu Cita</h3>
+        <form action="creaCita" id="fCita">
+          <div class="d-flex justify-content-around flex-column flex-md-row">
+            <div class="col-11 col-md-2 m-2">
+              <p id="matr">Matrícula</p>
+              <input name="matr" type="text" class="form-control" placeholder="0000AAA" aria-label="Matricula" aria-describedby="matr" pattern="^[0-9]{1,4}(?!.*(LL|CH))[BCDFGHJKLMNPRSTVWXYZ]{3}">
+            </div>
+            <div class="col-11 col-md-2 m-2">
+              <p id="marc">Marca</p>
+              <input name="marca" type="text" class="form-control" placeholder="Ex: Ford" aria-label="Marca Coche" aria-describedby="marc" pattern="[A-Za-z]{3,}">
+            </div>
+            <div class="col-11 col-md-2 m-2">
+              <p id="mode">Modelo</p>
+              <input name="modelo" type="text" class="form-control" placeholder="Ex: Focus" aria-label="Modelo Coche" aria-describedby="mode">
+            </div>
+            <div class="col-11 col-md-2 m-2">
+              <p id="tipCit">Tipo Cita</p>
+              <select name="tipoCita" class="form-select" aria-label="Elegir Tipo Cita">
+                <option selected>Elige tu Opción</option>
+                <option value="neumaticos">Neumáticos</option>
+                <option value="aceite">Aceite</option>
+                <option value="mantenimiento">Mantenimiento</option>
+                <option value="revision">Revisión</option>
+              </select>
+            </div>
+          </div>
+          <div class="d-flex justify-content-around my-5">
+            <div class="form-floating offset-md-1 col-12 col-md-8">
+              <textarea name="descrp" aria-label="Rellenar tu descripción" class="form-control" placeholder="Deja Aquí tu Descripción" id="descrp" style="height: 100px"></textarea>
+              <label for="floatingTextarea2">Descripción de tu cita</label>
+            </div>
+
+          </div>
+          <div class="d-flex justify-content-center mb-3">
+          <c:choose>
+                  	<c:when test="${not empty sessionScope.usuario}">
+                  		<button class="custom-btn btn-12" aria-label="Genera tu cita"><span>¡Haz Click!</span><span>Crear Cita</span></button>
+                  	</c:when>
+                  	<c:otherwise>
+                  	<div data-bs-toggle="tooltip" data-bs-placement="bottom" title="Inicia sesión para comprar">
+                  		<h4>INICIA SESION PARA CREAR TU CITA</h4>
+                  	</div>
+                  	</c:otherwise>
+                  </c:choose>
+            
+          </div>
+        </form>
+      </div>
+      
+    </div> 
+    <!-- FIN CAJA CITAS-->
+
+
+      <!--  FOOTER DE LA PÁGINA CON EL NEWSLETTER -->
+      <div class="">  
+        <footer class="bd-footer">
+            <section class="subs" id="signup">
+                <div class="container px-4 px-md-5">
+                    <div class="row gx-4 gx-md-5">
+                        <div class="col-md-10 col-md-8 mx-auto text-center">
+                            <h2 class="mb-3">¡Suscribete para recibir nuevas noticias!</h2>
+                            <i class="far fa-paper-plane fa-2x mb-5 "></i>
+                            <form action="enviaemail" class="form-subs">
+                                <div class="row input-group-newsletter">
+                                    <div class="col-md-9 mb-3 mb-md-0">
+                                        <input name="email" type="text" class="form-control emailNewletter" /> 
+                                        <input type="hidden" name="origen" value="irInicio">
+                                    </div>
+                                    <div class="col-md-2 btnNews position-relative">
+                                        <button type="submit" class="btn btn-subs" title="Suscribirme">Suscribirme</button>
+                                        <span class="ocultar">Botón para suscribirse al periódico y recibir noticias por correo</span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="position-relative w-100 pie">
+                <div class="redes position-absolute start-50 translate-middle">
+                    <ul>
+                        <li><a href="#" target="blank" aria-label="Enlace para ir a la cuenta de Twitter"><i class="neg fab fa-brands fa-twitter"></i></a></li>
+                        <li><a href="#" target="blank" aria-label="Enlace para ir a la cuenta de Instagram"><i class="neg fab fa-instagram"></i></a></li>
+                        <li><a href="#" target="blank" aria-label="Enlace para ir a la cuenta de Facebook"><i class="neg fab fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#" target="blank" aria-label="Enlace para ir a la cuenta de Youtube"><i class="neg fab fa-brands fa-youtube"></i></a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="contaier-fuild finFoot d-flex justify-content-around flex-column py-5">
+              
+              <div class="col-12 text-center">
+                <h4 class="mb-5 titFoot m-auto">VISITA NUESTRO TALLER</h4>
+                <div class="position-relative">
+                	<div id="map"></div>
+                </div>
+              </div>
+              
+              
+              <div class="col text-center mt-5">
+                <h4 class="mb-5 titFoot m-auto">CONTACTA CON NOSOTROS</h4>
+                <div class="">
+                  <h5 class="pb-2"><i class="fa-solid fa-envelope letraAma "></i> tallerarcustoms@outlook.com</h5>
+                  <h5><i class="fa-solid fa-phone letraAma"></i>+34 654654654</h5>
+                </div>
+              </div>
+            </div>
+        </footer>
+      </div> 
+    <!--  FIN FOOTER -->
+
+     
+
+	</div>
+	  
+	  
+	  
+	  
+	  
+	  
+	  <script>
+$(function(){
+	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+	      return new bootstrap.Tooltip(tooltipTriggerEl)
+	});
+})
+
+</script>
+	  
+	  
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    
+  </body>
+</html>

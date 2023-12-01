@@ -1,0 +1,136 @@
+.imgProd{
+  width: 20vw !important;
+}
+
+.minimenu li{
+  background-color:  #393E46;
+  color: whitesmoke;
+} 
+.minimenu a{
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.prestacion{
+  width: 50%;
+}
+
+.verdesito{
+  font-weight: bold;
+  color: #02aa0b;
+}
+
+.btn-carro, .btn-carro.disabled {
+  color: #F2F2F2;
+  background-color:  #2d97d3;
+  border-color: #64a19d;
+  box-shadow: 0 3px 3px 0 rgb(0 0 0 / 10%) !important;
+  padding: 20px 32px;
+  font-family: "Segoe UI Symbol";
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+  border: 0;
+  transition: all 0.4s ease;
+}
+.btn-carro:hover{
+  background-color:  #F2F2F2; 
+  color: #2d97d3;
+}
+
+
+
+.derecha{
+  position: sticky;
+  height: 100%;
+  top: 29%;
+  left: 100%;
+}
+.cajaEstrellas span{
+  text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px ;
+  color: #FCDA05;
+}
+
+/*+-*/
+.qty .count {
+  color: #000;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 30px;
+  padding: 0 2px
+  ;min-width: 35px;
+  text-align: center;
+}
+.qty .plus {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  width: 30px;
+  height: 30px;
+  font: 30px/1 Arial,sans-serif;
+  text-align: center;
+  border-radius: 50%;
+  }
+.qty .minus {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  width: 30px;
+  height: 30px;
+  font: 30px/1 Arial,sans-serif;
+  text-align: center;
+  border-radius: 50%;
+  background-clip: padding-box;
+}
+
+span{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+input{  
+  border: 0;
+  width: 2%;
+}
+nput::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:disabled{
+  background-color:white;
+}
+
+.minus:hover{
+  background-color: #e9c601 !important;
+}
+.plus:hover{
+  background-color: #e9c601 !important;
+}
+
+.nomProd:hover{
+  transition: all 0.5s ease;
+  font-weight: bold;
+  color: #2d97d3;
+  cursor: pointer;
+}
+
+.valo{
+	color:black !important;
+  text-shadow: none !important;
+  font-weight:bold;
+}
+
+@media only screen and (max-width: 992px) {
+	.imgProd {
+	    width: 70vw !important;
+	}
+	iframe{
+		width:100% !important;
+	}
+
+}

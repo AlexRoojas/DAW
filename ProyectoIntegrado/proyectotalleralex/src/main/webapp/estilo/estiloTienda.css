@@ -1,0 +1,125 @@
+.list-group {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.list-group-item:hover{
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #fcf5cfb5;
+  color: #0a47a9;
+}
+
+.list-group-light .active {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #fcf3cf;
+  color: #0a47a9;
+  outline: 1;
+}
+
+.barraArriba{
+  height: 65px;
+}
+
+.buscad{
+  border-radius: 0.5rem;
+  border: solid #FCDA05 3px;
+}
+.buscad:focus{
+  box-shadow: none !important;
+  border-color: #FCDA05;
+}
+
+.ord{
+  text-decoration: none;
+  color: black;
+  transition: all ease 0.5s;
+}
+
+.ord:hover{
+  color: #0a47a9;
+}
+
+.actOrd{
+
+  border-bottom: solid #0a47a9 2px;
+}
+
+.cajaEstrellas span{
+  text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px ;
+  color: #FCDA05;
+}
+
+.verdesito{
+  font-weight: bold;
+  color: #02aa0b;
+}
+
+.rojito{
+  font-weight: bold;
+  color:#aa0202;
+}
+
+.btn-carro, .btn-carro.disabled {
+  color: #F2F2F2;
+  background-color:  #2d97d3;
+  border-color: #64a19d;
+  box-shadow: 0 3px 3px 0 rgb(0 0 0 / 10%) !important;
+  padding: 20px 32px;
+  font-family: "Segoe UI Symbol";
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+  border: 0;
+  transition: all 0.4s ease;
+}
+.btn-carro:hover{
+  background-color:  #F2F2F2; 
+  color: #2d97d3;
+}
+
+.filita{
+  border-bottom: gray solid 1px;
+}
+
+.prodImg:hover{
+	cursor:pointer;
+}
+.nomProd:hover{
+	transition: all 0.6s ease;
+	cursor:pointer !important;
+ 	color: #2d97d3;
+}
+
+@media only screen and (max-width: 992px) {
+	.card-body img, .prodImg {
+        width: 50%;
+    }
+
+}
+@media only screen and (max-width: 768px) {
+	#formCate{
+	    display: flex;
+	    flex-wrap: wrap;
+	    flex-direction: row;
+	    justify-content: space-evenly;
+	}
+	
+	.desProd{
+	 display:-webkit-box !important;
+	 display:-moz-box !important;
+	 display:box !important;
+     -webkit-line-clamp: 5;
+     -moz-line-clamp: 5;
+     line-clamp: 5;
+     -webkit-box-orient: vertical;
+     -moz-box-orient: vertical;
+     box-orient: vertical;
+     white-space: normal;
+     overflow: hidden;
+}
+}

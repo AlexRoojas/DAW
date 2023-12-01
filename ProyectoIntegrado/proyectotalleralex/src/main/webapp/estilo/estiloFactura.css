@@ -1,0 +1,11 @@
+@media only print{
+    .fondoBarra,.btnPDF,.subs,.redes{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+	.XD{
+		display:none;
+	}
+}
