@@ -1,0 +1,13 @@
+com\daw\mantenimientopeliculasjv\Logica\operaciones.class
+com\daw\mantenimientopeliculasjv\DAO\exceptions\IllegalOrphanException.class
+com\daw\mantenimientopeliculasjv\DTO\Peliculas_.class
+com\daw\mantenimientopeliculasjv\DTO\Director_.class
+com\daw\mantenimientopeliculasjv\DAO\exceptions\PreexistingEntityException.class
+com\daw\mantenimientopeliculasjv\DAO\PeliculasJpaController.class
+com\daw\mantenimientopeliculasjv\DTO\Director.class
+com\daw\mantenimientopeliculasjv\DAO\exceptions\NonexistentEntityException.class
+com\daw\mantenimientopeliculasjv\DAO\GeneroJpaController.class
+com\daw\mantenimientopeliculasjv\DAO\DirectorJpaController.class
+com\daw\mantenimientopeliculasjv\DTO\Genero.class
+com\daw\mantenimientopeliculasjv\DTO\Genero_.class
+com\daw\mantenimientopeliculasjv\DTO\Peliculas.class

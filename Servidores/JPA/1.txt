@@ -1,0 +1,11 @@
+<c:if test="${!empty param.cantidad}">
+            <jsp:useBean id="miDetallePK" scope="request" class="com.daw.tiendaonlinebdjpa.DTO.DetallePK">
+                <jsp:setProperty name="miDetallePK" property="*"/>
+                <jsp:setProperty name="miDetallePK" property="usuario" value="${sessionScope.usuario}"/>
+            </jsp:useBean>
+
+            <jsp:useBean id="miDetalle" scope="request" class="com.daw.tiendaonlinebdjpa.DTO.Detalle">
+                <jsp:setProperty name="miDetalle" property="detallePK" value="${miDetallePK}"/>
+                <jsp:setProperty name="miDetalle" property="cantidad" value="${param.cantidad}"/>
+            </jsp:useBean>
+        </c:if>

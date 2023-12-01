@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="true">  	
+	
+	
+	<welcome-file-list>
+		<welcome-file>listArt</welcome-file>
+	</welcome-file-list>
+	
+	
+	
+	<servlet>
+		<servlet-name>listArt</servlet-name>
+		<servlet-class>listArt</servlet-class>
+		<init-param>
+			<param-name>comida</param-name>
+			<param-value>amborguesa;kebab;piza;lenteja</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>listArt</servlet-name>
+		<url-pattern>/listArt</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>verCesta</servlet-name>
+		<servlet-class>verCesta</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>verCesta</servlet-name>
+		<url-pattern>/verCesta</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>salir</servlet-name>
+		<servlet-class>salir</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>salir</servlet-name>
+		<url-pattern>/salir</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+
+	
+</web-app>

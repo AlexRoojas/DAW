@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+img{
+	width: 100px;
+}
+table{
+    margin: 0 auto;
+    width: 80%;
+}
+tr td:first-child{
+    text-align: center;
+}

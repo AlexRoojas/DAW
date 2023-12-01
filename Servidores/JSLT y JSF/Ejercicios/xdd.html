@@ -1,0 +1,74 @@
+﻿<body>
+<div class="info">
+<strong>Hora de arranque:</strong>: Tue Jan 04 11:32:54 CET 2022<br>
+<strong>Hora de conexión</strong>: Mon Oct 04 14:32:08 CEST 2021<br>
+<strong>Organización:</strong>: IES Martín Rivero<br>
+<strong>Autores:</strong>: alumnos 2DAW<br>
+</div>
+<br><table class="rwd-table" border="1" cellpadding="10"><tbody>
+<tr><th>Método</th><th>Salida</th><th>Descripción</th></tr>
+<tr>
+<td>getServletContext()</td>
+<td>org.apache.catalina.core.ApplicationContextFacade</td>
+<td>Devuelve un objeto ServletContext compartido por todos los servlets de una aplicación web, que define a un conjuto de métodos que el servlet usa para obtener la información asociada a una aplicación web, como por ejemplo para obtener el MIMEtype de un fichero o escribir a un fichero de log.<br>Nota: Se puede llamar directamente sin hacerlo a través de un objeto ServletConfig puesto que HttpServlet implementa la interfaz ServletConfig</td>
+</tr>
+<tr>
+<td>getServletConfig()</td>
+<td>org.apache.catalina.core.StandardWrapperFacade</td>
+<td>Devuelve un objeto ServletConfig, que contiene los parámetros de inicialización para este servlet. El objeto devuelto es el que se pasa como parámetro al método init.</td>
+</tr>
+<tr>
+<td>getServletConfig().getServletContext()</td>
+<td>org.apache.catalina.core.ApplicationContextFacade</td>
+<td>Igual que getServletContext() (leer arriba).</td>
+</tr>
+<tr>
+<td>getMimeType("/images/tomcat.png")</td>
+<td>image/png</td>
+<td>Devuelve el MIMEtype del archivo especificado o nulo si es desconocido.</td>
+</tr>
+<tr>
+<td>getResource("")</td>
+<td>file:/C:/Program%20Files/Apache%20Software%20Foundation/Tomcat%209.0_Lola/webapps/7.contexto/</td>
+<td>Devuelve una URL que apunta a la ruta del recurso especificado como parámetro.</td>
+</tr>
+<tr>
+<td>getResourcePaths("/")</td>
+<td>[/primavera.jpg, /verano.jpg, /META-INF/, /style.css, /fall.jpg, /WEB-INF/, /invierno.jpg, /index.html]</td>
+<td>Devuelve un Set de todas las rutas relativas a los recursos de la aplicación web. Si pasamos como ruta un subdirectio debemos añadir al final '/'. Todas las rutas devueltas son relativas a la ruta raíz de la aplicación web conteniendo una '/' inicial.</td>
+</tr>
+<tr>
+<td>getAttribute(String name)<br>Ejemplo (getAttribute("horaArranque")):</td>
+<td>Tue Jan 04 11:32:54 CET 2022</td>
+<td>Devuelve el valor del atributo de contexto del servlet con el nombre pasado como parámetro o nulo si no existe el atributo. Devuelve un objeto de java Object.</td>
+</tr>
+<tr>
+<td>setAttribute(String name, Object object)</td>
+<td></td>
+<td>Establece en el contexto del servlet un valor para el atributo pasado como parámetro, si el atributo ya existe reemplazará su valor</td>
+</tr>
+<tr>
+<td>getMajorVersion()</td>
+<td>4</td>
+<td>Devuelve el número de versión principal de la Servlet API de Java que este contenedor de servlet soporta.</td>
+</tr>
+<tr>
+<td>getMinorVersion()</td>
+<td>0</td>
+<td>Devuelve el número de versión menor de la Servlet API de Java que este contenedor de servlet soporta</td>
+</tr>
+<tr>
+<td>getContextPath()</td>
+<td>/7.contexto</td>
+<td>Devuelve la ruta de contexto de ésta aplicación web.</td>
+</tr>
+<tr>
+<td>getServerInfo()</td>
+<td>Apache Tomcat/9.0.53</td>
+<td>Devuelve el nombre y la versión del contenedor de servlet en el que el servlet está ejecutándose.</td>
+</tr>
+</tbody>
+</table>
+
+
+</body>

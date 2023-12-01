@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+    <body>
+		
+		<div id="contenedor">
+		<div id="cristal"></div>
+		<div id="texto">
+			<div id="centrado">
+				<h1>Envia tu correo</h1>
+				<form action="enviaEmail" autocomplete="on">
+                <table>
+                    <tr>
+                        <td>De:</td>
+                        <td><input type="text"  placeholder="Nombre" name="nombre" required ></td>
+                    </tr>
+
+                    <tr>
+                        <td>Para:</td>
+                        <td><input type="email" required="" placeholder="Correo Electrónico" name="email"></td>
+                    </tr>
+                    <tr>
+                        <td>Asunto</td>
+                        <td><input type="text" required="" placeholder="Asunto" name="asunto"></td>
+                    </tr>
+                    <tr>
+                        <td>Mensaje</td>
+                        <td><textarea name="mensaje" required="" rows="3" cols="30" placeholder="Mensaje"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Enviar"/></td>
+                    </tr>
+                </table>
+            </form>
+			</div>	
+		</div>
+	</div>
+        
+        <div>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+*{
+	text-align:center;
+}
+body{
+	background-color:#79C7B2;
+}
+div{
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+}
+#letr{
+	width:20px;
+}
+#letras{
+	font-size:300%;
+	width:25%;
+}
+#letras input{
+	width:30px;
+	height:30px;
+}

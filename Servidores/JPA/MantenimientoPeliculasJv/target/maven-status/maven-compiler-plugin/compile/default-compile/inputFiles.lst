@@ -1,0 +1,10 @@
+D:\2Daw\Servidores\NB\MantenimientoPeliculasJv\src\main\java\com\daw\mantenimientopeliculasjv\DAO\GeneroJpaController.java
+D:\2Daw\Servidores\NB\MantenimientoPeliculasJv\src\main\java\com\daw\mantenimientopeliculasjv\DAO\PeliculasJpaController.java
+D:\2Daw\Servidores\NB\MantenimientoPeliculasJv\src\main\java\com\daw\mantenimientopeliculasjv\DTO\Genero.java
+D:\2Daw\Servidores\NB\MantenimientoPeliculasJv\src\main\java\com\daw\mantenimientopeliculasjv\Logica\operaciones.java
+D:\2Daw\Servidores\NB\MantenimientoPeliculasJv\src\main\java\com\daw\mantenimientopeliculasjv\DTO\Director.java
+D:\2Daw\Servidores\NB\MantenimientoPeliculasJv\src\main\java\com\daw\mantenimientopeliculasjv\DTO\Peliculas.java
+D:\2Daw\Servidores\NB\MantenimientoPeliculasJv\src\main\java\com\daw\mantenimientopeliculasjv\DAO\exceptions\PreexistingEntityException.java
+D:\2Daw\Servidores\NB\MantenimientoPeliculasJv\src\main\java\com\daw\mantenimientopeliculasjv\DAO\exceptions\IllegalOrphanException.java
+D:\2Daw\Servidores\NB\MantenimientoPeliculasJv\src\main\java\com\daw\mantenimientopeliculasjv\DAO\exceptions\NonexistentEntityException.java
+D:\2Daw\Servidores\NB\MantenimientoPeliculasJv\src\main\java\com\daw\mantenimientopeliculasjv\DAO\DirectorJpaController.java

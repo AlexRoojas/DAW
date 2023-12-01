@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<style>
+*{
+text-align:center;
+}
+body{background-color:#79C7B2};
+</style>
+</head>
+
+<body>
+	<h1>Calculo Tabla Amortizacion de un prestamo interes compuesto</h1>
+	<form action="calcula">
+		<label>Capital:</label>
+		<input type="text" name="capital">
+		<br>
+		<label>Interes:</label>
+		<input type="text" name="interes">
+		<br>
+		<label>Años:</label>
+		<input type="text" name="anios">
+		<br>
+		<label>Periocidad:</label>
+		<select name="periocidad">
+			<option value="12">Mensual</option>
+			<option value="4">Cada 3 meses</option>
+			<option value="2">Cada 6 meses</option>
+			<option value="1">Anual</option>
+		</select>
+		<br>
+		<input type="submit" value="Calcular"/>
+	</form>
+</body>
+</html>

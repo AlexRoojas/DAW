@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>ServletBatch</servlet-name>
+        <servlet-class>com.mycompany.ejecucionsentenciasdb2.ServletBatch</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletStatement</servlet-name>
+        <servlet-class>com.mycompany.ejecucionsentenciasdb2.ServletStatement</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletStatementMulti</servlet-name>
+        <servlet-class>com.mycompany.ejecucionsentenciasdb2.ServletStatementMulti</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletBatch</servlet-name>
+        <url-pattern>/ServletBatch</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletStatement</servlet-name>
+        <url-pattern>/ServletStatement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletStatementMulti</servlet-name>
+        <url-pattern>/ServletStatementMulti</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

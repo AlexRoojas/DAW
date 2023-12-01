@@ -1,0 +1,3 @@
+- El select permite selecionar las flores por su necesidad de agua y luz
+- No implementar el carrito
+- los demas botones si. 

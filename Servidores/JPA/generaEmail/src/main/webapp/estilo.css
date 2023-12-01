@@ -1,0 +1,98 @@
+@charset "utf-8";
+/* CSS Document */
+html{
+	height: 100%;
+}
+body{
+	background: url("img/fondo.jpg") no-repeat;
+	background-size: cover;
+}
+
+#contenedor{
+	width: 20%;
+	margin: 0 auto;
+}
+#cristal, #texto{
+	border-radius: 5%;
+	width: 300px;
+	height: 450px;
+	box-shadow: 0 0 3px 0 rgba(0,0,0,0.8),
+		inset 0 0 2000px rgba(150,150,150,0.5);
+	position: absolute;
+	left: 75%;
+	top: 50%;
+	margin: -15% 0 0 -35%;
+	filter: blur(10px);
+	backdrop-filter: opacity(90%);
+	background: inherit;
+}
+#cristal{
+	width: 380px;
+}
+#texto{
+	display: table;
+	filter: none;
+	background: none;
+}
+#centrado{
+	width: 400px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+
+form{
+	margin: 0 auto;
+	text-align: center;
+	padding: 20px;
+}
+textarea{
+	resize: none;
+}
+input[type="text"], input[type="password"], input[type="email"],textarea{
+	margin-top: 20px;
+	background: none;
+	border: 0;
+	border-bottom: 1px solid rgba(196,192,192,1.00);
+	outline: 0;
+	color: white;
+}
+::placeholder {
+		color: rgba(196,192,192,1.00);
+		font-size: 1em;
+}
+img{
+	width: 40%;
+	border-radius: 100%;
+}
+input[type="submit"]{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	color: white;
+	background-color: rgba(255,94,0,1.00);
+	border: 0;
+	font-size: 1em;
+	padding: 20px;
+	width: 100px;
+	border-radius: 10px;
+	transition: background-color 1s ease;
+	position: relative;
+	left: 120px;
+	cursor: pointer;
+}
+input[type="submit"]:hover{
+	margin-top: 30px;
+	background-color: rgba(255,36,138,1.00);
+}
+a{
+	color: white;
+}
+td{
+	color: rgba(0,52,255,1.00);
+	font-size: 20px;
+	font-weight: bold;
+}
+h1{
+	color: white;
+}

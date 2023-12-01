@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background-color: rgba(16, 163, 100);
+}
+
+.panelPrincipal{
+	width: 100%;
+}
+
+.teclado{
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 70px;
+	margin-bottom: 20px;
+}
+
+
+.teclado input[type="submit"]{
+	width: 60px;
+	margin-right: 3px;
+	margin-bottom: 3px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.teclado input[type="submit"]:hover{
+	background: rgba(235,132,170,1.00);
+}
+
+
+.letrasADivinar{
+	width: 50%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: solid beige;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.letrasADivinar span{	
+	font-size: 300%;
+}
+
+.estadisticas{
+	position: absolute;
+	right: 0;
+	top:50px;
+	border:2px solid black;
+	padding: 10px;
+	color:beige;
+}
+
+.fallitos{
+	width: 40%;
+	margin: 0 auto;
+	padding-bottom: 20px;
+}
+
+.teclado input[class="pista"]{
+	width: 70px;
+	height: 50px;
+	margin: 0 auto;
+}

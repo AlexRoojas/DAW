@@ -1,0 +1,8 @@
+cargaPersonas.class
+DTO\Personas_.class
+DAO\exceptions\IllegalOrphanException.class
+DTO\Personas.class
+DAO\PersonasJpaController.class
+datos.class
+DAO\exceptions\PreexistingEntityException.class
+DAO\exceptions\NonexistentEntityException.class

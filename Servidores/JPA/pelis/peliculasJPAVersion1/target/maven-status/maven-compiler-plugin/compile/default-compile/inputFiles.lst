@@ -1,0 +1,10 @@
+D:\2Daw\Servidores\NB\pelis\peliculasJPAVersion1\src\main\java\com\daw\peliculasjpaversion1\DTO\Peliculas.java
+D:\2Daw\Servidores\NB\pelis\peliculasJPAVersion1\src\main\java\com\daw\peliculasjpaversion1\LogicaN\consultas.java
+D:\2Daw\Servidores\NB\pelis\peliculasJPAVersion1\src\main\java\com\daw\peliculasjpaversion1\DAO\exceptions\PreexistingEntityException.java
+D:\2Daw\Servidores\NB\pelis\peliculasJPAVersion1\src\main\java\com\daw\peliculasjpaversion1\DAO\PeliculasJpaController.java
+D:\2Daw\Servidores\NB\pelis\peliculasJPAVersion1\src\main\java\com\daw\peliculasjpaversion1\DTO\Genero.java
+D:\2Daw\Servidores\NB\pelis\peliculasJPAVersion1\src\main\java\com\daw\peliculasjpaversion1\DTO\Director.java
+D:\2Daw\Servidores\NB\pelis\peliculasJPAVersion1\src\main\java\com\daw\peliculasjpaversion1\DAO\DirectorJpaController.java
+D:\2Daw\Servidores\NB\pelis\peliculasJPAVersion1\src\main\java\com\daw\peliculasjpaversion1\DAO\GeneroJpaController.java
+D:\2Daw\Servidores\NB\pelis\peliculasJPAVersion1\src\main\java\com\daw\peliculasjpaversion1\DAO\exceptions\IllegalOrphanException.java
+D:\2Daw\Servidores\NB\pelis\peliculasJPAVersion1\src\main\java\com\daw\peliculasjpaversion1\DAO\exceptions\NonexistentEntityException.java

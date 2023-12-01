@@ -1,0 +1,15 @@
+com\daw\traductor\DTO\English.class
+com\daw\traductor\DAO\EnglishJpaController.class
+com\daw\traductor\DTO\Spanish.class
+com\daw\traductor\DAO\SpanishJpaController.class
+com\daw\traductor\DTO\DiccionarioPK.class
+com\daw\traductor\DAO\exceptions\IllegalOrphanException.class
+com\daw\traductor\DAO\exceptions\NonexistentEntityException.class
+com\daw\traductor\DAO\DiccionarioJpaController.class
+com\daw\traductor\DTO\Diccionario.class
+com\daw\traductor\DTO\English_.class
+com\daw\traductor\DTO\DiccionarioPK_.class
+com\daw\traductor\beans\beanTraductor.class
+com\daw\traductor\DAO\exceptions\PreexistingEntityException.class
+com\daw\traductor\DTO\Diccionario_.class
+com\daw\traductor\DTO\Spanish_.class

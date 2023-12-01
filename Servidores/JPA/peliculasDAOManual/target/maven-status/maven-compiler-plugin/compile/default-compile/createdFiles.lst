@@ -1,0 +1,7 @@
+com\daw\peliculasdaomanual\Interfaces\InterfaceDAO.class
+com\daw\peliculasdaomanual\BD\DatosConex.class
+com\daw\peliculasdaomanual\DTO\Peliculas.class
+gestionaBD.class
+com\daw\peliculasdaomanual\BD\ConexionBD.class
+cargaBD.class
+com\daw\peliculasdaomanual\DAO\PeliculaDAO.class

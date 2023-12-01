@@ -1,0 +1,35 @@
+input{
+	font-size: 0;
+	width: 154px;
+	height: 100px;
+	background-size: cover;
+	cursor: pointer;
+}
+div{
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+}
+img{
+	width: 550px;
+	height: 400px;
+}
+#spain{
+	background-image: url("imagenes/spain.png");
+}
+
+#andorra{
+	background-image: url("imagenes/and.png");
+}
+
+#corea{
+	background-image: url("imagenes/cor.png");
+}
+
+#eeuu{
+	background-image: url("imagenes/eeuu.png");
+}
+
+#japon{
+	background-image: url("imagenes/jap.png");
+}

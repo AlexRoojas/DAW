@@ -1,0 +1,24 @@
+div{
+border-radius: 10px;
+	
+	box-shadow: 3px 3px 3px grey;
+	background-color: rgba(167,252,182,1.00);
+    width: 380px;
+    padding: 30px;
+    margin: 10vh auto;
+}
+body{background-color:#79C7B2;
+}
+
+label { 
+    width: 180px;
+    display: inline-block;
+    margin: 4px;
+}
+input[type="submit"]{
+    display: block;
+    margin: 0 auto;
+}
+form[action="crearCookies"] input[type="submit"]{
+    margin-top: 10px;
+}
