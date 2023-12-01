@@ -1,0 +1,15 @@
+<p>
+    Tamaño del lado {{lado}}
+</p>
+
+<p>
+1 way binding [ngModel] <input type="number" [ngModel]="lado">
+</p>
+
+<p>
+2 way binding: [(ngModel)]<input type="number" [(ngModel)]="lado">
+</p>
+
+<p>
+    Evento ngModelChange: [ngModel]="lado" (ngModelChange)="cambiaLado($event)"<input type="number" [ngModel]="lado" (ngModelChange)="cambiaLado($event)">
+</p>

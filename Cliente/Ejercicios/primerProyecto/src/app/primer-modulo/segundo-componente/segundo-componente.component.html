@@ -1,0 +1,17 @@
+<h3>Segundo Componente</h3>
+<p>Lista de Preguntas</p>
+
+<ol>
+    <li *ngFor="let objPregunta of preguntasObj">
+        {{objPregunta.pregunta}}
+        <br>
+  <span class="si">Si {{objPregunta.si}}</span> / <span class="no">No {{objPregunta.no}}</span>
+    </li>
+
+    <li *ngFor="let objPregunta of preguntasObj2">
+        {{objPregunta.pregunta}}
+        <br>
+  <span class="si">Si {{objPregunta.si}}</span> / <span class="no">No {{objPregunta.no}}</span>
+    </li>
+</ol>
+<h3>Introduzca número de Preguntas</h3>
