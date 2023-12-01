@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="logregAntiguo.jsp" x="40" y="365" zoom="true"/>
+        <Node id="inicio.jsp" x="985" y="108" zoom="true"/>
+        <Node id="index.jsp" x="135" y="36" zoom="true"/>
+        <Node id="subcategoria.jsp" x="56" y="521" zoom="true"/>
+        <Node id="logreg.jsp" x="216" y="284" zoom="true"/>
+        <Node id="email.html" x="985" y="63" zoom="true"/>
+        <Node id="categoria.jsp" x="56" y="452" zoom="true"/>
+        <Node id="articulo.jsp" x="514" y="454" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>
