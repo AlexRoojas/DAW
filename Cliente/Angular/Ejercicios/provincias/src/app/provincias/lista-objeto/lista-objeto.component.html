@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        
+        <th>AbrvProv</th>
+        <th>Código</th>
+        <th>Provincia</th>
+        <th>Comunidad</th>
+        <th>Nombre Provincia</th>
+    
+    </tr>
+    <tr>
+        <td *ngFor="let valor of objeto | keyvalue">
+            {{valor.value}}
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<script>
+		function pulsaTeclado(event) {
+
+			var codigo =  event.charCode;
+			var parr = document.getElementById("texto");
+			
+
+			if(codigo === 13){
+				parr.innerHTML+="<br>";
+			}else{
+				parr.innerHTML+=String.fromCharCode(codigo);
+			}
+			
+		}
+		function borrar(event){
+			var codigo = event.keyCode;
+			var cuerpo = document.body.innerHTML;
+			if(codigo == 8){
+				cuerpo = cuerpo.substring(0,cuerpo.length-1);
+				document.body.innerHTML = cuerpo;
+			}
+			
+		}
+
+     
+		
+		window.onload=function(){
+			document.body.onkeypress = pulsaTeclado;
+			document.body.onkeydown = borrar;
+		}
+	</script>
+</head>
+
+<body>
+	<h1>Escribe lo que quieras</h1>
+	<p id="texto"></p>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #mapao{position:relative;
+                   left:0px; bottom:0px;
+                   width:420px;height:300px;
+                   background-color: red
+            }
+            #mapad{position:relative;
+                   right:0px; bottom:0px;
+                   width:420px;height:300px;
+                   background-color: blue}
+
+            #origen {float:left
+            }    
+            #destino {position:absolute;
+                      right:10px;
+                      float:left
+            }
+            
+            .draggable img{
+                width: 50%;
+            }
+            .draggable p{
+                position: absolute;
+                top: 20%;
+                left:70%;
+                font-size:30px;
+            }
+        </style>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <title>Ejemplo Como Llegar...</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAxzeAgRx3i06pWOJX26eh7lOcq1Ua8BGU"></script>
+
+        <script>
+//----------------------------------------------------------------
+//   Ajax Javasscript ......................................... -->
+//----------------------------------------------------------------
+            var busquedas = {};
+            
+            
+           $(function () {
+               //--------------Carga el google maps---------------
+                google.maps.event.addDomListener(window, 'load', null);
+                //--------------Carga provincias en el select-----------------------
+                $.getJSON("BuscaPoblaciones",{provincia:'provincia'} ,function(provincias){
+                    $.each(provincias, function(idProv, nombreProv){
+                      $("#provincia").append($("<option>").val(idProv).text(nombreProv));
+                      //.append("<option value="+idProv+">"+nombreProv+"</option>");
+                        });
+                });    
+                
+                
+                //------------Buscar localidad segun provincia--------------
+                $("#provincia").on("change",function (){
+                    
+                    //Antes de hacer la peticion limpiamos el input
+                    
+                    $("#txtLoc").val("");
+                    
+                    $.getJSON("BuscaPoblaciones",{provincia:$("#provincia").val()}, function(localidad) {
+                        $.each(localidad, function(id, muni){
+                            $("#localidad").append($("<option>").val(muni));        
+                        });//each
+                    });//JSON
+                    
+                });//change
+                
+                
+                //--sugerencia pueblos----
+                $("#municipio").keyup(function (evento){
+                    var tecla = evento.keyCode;
+                    
+                    if(!(tecla>=37 && tecla<=40 )&& tecla!=13){
+                       if(busquedas[$("#municipio").val()]==undefined){ 
+                    
+                        $.ajax({
+                            url:"BuscaPoblaciones",
+                            data:'municipio='+$(this).val(),
+                            type:'GET',
+                            dataType: 'JSON',
+                            success: function (datos,estado,xhr){
+
+                                $("#municipiodl").empty();
+
+                                $.each(datos, function(id, muni){
+                                    $("#municipiodl").append($("<option>").val(muni));
+                                });//each
+                                busquedas[$("#municipio").val()]=datos;
+                            },
+                            error : function (xhr,status,error) {
+                                alert("Error cargando municipios: "+status);
+                            }
+                        });
+                    
+                    }//if
+                    
+                    }//if busquedas
+                });//keyup
+                
+                
+                //-----------------ver ruta---------------------------------------  
+                $("#verRuta").click(function () {
+                    muestraRuta();
+                });
+                
+                $("#donde").click(function () {
+                    geoLocaliza();
+                });
+                
+                
+                //-----------------------------Drag&Drop----------------------------
+               
+
+
+                //$("input[list='localidad']").draggable({helper:myhelper,zIndex: 10000,cancel: ''});
+                
+                      $("input").draggable({
+                          cancel:'',
+                          zIndex: 200,
+                          cursor:'move',
+                          helper: function () {
+                                var $div=$("<div></div>");
+                                $div.addClass("draggable");
+                                var $img=$("<img>").attr("src","img/images2.jpg");
+                                $div.append($img);
+                                
+                                var $pueblo = $(this).val();
+                                
+                                var $p;
+                                
+                                    $p=$("<p>").text($pueblo);
+                                
+                                
+                                
+                                $div.append($p);
+                                
+                                
+                                return $div;
+                            }
+                          
+                      });
+                      
+                      $("#mapao,#mapad").droppable({
+                          drop:mapea
+                      });
+            }); //ready--------------------------------------------------------------
+    //---------------------------------------------------
+    function mapea (evento,ui) {
+                    var miPueblo = $(ui.helper).text();
+                    $(ui.helper).effect("explode",{mode:'hide',percent:100},1000);
+                    var donde = evento.target.id;
+                    
+                    $.ajax({
+                        url: "BuscaCoordenadas",
+                        async: true,
+                       // data: 'municipio=' + $("#municipio").val(),
+                        data: 'municipio=' + miPueblo,
+                        type: 'GET',
+                        dataType: 'JSON',
+                        success: function (position, estado, xhr) {
+
+                            var pos = new google.maps.LatLng(position.latitud,
+                                    position.longitud);
+
+
+                            map = new google.maps.Map($('#'+donde)[0],
+                                        {zoom: 10, center: pos});
+                                        
+                            //var marker =
+                            new google.maps.Marker({
+                                position: pos,
+                                map: map,
+                                title: 'Pueblo: '+miPueblo
+                            });
+
+                            $('#'+donde).data("pueblo", miPueblo);
+                        },
+                        error: function (datos, estado) {
+                            alert("error->" + estado);
+                        }
+
+                    });
+                };
+    //---------------------------------------------------
+    function muestraRuta() {
+
+                var origen = $("#mapao").data("pueblo");
+                var destino = $("#mapad").data("pueblo");
+                if (origen && destino) {
+                    var map = new google.maps.Map(document.getElementById('ruta'), {
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    });
+
+                    var directionsService = new google.maps.DirectionsService();
+                    var directionsDisplay = new google.maps.DirectionsRenderer();
+
+                    directionsDisplay.setMap(map);
+
+                    var request = {
+                        origin: origen + ', ES',
+                        destination: destino + ', ES',
+                        travelMode: google.maps.DirectionsTravelMode.DRIVING
+                    };
+
+                    directionsService.route(request, function (response, status) {
+                        if (status == google.maps.DirectionsStatus.OK) {
+                            directionsDisplay.setDirections(response);
+                        }
+                    });
+                } else
+                    alert("Introduzca un origen y un destino");
+
+            }
+    //------------------------------------------------------------------ 
+    function cargaProvincias() {//Recibe la respuesta del servidor con un JSON, con 
+                // todas provincias y las carga en la lista provincias.
+
+            }
+//-------------------------------------------------------------------
+            function buscaLocalidades() { // Petición Ajax, para pedir las localidades de 
+                // la provincia seleccionada
+
+            }
+//----------------------------------------------------------------------
+            function cargaLocalidades() { // función manejadora de la petición Ajax lanzada en
+                //buscaLocalidades y cargaMunicipios
+
+            }
+//-------------------------------------------------------------------
+            function cargaMunicipios() { // Petición Ajax para cargar las Localidades cada vez
+                // que se añadan letras a la perición
+
+            }
+//----------------------------------------------------------------------
+
+            function cargaCoordenadas() {// Petición Ajax para obtener la latitud y longitud
+                // del municipio seleccionado
+
+            }
+//-----------------------------
+            function procesaCoordenadas() {// funcion que recoge las cordenadas de la localidad y
+                // genrea un mapa Google.maps para mostrarla.
+
+            }
+//---------------------------------------------------------------------
+            function geoLocaliza() { // función que obtiene la latitud y longitud del 
+                // objeto geolocation del objeto navigator de nuestro navegador
+                //  mostrando en un mapa de Google Maps nuestra posicion.                  
+                // Try HTML5 geolocation
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                            function (position) {
+                                var pos = new google.maps.LatLng(position.coords.latitude,
+                                        position.coords.longitude);
+                                map = new google.maps.Map(document.getElementById('mapad'),
+                                        {zoom: 10, center: pos});
+                            });//funtion                       
+                } else
+                    alert("Tu navegador no soprta Geopocalización");
+
+
+            }
+
+        </script> 
+
+        <!------------------------------------------ -->
+
+
+        <!------------------------------------------ -->
+    </head>
+    <body>
+        <!-- Origen............................................... -->
+        <fieldset style="width:35%" id="origen">
+            <legend>Origen...</legend>
+            <form>
+                <fieldset style="width:30%">
+                    <legend>Busqueda de Localidades por Provincia...</legend>
+                    <label>Provincias</label><br/> 
+
+                    <select id="provincia" ><!--datalist-->
+                        <option>Selecciona una provincia...</option>
+
+                    </select>
+                    <div id="resto-form" ><!--style="display:none"-->
+                        <label>Localidades</label><br/> 
+                        <input list="localidad" name="localidad" id="txtLoc">
+                        <datalist id="localidad"><!-- name="localidad"-->
+                        </datalist>
+
+                    </div>
+                </fieldset>
+            </form>
+            <form>
+                <fieldset style="width:30%">
+                    <legend>Busqueda de Localidades de España...</legend>
+                    <div id="muni" >
+                        <label>Municipios</label>
+                        <input list="municipiodl" id="municipio" name="municipio" size="30">
+                        <datalist id="municipiodl"></datalist>
+
+                    </div>
+                </fieldset>
+
+            </form>
+            <button id="vero">localizar </button>
+
+
+            <div id="mapao"></div>
+        </fieldset>
+
+        <!-- Destin...............................................-->
+        <fieldset style="width:35%" id="destino">
+
+            <button id="verRuta">Ver ruta </button>
+            <div id="ruta" style="height: 250px"></div>    
+
+
+
+            <button id="ver">localizar </button><button id="donde">Donde Estoy? </button>
+
+            <div id="mapad"></div>
+        </fieldset>   
+
+    </body>
+</html>

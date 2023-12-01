@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+   <head>
+   <meta charset="utf-8">
+      <title>
+        Mantenimiento de Clientes
+      </title>
+ 
+      <style>
+         	#panelCentro{
+				left:20em;
+				position:absolute;
+				border:solid 1px green;
+				top:1em;
+		  }
+	   	  	#bt{
+				width: 400px;
+			    left: 30%;
+	   		}
+         #fcli {
+	   		 width: 400px;
+			 float:left;
+			 position: absolute;
+			 left: 1%;
+	        }
+         #listados {
+			left: 45%;
+		    position: absolute;
+		 }
+          #divQs{
+				left: 45%;
+                 top:2%;
+                 width: 400px;
+		    position: absolute; 
+             }    
+		  
+		  table,tr,td,th{
+			border:1px solid black;
+		}
+                
+      </style>
+      
+     <script src="cargaFicheroDOM.js"></script>
+
+ <script>
+	 var clientes={};
+	 var clientesP={};
+		
+	 var arrJSON=[];
+	 var arrQS=[];
+	 
+	 function guardaCliente(event){
+		 event.preventDefault();
+		 
+		 var nombreForm=event.target.name;
+		 var escribeListado=document.getElementById("qs");
+		 var tipoDato=document.getElementsByName("td");
+		 var apecli=document.getElementById("apellidos").value;
+		 var arrApe=apecli.split(" ");
+		 
+		 
+		 var tipoGuarda="";
+		 
+		 for(let i=0;i<tipoDato.length;i++){//comprobamos si es el Json o QS
+				 if(tipoDato[i].checked){
+					 tipoGuarda=tipoDato[i].value;
+				 }
+		 }
+		 
+		if(arrApe[0]!=arrApe[1]){//comparamos si son apellidos diferentes
+			
+			var cliente = crearObjetoGenerico(nombreForm);
+			var keyObjCliente=cliente.nombre+" "+cliente.apellidos;
+			
+			clientes[keyObjCliente]=cliente;
+			
+			var keysClientes=Object.keys(clientes);
+			var arrProvincias=[];
+			var provin="";
+
+			for(let i=0;i<keysClientes.length;i++){
+					if(cliente.provincia==clientes[keysClientes[i]].provincia){
+							arrProvincias[arrProvincias.length]=clientes[keysClientes[i]];
+							provin=clientes[keysClientes[i]].provincia;
+					  }	
+			}
+
+
+			clientesP[provin]=arrProvincias;
+			if(tipoGuarda=="json"){
+						arrJSON[arrJSON.length]=JSON.stringify(cliente);
+						escribeListado.innerHTML="";
+						for(let i=0;i<arrJSON.length;i++){
+							 escribeListado.innerHTML+="cliente="+arrJSON[i]+"<br>";
+						}
+			}else{
+				var queryString="nombre="+cliente.nombre+"&apellidos="+cliente.apellidos+"&nif="+cliente.nif+ "&edad="+cliente.edad+"&sexo="+cliente.genero+"&email="+cliente.email;
+
+				arrQS[arrQS.length]=queryString;
+				escribeListado.innerHTML="";
+				for(let i=0;i<arrQS.length;i++){
+					 escribeListado.innerHTML+=arrQS[i]+"<br>";
+				}	
+			}
+			
+		}else{
+			alert("Error: Los apellidos son iguales.");
+		}
+		 
+	 }//guardaCliente
+	
+	 
+	 function crearObjetoGenerico(nombreForm){
+		var objetoGenerico={};
+		var formulario=document.forms[nombreForm];
+		var bien=false;
+		for(let i=0;i<formulario.length;i++){
+			if(formulario.elements[i].type=="text" || formulario.elements[i].type=="number" || formulario.elements[i].type=="email"|| formulario.elements[i].type=="radio" || formulario.elements[i].type=="select-one"){
+				
+				if(formulario.elements[i].value!="" && formulario.elements[i].value!="0"){
+					objetoGenerico[formulario.elements[i].name]=formulario.elements[i].value;
+					bien=true;;
+
+				}				
+			}
+
+		}
+		if(bien){
+			alert("Formulario creado.");
+			formulario.reset();
+		}else{
+			alert("Error al crear el formulario.");
+		}		
+		return objetoGenerico;				   
+	}//creaObjeto
+	 
+	 function listaClientes(){
+		var tabla="";
+		var listado=document.getElementById("listados");
+		var keyCliente=Object.keys(clientes);
+		var generoSel=document.getElementsByName("lc");
+			
+		var opcList="";
+			
+		for(let i=0;i<generoSel.length;i++){
+			if(generoSel[i].checked){
+			 	opcList=generoSel[i].value;
+			}
+		}
+		 
+		 
+		 if(opcList!=""){
+				
+				tabla+="<table>";
+				tabla+="<tr><th>Nombre</td><th>Apellidos</th><th>Edad</th><th>Sexo</th><th>Nif</th><th>Email</th><th>Provincia</th></tr>";
+				for(let i=0;i<keyCliente.length;i++){
+					 if(opcList==clientes[keyCliente[i]].genero){
+						 tabla+="<tr><td>"+clientes[keyCliente[i]].nombre+"</td><td>"+clientes[keyCliente[i]].apellidos+"</td><td>"+clientes[keyCliente[i]].edad+"</td><td>"+clientes[keyCliente[i]].genero+"</td><td>"+clientes[keyCliente[i]].nif+"</td><td>"+clientes[keyCliente[i]].email+"</td><td>"+clientes[keyCliente[i]].provincia+"</td></tr>";
+					 }
+				}
+				tabla+="</table>";
+
+				listado.innerHTML=tabla;
+			}else{
+				alert("Error al listar.");
+			}
+		 
+		 
+	 }//listaClientes
+	 
+	 function listaProvincias(){
+		var objCli;	
+		var tabla="";
+		var listado=document.getElementById("listados");	
+		var keysProvincias=Object.keys(clientesP);	
+		 
+		var generoSel=document.getElementsByName("lc");	
+		var opcList="";
+		for(let i=0;i<generoSel.length;i++){
+			if(generoSel[i].checked){
+				 opcList=generoSel[i].value;
+			}
+		}
+		
+		if(opcList!=""){
+				
+			for(let i=0;i<keysProvincias.length;i++){
+				objCli=clientesP[keysProvincias[i]];
+
+				tabla+="<br><table>";
+				tabla+="<caption>Listado de clientes de la Provincia de : "+keysProvincias[i]+"</caption>";
+				tabla+="<tr><th>Nombre</th><th>Apellidos</th><th>Edad</th><th>Sexo</th><th>Nif</th><th>Email</th><th>Provincia</th></tr>";
+				for(let j=0;j<objCli.length;j++){
+							
+					if(opcList==objCli[j].genero){
+						tabla+="<tr>";
+						tabla+="<td>"+objCli[j].nombre+"</td><td>"+objCli[j].apellidos+"</td><td>"+objCli[j].edad+"</td><td>"+objCli[j].genero+"</td><td>"+objCli[j].nif+"</td><td>"+objCli[j].email+"</td><td>"+objCli[j].provincia+"</td>";
+						tabla+="</tr>";
+					}
+				}
+					tabla+="</table><br>";
+				}
+				listado.innerHTML=tabla;
+			}else{
+				alert("Error al listar.");
+			}
+			
+	 }//listaProvincias
+	 
+	 
+	 function validaNif(){
+			
+			var nif=document.getElementById("nif").value;
+			
+			var cumpleNif=false;
+			var cumpleLetra;
+			
+			if(nif.split("").includes("-")){
+			   cumpleLetra=calcularLetraNif("-",nif);
+			}else if(nif.split("").includes(" ")){
+						cumpleLetra=calcularLetraNif(" ",nif);
+				  }
+				
+				  if(cumpleLetra){
+					 	cumpleNif=true;
+				  }
+				
+			 
+			
+			 return cumpleNif;	
+		}
+	 function calcularLetraNif(){
+			var idnif = document.getElementById("nifcli");
+			var arrayLetras=["T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"];
+			
+			var numerosNif=idnif.value.substring(0,idnif.value.indexOf("-"));
+			var resto=numerosNif%23;
+			var letra=arrayLetras[resto];
+			var dniCorrecto=numerosNif+"-"+letra;
+			
+			var cumpleLetra=false;
+						
+			if(dniCorrecto==idnif.value){
+			    cumpleLetra=true;
+			}else if(dniCorrecto!=idnif.value){
+				idnif.innerText=dniCorrecto;
+				alert("La letra correcta es "+letra);
+			}
+			
+			return 0;
+		}
+	 
+ </script>
+ 
+   </head>
+   <body>
+    	<form id="bt">
+         <fieldset><legend>Mantenimiento de Clientes...</legend>
+            <input type="button" value="Alta (Alt+A)" id="alta" onClick="abrirForm()"/>
+            <fieldset><legend>Listados de Clientes...</legend>
+                <input type="button" value="Listar (Alt+L)" id="lista" onClick="listaClientes();"/><br>
+                Mujeres   :<input type="radio" name="lc" id="listP" value="M">
+                Hombres   :<input type="radio" name="lc" id="listN" value="H">
+                no Binarios:<input type="radio" name="lc" id="listB" value="NB" checked>
+               <br><input type="button" value="Listar Por Provincias (Alt+P)" id="listaP" onClick="listaProvincias();"/>
+            </fieldset>
+            <fieldset><legend>Datos a guardar en...</legend>
+                JSON   :<input type="radio" name="td" checked value="json" >
+                Query String   :<input type="radio" name="td" value="query">
+            </fieldset>
+          </fieldset>
+        </form>
+       
+       <div id="divQs">
+        <fieldset ><legend>Query String / JSON</legend>
+			<div id="qs"></div>
+        </fieldset>
+       </div>  
+      
+    <footer>
+	<hr>
+	<!-- formulario de alta -------------------------------------------------------->
+    <div id="fcli" style="display:none">
+        <form id="frmcli" name="formCli" onSubmit="guardaCliente(event);">
+            <fieldset><legend>Formulario Alta de Clientes...</legend>
+            <div>
+            <p>Nombre.....:<input type="text" id="nombre" placeholder="Nombre?" name="nombre"
+             title="Mayuscula + 3 car" pattern="^[A-Z].{3,}" required/></p>
+            
+            <p>Apellidos:<input type="text" id="apellidos" placeholder="Apellidos?" name="apellidos" 
+                             title="2 Apellidos distintos, enpiezan May, min 3 car" pattern="^[A-Z].{2,}" required/></p>
+            <p> <br />
+            Nif:<input type="text" id="nifcli" placeholder="nif" name ="nif" 
+                             title="8 numeros y una letra" pattern="\d{8}([-|\s])?[A-Z]$" required onBlur="calcularLetraNif()"/></p><!-- He aplicado en el onChange el metodo pero nose que mas hacer para que funcione, sino funciona quita el onChange -->
+            <p>Edad.........:<input type="text" id="edad" placeholder="Edad?" name="edad" 
+                              title="Uno o dos difgitos" pattern="^[0-9]{1,2}$" required/></p>
+            <p>Sexo......:<input type="radio" value="H"  placeholder="Sexo?" name="genero" required/>Hombre
+                        <input type="radio" value="M"  placeholder="Curso?" name="genero" required/>Mujer
+                        <input type="radio" value="NB"  placeholder="Curso?" name="genero" required/>No Binario
+        </p>
+       
+        <p>Email.......:<input type="text" id="mail" placeholder="Email?" name ="email" 
+                               title="empieza letra, minimo 3 car y @ 3car . y 2 o 3 car ext; empieza letra May" 
+                               pattern="^[A-Z].{3,}\@.{2,}\..{2,3}$" required/></p>       
+                   
+            <select  name="provincia" id="listaProvincias" required>
+				<option value="0">ELIJA UNA PROVINCIA</option>
+				<option value="Malaga">Malaga</option>
+				<option value="Murcia">Murcia</option>
+				<option value="Lleida">Lleida</option>
+				<option value="Leon">Leon</option>
+				<option value="Aragon">Aragon</option>
+				<option value="Madrid">Madrid</option>
+				<option value="Barcelona">Barcelona</option>
+			</select>
+				
+            <input type="file" id="fichProv" value="provinciasypoblaciones.xml" onChange="cargaFichero(this,value)"/>
+    
+            <select name="localidad" id="listaPueblos" disabled multiple>
+            	<option value="0">TODAS LAS POBLACIONES</option>
+			</select>
+                
+                        
+            <input type="submit" name="formCli" value="Guardar (Ctrl+G)" id="gcli" onClick="guardaCliente(this);" />
+            <input type="reset" value="Cancelar (Ctrl+C)" id="ccli" onClick="cerrarForm()"/>
+            <br/>
+            </div>   
+           </fieldset>  
+         </form> 
+        
+    </div>
+    <div id="listados">
+    </div>
+    <!-- formulario de alta -------------------------------------------------------->  
+   </footer>  
+    <script>
+		var formulario = document.getElementById("fcli");
+		function abrirForm(){
+			formulario.setAttribute("style", "display:block");
+		}
+		function cerrarForm(){
+			formulario.setAttribute("style", "display:none");
+			formulario.reset();
+		}
+	   </script>
+     </body>
+</html>

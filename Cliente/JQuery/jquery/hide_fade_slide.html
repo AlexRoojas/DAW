@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		$("#hide").click(function(){
+			$("p").toggle("slow",function(){
+				cambia();
+			});
+	  	});
+		$("#fade").click(function(){
+			$("p").fadeToggle("slow",function(){
+				cambia();
+			});
+	  	});
+		$("#slide").click(function(){
+			$("p").slideToggle("slow",function(){
+				cambia();
+			});
+	  	});
+		$("#cant").change(function(){
+			$("p").fadeTo(100,$(this).val());
+	  	});
+		function cambia(){
+			if($("#hide").val() == "Hide"){
+				$("#hide").val("Show");
+				$("#fade").val("FadeIn");
+				$("#slide").val("SlideDown");
+				}else{
+					$("#hide").val("Hide");
+					$("#fade").val("FadeOut");
+					$("#slide").val("SlideUp");
+				}
+		}
+	});
+</script>
+<body>
+	<input type="button" value="Hide" id="hide">
+	<input type="button" value="FadeOut" id="fade">
+	<input type="button" value="SlideUp" id="slide">
+	FadeTo:
+	<input type="number" step="0.1" min="0" max="1" value="1" id="cant">
+	<br>
+	<br>
+	<p style='background-color:rgba(38,255,211,1.00)'>Prueba 1</p>
+	<p style='background-color:rgba(38,255,211,1.00)'>Prueba 2</p>
+	<p style='background-color:rgba(38,255,211,1.00)'>Prueba 3</p>
+</body>
+</html>

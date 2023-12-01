@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Euromillon</title>
+	<script>
+		var apuestaCompleta=[];
+		var nuevoAleatorio;
+		
+		function generador(){
+			
+			var parrafo = document.getElementById("parrafo");
+			parrafo.innerHTML=""; //resetea el parrafo
+			apuestaCompleta = []; //resetea el array
+			
+			function generaApuesta (){
+				apuestaCompleta = generador("Numeros: ",6,1,50).concat(" * ").concat(generador("Joker: ",2,1,12))
+				
+				apuestaCompleta.forEach(function(z){
+				parrafo.innerHTML+= z + " ";
+			});
+			}
+			
+			
+			function generador(etiqueta,cantNums,min,max){
+				let arraynums=[];
+				let i= 0
+				while(i<canNums){
+					var newAleatorio = aleatorio(1,50);
+					if(!arraynums.includes(nuevoAleatorio)){ //aqui vemos si hay repetidos
+				   		arraynums[i] = nuevoAleatorio;
+						i++;
+					}
+					
+					
+				}
+				arraynums.sort(function(x,y){
+				return x-y;
+				arraynums.unshift(etiqueta);	
+				return arraynums;	
+			})
+				
+			}
+			eval
+			while(euromillon.length<5){
+				nuevoAleatorio = aleatorio(1,50);
+				
+				if(!euromillon.includes(nuevoAleatorio)){ //aqui vemos si hay repetidos
+				   euromillon[euromillon.length] = nuevoAleatorio;
+				   }
+				
+			}
+			
+			euromillon.sort(function(x,y){
+				return x-y;
+			});
+				
+			euromillon = euromillon.concat(" * ");//añadimos al final el eso
+			
+			
+			nuevoAleatorio = aleatorio(1,12);
+			var nuevoAleatorio2 = aleatorio(1,12);
+			
+			while(nuevoAleatorio == nuevoAleatorio2){
+				nuevoAleatorio2 = aleatorio(1,12);
+			}
+			
+			if(nuevoAleatorio < nuevoAleatorio2){
+			   	euromillon[euromillon.length] = nuevoAleatorio;
+				euromillon[euromillon.length] = nuevoAleatorio2;
+			   }else{
+				   euromillon[euromillon.length] = nuevoAleatorio2;
+				   euromillon[euromillon.length] = nuevoAleatorio;
+			   }
+			
+			
+			
+		}
+		
+		
+		function aleatorio(min,max){
+			var x = Math.floor((Math.random() * max) + min);
+			return x;
+		}
+	</script>
+</head>
+
+<body>
+	<button onClick="generador()"> Genera Euromillon </button>
+	<p id="parrafo"></p>
+	<select id="" onChange="eval(this.value.replace('(','(' + numApu.value +','))";>
+	<option value=""></option>
+	</select>
+</body>
+</html>

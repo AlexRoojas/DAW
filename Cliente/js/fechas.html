@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<script>
+		
+		var d = new Date();
+		var sA = new Date();
+		
+		window.onload=function(){
+			var parrafo = document.getElementById("fecha");
+			parrafo.innerHTML=d;
+			parrafo.innerHTML+="<br> fecha local ->"+d.toLocaleDateString()+
+				d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+			parrafo.innerHTML+="<br>"+Math.round(d/1000/60/60/24/31/12);
+			
+			sA=sA.getSeconds();
+		}
+		
+		function segundos(){
+			var sD = new Date();
+			sD=sD.getSeconds();
+			
+			alert(sD-sA);
+		}
+		
+		
+		var miVariable = setInterval(miTiempo, 1000);
+
+		function miTiempo() {
+		  var d = new Date();
+		  var t = d.toLocaleTimeString();
+		  document.getElementById("tiempo").innerHTML = t;
+		}
+
+		function pararTiempo() {
+		  clearInterval(miVariable);
+		}
+		function continuarTiempo() {
+		  setInterval(miTiempo, 1000);
+		}
+		
+	</script>
+</head>
+
+<body>
+	<p id="fecha">La fecha de hoy es</p>
+	<button id="boton" onClick="segundos()">Tiempo</button>
+	<p id="tiempo"></p>
+	<button onclick="pararTiempo()">za warudo</button>
+	<button onclick="continuarTiempo()">Continuar</button>
+</body>
+</html>

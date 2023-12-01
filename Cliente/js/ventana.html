@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<script>
+		function creaVentana(){
+			var wind = window.open("","ventana","width=300,height=300");
+			var i=0;
+			wind.moveTo(0,screen.height/3);
+			
+			Periodo=setInterval(function(){
+				i++;
+				
+				wind.resizeTo(i,300);
+					if(i==screen.width){
+						wind.moveTo(screen.width,screen.height/3);
+						
+						xd=setInterval(function(){
+						i--;
+						wind.resizeTo(i,300);
+							if(i==screen.width){
+								
+								wind.moveTo(i,300);
+								clearInterval(xd);
+								
+							}
+						},1);
+						clearInterval(Periodo);
+						
+					}
+		   },1);
+			
+			
+		}
+		function ir(){
+			location.assign("https://www.chollometro.com/");
+		}
+		function funcion() {
+  			
+  			document.getElementById("tex").innerHTML+="El protocolo de la aplicacion es: "+window.location.protocol;
+			document.getElementById("tex").innerHTML+="<br>Nombre de la ruta: " + window.location.pathname;
+		}
+	</script>
+	
+</head>
+
+<body>
+	<button onClick="creaVentana()">Crea ventana</button>
+	<button onClick="ir()">Chollos</button>
+	<button onClick="funcion()">Ver</button>
+	<p id="tex"></p>
+	
+</body>
+</html>

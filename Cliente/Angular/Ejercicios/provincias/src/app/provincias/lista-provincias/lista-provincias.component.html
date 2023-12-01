@@ -1,0 +1,28 @@
+
+<table boder="1">
+    <tr>
+        <!--<th *ngFor="let cab of cabeceras">-->
+        <th>Provincias</th>
+        <th>Ver Pueblo</th>
+
+    </tr>
+    <tr *ngFor="let prov of listaProvincias | keyvalue">
+        
+        
+            <app-lista-objeto [objeto]=prov.value ></app-lista-objeto>
+        
+        
+    
+        <td>
+            <a routerLink="/Pueblos/{{prov.key}}"> Ver Pueblo {{prov.key}} 🏠</a> 
+            
+        </td>
+        <td>
+            <button  mat-raised-button color="accent" >
+                <a routerLink="/modProv/{{prov.value | json}}"> Modificar 🥱 <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon></a> 
+            </button>
+        </td>
+
+    </tr>
+</table>
+<router-outlet></router-outlet>

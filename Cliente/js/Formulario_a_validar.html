@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		*{
+			background-color: rgba(49,45,45,1.00);
+			color: white;
+		}
+		body{
+			background-color: rgba(49,45,45,1.00);
+			color: white;
+		}
+	</style>
+	<script>
+		function validaCampo(campo){
+			
+		}
+		function validaFormulario(evento){
+			evento.preventDefault();
+			var formulario = evento.target;
+		}
+	</script>
+</head>
+<!--contraseña min 8 num may min signo puntuacion 
+isbn 10 ->2- 5-2 -1 -->
+<body>
+
+    <form name="miForm" action="#" method="get" onSubmit="validaFormulario(event)">
+   
+    
+    <fieldset name="fs">
+         <legend align="center">Formulario de Alta</legend>
+              <label for="nombre">Escribe tu nombre:</label>
+              <input id="nb" name="nombre" required type="text" pattern="^[A-Z].{2,}" title="Empieza Mayus y minimo 3 letras">
+              <label for="nif">Nif:</label>
+              <input id="nf" name="nif"  required type="text" pattern="\d{8}([-|\s])?[A-Z]$" title="8 números con guion, espacio o todo junto y una letra en Mayus">
+            <!--validado con el atributo "pattern" al enviar el formulario "onsubmit"-->
+                
+            <br>
+            Contraseña...........: <input name="contrasena" value="" type="password" 
+			pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@€!%*?&])[A-Za-z\d$@$!%*?&]{8,}">
+            <br>
+            Repita Contraseña: <input name="contrasena2" value="" type="password">
+            <br>
+            E-mail   : <input id="em" name="correo" type="email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"> 
+    		<!--evento? -> Funcion de validacion genérica-->
+            <br>
+    
+    		Teléfono: <input id="tf" name="telefono"  type="text" required pattern="^((\(\d{3}\)|\d{3}-)(\d{3}-)(\d{3}))|((\(\d{3}\)|\d{3}\s)(\d{3}\s)(\d{3}))$">
+            <!--evento? -> Funcion de validacion específica-->
+    
+   		   <br>
+    		Libro preferido (ISBN): <input id="isbn" name="libro"  type="text" required pattern="[0-9]{2}(\-)[0-9]{5}(\-)[0-9]{2}(\-)[0-9]{1}"> 
+            <!--validar con el atributo "pattern" al enviar el formulario "onsubmit"-->
+        <br>
+    </fieldset>
+       <br>
+    
+    <input type="submit">
+</form>	
+<p  id="salida">Datos del formuario...</p>
+
+</body>
+</html>

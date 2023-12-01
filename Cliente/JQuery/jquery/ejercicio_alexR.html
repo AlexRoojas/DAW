@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<style type="text/css">
+	#cabecera{
+		width:500px;
+		background:rgba(130,255,214,1.00);
+		padding:10px;
+		border-radius:20px;
+		border:solid 4px;
+		margin:auto;
+	}
+		
+	#cursos, #alumnos{
+		position:relative;
+		float:left;
+		 width: 270px;
+		height:100%;
+		background:rgba(255,142,247,1.00);
+		padding:10px;
+		border-radius:20px;
+		margin:10px;
+		border:solid 4px;
+		margin-top:20px;
+			
+	}
+	#cursos{
+		float:right;
+		width:500px;
+	}
+	
+	legend{
+		font-size:25px;
+		font-weight:bold;
+		text-transform:uppercase;
+		background:#FFF;
+		padding:5px;
+		border:solid 1px;	
+	}
+	
+	fieldset{
+		background:#FFF;
+		top:20px?
+	}
+	p{
+		float: left;
+		font-weight: bold;
+		margin-right: 55px;
+		width: 60px;	
+	}
+	#lista_cursos{
+		width: 100px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script>
+		$(document).ready(function() {
+			
+			$("#btn_principio").click(function(){
+				var $curso = $("#curso").val();
+				var $fila = $("<option></option").text($curso);
+				$("#lista_cursos").prepend($fila);
+				addCurso($curso);
+				$("#curso").val("");
+			});
+			
+			$("#btn_final").click(function(){
+				var $curso = $("#curso").val();
+				var $fila = $("<option></option").text($curso);
+				$("#lista_cursos").append($fila);
+				addCurso($curso);
+				$("#curso").val("");
+			});
+			
+			
+			
+			$("#btn_eliminar").click(function(){
+				var $cursoSel=$("#lista_cursos").val();
+				
+				$("#"+$cursoSel).remove();
+				
+				$("#lista_cursos option:selected").remove();
+				
+			});
+			
+			$("#addPrin").click(function(){
+				var $cursoSel = $("#lista_cursos option:selected").val();
+				var $nombre = $("#nombre_alumno").val();
+				
+				var $p= $("<p></p>").text($nombre);
+				$("#"+$cursoSel).prepend($p);
+				
+				$("#nombre_alumno").val("");
+			});
+			
+			$("#btn_alumno_final").click(function(){
+				var $cursoSel = $("#lista_cursos option:selected").val();
+				var $nombre = $("#nombre_alumno").val();
+				
+				var $p= $("<p></p>").text($nombre);
+				$("#"+$cursoSel).append($p);
+				
+				$("#nombre_alumno").val("");
+			});
+			
+			function addCurso(curso){
+				var $div = $("<div><fieldset id="+curso+"><legend>"+curso+"</legend></fieldset></div>");
+				$("#div_cursos").append($div);
+				
+			};
+			
+		});
+	</script>
+</head>
+
+<body>
+	<div id="cabecera">
+    	<span>Añade un curso a la lista</span> <input value="4ªA" id="curso" type="text">
+    	<button id="btn_principio">Al Principio</button>
+    	<button id="btn_final">Al Final</button>
+    </div> 
+        
+    <div id="alumnos">
+    	<h1> Añadir </h1>
+        <span>Añadir alumno </span><input size="10" id="nombre_alumno" type="text"><br>
+        <span>Elija un curso </span> 
+        <button id="addPrin">Al principio</button>
+        <button id="btn_alumno_final">Al final</button> <br>
+        <select id="lista_cursos" size="5"></select>
+        <button id="btn_eliminar">Eliminar</button>
+    </div>
+    
+        
+	<div id="cursos">
+    	<h1>Cursos</h1>
+        <div id="div_cursos">
+        </div>
+    </div>
+    
+    
+
+
+
+
+</body></html>

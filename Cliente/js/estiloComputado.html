@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<meta charset="iso-8859-1">
+<title>Estilo Computado</title>
+<script>
+	
+	//------------------------------------------------------
+	function getStyle(elemento, propiedadCss) {
+			var valor = "";
+				if(document.defaultView && document.defaultView.getComputedStyle){
+					valor = document.defaultView.getComputedStyle(elemento,'').getPropertyValue(propiedadCss);
+				}
+				else if(elemento.currentStyle) {
+					propiedadCss = propiedadCss.replace(/\-(\w)/g, function (strMatch, p1) {
+																	return p1.toUpperCase();
+																	});
+				valor = elemento.currentStyle[propiedadCss];
+				}
+			return valor;
+		}
+	//-------------------------------------------------------
+	
+		
+	window.onload= function(){
+		//atributosCss();
+		
+		var divSal= document.getElementById("salida");
+		
+		var parrafo3 = document.getElementById("p3");
+		
+					
+		
+	}
+	/*
+	document.defaultView.getComputedStyle(p3,"").backgroundColor
+	window.getComputedStyle(p3,"").backgroundColors
+	*/
+</script>
+<style>
+	 #p3 {color: skyblue;background-color: olive;}
+</style>
+</head>
+
+<body>
+
+	<p id="p1">Aprendiendo DOM</p>
+        
+    <div id="div1" class="hola adios">
+   		<p id="p2">DOM es sencillo de aprender</p>
+		<p id="p3" style="color:red; font-size:18px">Ademas, DOM es muy potente</p>
+    </div>
+    
+    <div id="salida">Salida..............</div>
+
+<table summary="Descripción de la tabla y su contenido">
+<caption>Título de la tabla</caption>
+<thead>
+  <tr>
+    <th scope="col"></th>
+    <th scope="col">Cabecera columna 1</th>
+    <th scope="col">Cabecera columna 2</th>
+  </tr>
+</thead>
+
+<tfoot>
+  <tr>
+    <th scope="col"></th>
+    <th scope="col">Cabecera columna 1</th>
+    <th scope="col">Cabecera columna 2</th>
+  </tr>
+</tfoot>
+
+<tbody>
+  <tr>
+    <th scope="row">Cabecera fila 1</th>
+    <td>Celda 1 - 1</td>
+    <td>Celda 1 - 2</td>
+  </tr>
+  <tr>
+    <th scope="row">Cabecera fila 2</th>
+    <td>Celda 2 - 1</td>
+    <td>Celda 2 - 2</td>
+  </tr>
+</tbody>
+
+</table>
+
+</body></html>

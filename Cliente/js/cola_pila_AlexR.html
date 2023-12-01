@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cola Pila AlexR</title>
+	<script>
+		var arrayCola = [];
+		var arrayPila = [];
+		
+		function añadirCola(){
+			
+			var nuevaPalabra = document.getElementById("texto").value;
+			
+			if(nuevaPalabra == ""){
+			   	alert("Rellena el campo de texto");
+				
+			   }else{
+				   document.getElementById("texto").value = ""; //vaciar campo
+				   
+				   arrayCola.push(nuevaPalabra);
+				   
+				   actualizarCola();
+				   
+			   }
+		}
+		
+		function añadirAPila(){
+			
+			if (arrayCola.length > 0){
+				
+				var palabra = arrayCola.shift();
+				
+				arrayPila.push(palabra);
+				
+				actualizarCola();
+				actualizarPila();
+				
+			}else{
+				alert("No hay mas palabras que añadir");
+			}
+			
+		}
+		
+		function volverCola (){
+			
+			if(arrayPila.length>0){
+				
+				var palabra = arrayPila.pop();
+				
+				arrayCola.push(palabra);
+				
+				actualizarCola();
+				actualizarPila();
+				
+			}else{
+				alert("No hay mas palabras en la pila");
+			}
+			
+		}
+		
+		var actualizarCola=function(){
+			
+			var rellenoCola = "";
+			
+			for(let i=0;i<arrayCola.length;i++){
+				rellenoCola+="<td>"+arrayCola[i]+"</td>";
+				
+			}
+			document.getElementById("cola").innerHTML=rellenoCola;
+		}
+		
+		var actualizarPila = function(){
+			
+			var rellenoPila = "";
+			
+			for(let i=arrayPila.length-1;i>=0;i--){
+				
+				rellenoPila+="<tr><td>"+arrayPila[i]+"</td><tr>";
+				
+			}
+			document.getElementById("pila").innerHTML=rellenoPila;
+		}
+		
+	</script>
+	
+	<style>
+		body{
+			background-color:"#79C7B2" ;
+		}
+		table, tr, td {
+			border: 1px solid black;	
+		}
+	</style>
+</head>
+
+<body>
+	<p>Escriba una palabra</p>
+	
+	<input type="text" id="texto">
+	<button id="bCola" onClick="añadirCola()"> Añadir a la cola </button>
+	<br>
+	
+	<br>
+	
+	<table>
+		<tr id="cola"></tr>
+	</table>
+	
+	<br>
+	
+	<button id="bPila" onClick="añadirAPila()">Añadir a la pila </button>
+	<br>
+	<br>
+	<table id="pila">
+	</table>
+	
+	<br>
+	<button id="bVolver" onClick="volverCola()">Volver a la cola </button>
+	
+</body>
+</html>

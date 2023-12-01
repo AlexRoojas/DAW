@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>recorreString</title>
+	<script>
+	var mensaje="Hola que tal";
+		function deletrea(){
+			var parrafo=document.getElementById("salida");
+
+			parrafo.innerHTML+="<br>";
+
+			parrafo.innerHTML+=("<br>------Recorrer funcion con for normal-------<br>");
+
+			for(let i=0;i<mensaje.length;i++)
+			parrafo.innerHTML+=mensaje[i]+"-";
+
+			parrafo.innerHTML+=("<br>------Recorrer funcion con for in-------<br>");
+
+			for(let i in mensaje)
+			parrafo.innerHTML+=mensaje[i]+"-";
+
+			parrafo.innerHTML+=("<br>------Recorrer funcion con for of-------<br>");
+
+			for (let x of mensaje) {
+			 parrafo.innerHTML += x + "-";
+			}
+
+			parrafo.innerHTML+=("<br>------Recorrer funcion con forEach-------<br>");
+
+			mensaje.split("").forEach(function(letra){
+			parrafo.innerHTML+=letra+"-";
+			})
+
+			parrafo.innerHTML+=("<br>------Recorrer funcion con split y join-------<br>");
+
+			parrafo.innerHTML+=mensaje.split("").join("-");
+			}
+		
+		
+
+	</script>
+</head>
+
+<body>
+		<p id="salida" onClick="deletrea()">Salida</p>
+	
+</body>
+
+</html>

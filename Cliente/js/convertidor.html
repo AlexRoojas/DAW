@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Convertidor</title>
+	<script>
+		var stringBinario="";
+		function convertir(){
+			
+			stringBinario="";
+			
+			var texto = document.getElementById("texto").value;
+			
+			
+			for (let x in texto) {
+				stringBinario+=texto.charCodeAt(x).toString(2)+" ";
+			}
+				
+			document.getElementById("binario").innerHTML=stringBinario;
+		}
+		function original(){
+			var traduccion = stringBinario.split(" ");
+			var numerosBiarios=0;
+			var resultado="";
+			
+			for(let i in traduccion){
+				numerosBiarios=parseInt(traduccion[i],2);
+				
+				resultado +=String.fromCharCode(numerosBiarios);
+				
+			}
+			document.getElementById("decimal").innerHTML=resultado;
+		}
+	</script>
+</head>
+	
+<body bgcolor="#79C7B2">
+	<p>Escriba una frase o palabra</p>
+	
+	<input type="text" id="texto">
+	<br>
+	<br>
+	<button id="bBinario" onClick="convertir()"> Convertir a binario </button>
+	<br>
+	
+	<br>
+	<p>Texto en binario: </p>
+	<p id="binario"></p>
+	<br>
+	
+	
+	<button id="bDecimal" onClick="original()">Convertir a original </button>
+	<br>
+	<p id="decimal"></p>
+	
+	
+</body>
+</html>

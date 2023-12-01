@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Prueba Array</title>
+	
+	<script>
+		var cars = ["Saab",12343, "Volvo",33221, "BMW",44224];
+		//  cars.length=4;
+		function listaCoches(lista){
+			var taller=document.getElementById("ptaller");
+			taller.innerHTML+="<ol>";
+			for(let i=0;i<lista.length;i+=2){
+				taller.innerHTML+="<li>Modelo "+lista[i]+" matricula "+lista[i+1]+"</li>";
+				
+			}
+			taller.innerHTML+="</ol>";
+			cars="";
+		}
+	</script>
+	
+</head>
+
+<body>
+	<p id="ptaller">Listado de coches del taller </p>
+	<button onClick="listaCoches(cars)">Crear lista</button>
+</body>
+</html>

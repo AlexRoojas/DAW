@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("button").click(function(){
+    var div = $("div");  
+    div.animate({width:'98%',height:'80%'}, 2000)
+		.animate({fontSize:"200px"}, 2000).html("XD")
+		.animate({width:'10%',height:'10%',left:"90%",top:"90%",fontSize:"20px"}, 2000);
+  });
+});
+</script> 
+</head>
+<body>
+
+<button>Dale Click</button>
+	<br>
+<div style="background:rgba(191,119,120,1.00);height:100px;width:200px;position:absolute;top: 100px;text-align: center;">IES MARTIN RIVERO</div>
+
+</body>
+</html>

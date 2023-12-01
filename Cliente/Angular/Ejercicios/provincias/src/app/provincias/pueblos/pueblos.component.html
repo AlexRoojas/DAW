@@ -1,0 +1,15 @@
+<table>
+   <tr>
+      <th>Codigo Pueblo</th>
+      <th>Latitud</th>
+      <th>Longitud</th>
+      <th>Nombre</th>
+   </tr>
+    <tr *ngFor="let objPueblo of misPueblosSelec|keyvalue">
+       <td *ngFor="let valoresPueblos of objPueblo|keyvalue">
+          <label *ngFor="let puebloInfo of valoresPueblos.value|keyvalue">
+            {{puebloInfo.value}}
+          </label>
+       </td>
+    </tr>
+</table>

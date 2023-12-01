@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("input").hover(function(){
+			  $(this).css("background-color", "lightgray");
+				//{"background-color":lightgray,color:blue}
+			},
+			function(){
+			  $(this).css("background-color", "white");
+			})
+			.focus(function(){
+				$(this).css("color", "green");
+			  })
+			
+			.blur(function(){
+				$(this).css("color", "red");
+			});
+		  
+		});
+		
+		
+		
+	</script>
+</head>
+
+<body>
+	<p>Hola</p>
+	<input type="text" value="hola">
+	<input type="text" value="adios">
+</body>
+</html>

@@ -1,0 +1,31 @@
+function validaAlta(){
+			var botonRadio = document.getElementsByTagName("sexo");
+			
+			for (let i = 0; i < botonRadio.length; i++ ){
+				if (botonRadio[i].checked) {
+					cliente[botonRadio[i].name] = botonRadio[i].value;
+					}
+			}
+			
+         	var stringCliente = "{";
+			
+			stringCliente += "\"" + nomcli.name + "\"" + ":" + "\"" + nomcli.value + "\"";
+			stringCliente += ",";
+			stringCliente += "\"" + apecli.name + "\"" + ":" + "\"" + apecli.value + "\"";
+			stringCliente += ",";
+			stringCliente += "\"" + nifcli.name + "\"" + ":" + "\"" + nifcli.value + "\"";
+			stringCliente += ",";
+			stringCliente += "\"" + edcli.name + "\"" + ":" + "\"" + edcli.value + "\"";
+			stringCliente += ",";
+			stringCliente += "\"" + mail.name + "\"" + ":" + "\"" + mail.value + "\"";
+			stringCliente += ",";
+			stringCliente += "\"" + listaProvincias.name + "\"" + ":" + "\"" + listaProvincias.value + "\"";
+			stringCliente += ",";
+			stringCliente += "\"" + listaPueblos.name + "\"" + ":" + "\"" + listaPueblos.value + "\"";
+			
+			stringCliente += "}";
+			
+			alert(JSON.parse(stringCliente));
+			alert(JSON.stringify(JSON.parse(stringCliente)));
+			
+        }

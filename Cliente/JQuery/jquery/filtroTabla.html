@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#myInput").on("keyup", function() {
+			var valor = $(this).val().toLowerCase();
+
+			var tds=[];
+				$(":checkbox:checked").each(function(i,checkkk){
+					tds[i]=this.parentNode.cellIndex;
+				});
+
+			$("#myTable tr").filter(function(){
+				var texto="";
+				for(indice of tds){
+					texto+=this.cells[indice].textContent;
+				}
+				if($(":radio:checked").val()=="oculta"){
+					if(texto.toLowerCase().indexOf(valor)>-1){
+						$(this).show();
+					}else{
+						$(this).hide();
+					}
+				}
+				else{
+					$(this).css("color","black").show();
+
+					if(texto.toLowerCase().indexOf(valor) == -1){//cuando no coincidad
+						$(this).css("color","red");
+					}
+				}
+			});//filter
+			
+		});//keyup
+		
+		$(":radio,:checkbox").click(function(){
+			$("#myInput").trigger("keyup");
+		});
+		
+		$(document).keydown(function(event){
+			if(event.keyCode == 70 && event.ctrlKey){
+				event.preventDefault();
+				$(":radio,:checkbox,:text").toggle();
+				$("#myInput").trigger("keyup");
+			}
+		});
+		
+	});
+</script>
+<style>
+	div{
+		border:solid rgba(0,255,251,1.00) 1px;
+	}
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	td, th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+
+	tr:nth-child(even) {
+		background-color: #dddddd;
+	}
+</style>
+</head>
+<body>
+
+<h2>Filtro Tabla</h2>
+	
+<input id="myInput" type="text" placeholder="Buscar..">
+	<input type="radio" name="ver" value="oculta" checked><label for="ocultar">Ocultar</label>
+	<input type="radio" name="ver" value="colorear"><label for="colorear">Colorear</label>
+<br><br>
+<div>
+<table>
+  <thead>
+  <tr>
+    <th>Nombre
+		<input type="checkbox" id="fNombre" class="check" checked>
+	  </th>
+    <th>Apellido
+		<input type="checkbox" id="fApe" class="check" checked>
+	  </th>
+    <th>Email
+		<input type="checkbox" id="fEmail" class="check" checked>
+	  </th>
+  </tr>
+  </thead>
+  <tbody id="myTable">
+  <tr>
+    <td>John</td>
+    <td>Cenna</td>
+    <td>john@example.com</td>
+  </tr>
+  <tr>
+    <td>Mary</td>
+    <td>Curei</td>
+    <td>mary@mail.com</td>
+  </tr>
+  <tr>
+    <td>July</td>
+    <td>Florido</td>
+    <td>july@greatstuff.com</td>
+  </tr>
+  <tr>
+    <td>Anja</td>
+    <td>Belthroto</td>
+    <td>a_r@test.com</td>
+  </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

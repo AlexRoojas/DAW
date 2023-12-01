@@ -1,0 +1,94 @@
+<!DOCTYPE html >
+
+<html>
+<head>
+<title>Modificando el DOM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <script>
+
+    function aunarParrafos(){ 
+    } 
+
+    //--------------------------------
+    function nuevoParrafo(){ 
+		var ta = document.getElementById("ta");
+		var div1 = document.getElementById("div1");
+		
+		var parrafo = document.createElement("p");
+		
+		var boton = document.createElement("button");
+		if(ta.value!=""){
+			boton.type = "submit";
+			boton.name = "eliminar";
+			boton.innerHTML = "eliminar";
+			boton.setAttribute("onclick","borraParrafo(this)");
+			
+			parrafo.textContent = ta.value;
+			parrafo.setAttribute("onDblClick","mueve(this)");
+			
+			var pos = document.getElementById("pos").value;
+			if(pos!=""){
+				div1.insertBefore(parrafo,div1.children[pos-1]);
+			}else{
+				div1.appendChild(parrafo);
+			}
+			parrafo.appendChild(boton);
+			ta.value="";
+			
+			
+		}else{
+			alert("Añade una palabra");
+		}
+	}
+    //---------------------------------------------------------------------------
+    function borraParrafo(elemento){
+		var div1 = document.getElementById("div1");
+		if(elemento.value==""){
+			div1.removeChild(elemento.parentElement);
+		}else{
+			var pos = document.getElementById("pos").value;
+			div1.removeChild(div1.children[pos-1]);
+		}
+		
+    }
+    
+    
+    //------------------------------------------------------------------
+    function mueve(elemento){
+		if(elemento.nextElementSibling!=null){
+			var copia1 = elemento.cloneNode(true);
+            var copia2 = elemento.nextElementSibling.cloneNode(true);
+
+            elemento.nextElementSibling.parentNode.replaceChild(copia1, elemento.nextElementSibling);
+            elemento.parentNode.replaceChild(copia2, elemento);
+		}
+    }
+    //---------------------------------------------------
+    window.onload=function(){
+		var div1 = document.getElementById("div1");
+		for (p of div1.children){
+			p.setAttribute("onDblClick","mueve(this)");
+		}
+    }
+
+
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <p id="p1">Aprendiendo DOM</p>
+        <p id="p2">DOM es sencillo de aprender</p>
+        <p id="p3">Ademas, DOM es muy potente<button onClick="borraParrafo(this)">eliminar</button></p>
+     </div>
+
+    <textarea id="ta" rows="6" cols="50" placeholder="Texto del nuevo parrafo"></textarea><br/>
+    <button value="añadir" onClick="nuevoParrafo()">añadir</button>
+    Posicion:
+    <input id="pos" type="number" value="0"/>
+
+    <button value="borrar" onClick="borraParrafo(this)">borrar</button>
+    <button>aunar parrafos</button>
+    <div id="div2"> Todo el texto...</div>
+
+    </body>
+</html>

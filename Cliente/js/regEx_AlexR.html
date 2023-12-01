@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		*{
+			background-color: rgba(49,45,45,1.00);
+			color: white;
+		}
+		body{
+			background-color: rgba(49,45,45,1.00);
+			color: white;
+		}
+	</style>
+	<script>
+		
+		//var formato = /^((\(\d{3}\)|\d{3}-)(\d{3}-)(\d{3}))|((\(\d{3}\)|\d{3}\s)(\d{3}\s)(\d{3}))$/i;
+				function validaTlf(){
+			var tlf=evento.target.value;
+			//=document.getElementById("tlf").value;
+			var salida = document.getElementById("salida");
+			var expReg= new RegExp(tl+f.pattern);
+					
+			if(expReg.test(tlf.value)){
+				salida.innerHTML="El telefono es valido";
+			}else{
+				salida.innerHTML="El telefono es invalido";
+			}
+					
+			if(evento.type="submit"){
+			   	if(evento.target.contra1.value=evento.target.contra2.value)
+			   }
+		}
+		//var formato = /(\())?^(\d{3})(\))?([\-\s\.\/])(\d{3})([\-\s\.\/])(\d{3})$/;
+		//var formato = "(\([\d]{3}\))|([\d]{3})([\-\./\s])\d{3}\3\d{3}$"
+		
+		/*function validaTlf(evento){
+			var tlf=evento.target.value;
+				//document.getElementById("tlf").value;
+			var salida = document.getElementById("salida");
+			salida.innerHTML="El telefono es invalido";
+			let match = tlf.match(formato);
+			
+			if(match!=null){
+			   
+				if(match[4]==match[6]){
+				   		salida.innerHTML="El telefono es valido";
+				   }
+				
+			   }
+		}*/
+	</script>
+</head>
+
+<body>
+	<form action="" id="f1" onSubmit="validaTlf()">
+		<input type="text" name="telefono" id="tlf" placeholder="Introduce teléfono" pattern="(\([\d]{3}\))|([\d]{3})([\-\./\s])\d{3}\4\d{3}$" onBlur="validaTlf(event)">
+		<input type="button" value="Validar" onClick="validaTlf()">
+		<input type="submit"> 
+	</form>
+	<div id="salida"></div>
+</body>
+</html>

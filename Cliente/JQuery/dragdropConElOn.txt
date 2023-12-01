@@ -1,0 +1,31 @@
+  
+				//SELECTOR DONDE QUEREMOS QUE SE APLIQUE
+    $(document).on("mouseenter","#tablaNumeros tr td,td[draggable=true]",function(e){
+            var celda=$(this);
+            if (!celda.is('.ui-draggable')) {
+                celda.draggable({helper:"clone"});
+            }
+    });
+        
+				//SELECTOR DONDE QUEREMOS QUE SE APLIQUE
+   $(document).on("mouseenter", '#tablaSd tr td[estado="oculto"]', function(e){
+        var celda = $(this); 
+        if (!celda.is('.ui-draggable')) {
+            celda.droppable({
+                drop:dropeo
+            });
+        }
+    });
+
+
+		   //ui lo que arrastras, event donde dropeas(sueltas)
+
+    function dropeo(event,ui){
+
+
+
+    }
+
+//--------------------------------------------
+
+$("#dp").cargaTabla(pedidosActualesClientes,{titulo:"Carro De la << Compra >>",id:"carro",borrar:true},{nombreObjeto:"pedidosActualesClientes"},{columnaClave:"cd",columnasSumar:{col1:"cantidad",col2:"subtotal"},columnassumar:{col1:"precio",col2:"cantidad",col3:"subtotal"}});

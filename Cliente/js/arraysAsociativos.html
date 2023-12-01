@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<script>
+		window.onload=function(){
+			var clave="color";
+			var arr=["cero",130];
+			arr.color="azul";
+			arr[4]=4;
+			arr[clave]="verde";arr["color"]="verde";//arr.color="verde";
+			
+			document.body.innerHTML="arr="+arr+"<br>";
+			document.body.innerHTML+="arr['color']= "+arr["color"]+"<br>";
+			document.body.innerHTML+="arr.color= "+arr.color+"<br>";
+			document.body.innerHTML+="arr[clave]= "+arr[clave]+"<br>";
+			
+			
+			var obj={cero:"cero", "cero":0 , 1:1};
+			var cero="cero";
+			document.body.innerHTML+="obj ="+obj+"<br>";
+			document.body.innerHTML+="obj.cero ="+obj.cero+"<br>";
+			document.body.innerHTML+="obj['cero'] ="+obj['cero']+"<br>";
+			document.body.innerHTML+="obj[cero] ="+obj[cero]+"<br>";
+			document.body.innerHTML+="obj[1] ="+obj[1]+"<br>";
+			document.body.innerHTML+="obj['1'] ="+obj['1']+"<br>";
+			
+			
+			//document.body.innerHTML+="obj.1 ="+obj.1+"<br>";
+			
+			
+			/*document.body.innerHTML+="Recorrido de arr con for in";
+			
+			document.body.innerHTML+="Recorrido de arr con for of";
+			
+			
+			
+			document.body.innerHTML+="Recorrido de obj con for in";
+			
+			document.body.innerHTML+="Recorrido de obj con for of";*/
+			recorrerObjArr(arr);
+			recorrerObjArr(obj);
+			
+			
+			function recorrerObjArr(datos){
+				document.body.innerHTML+="<br><br>Tipo de objeto ->"+typeof(datos);
+				
+				document.body.innerHTML+="<br>Recorrido con for in";
+				
+				for(clave in datos)
+					
+					document.body.innerHTML+="<br>datos["+clave+"]=>"+datos[clave]+"<br>";
+				
+				document.body.innerHTML+="<br>Recorrido con for of";
+				if(datos instanceof Array)
+					for(dato of datos)
+						document.body.innerHTML+="<br>datos=>"+dato;
+				else{
+					document.body.innerHTML+="<br> Object.values(datos)=>"+Object.values(datos);
+					document.body.innerHTML+="<br> arr ->";
+					for(clave in datos){
+						document.body.innerHTML+=clave+":"+datos[clave]+", ";
+					}
+				}
+			}
+			
+		};
+	</script>
+</head>
+
+<body>
+</body>
+</html>

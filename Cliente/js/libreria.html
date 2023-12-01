@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		form{
+			width: 600px;
+		}
+		#pedidos{
+			position:relative; 
+			width:500px;
+			height:250px;
+		}
+	</style>
+	<script>
+		var arrLibros=[];
+		var arrClientes=[];
+		var arrPedidos=[];
+		
+		function libro(titulo,editorial,precio,unidades){
+			this.titulo=titulo;
+			this.editorial=editorial;
+			this.precio=precio;
+			this.unidades=unidades;
+			this.imprimir =function(){
+				return "Titulo: "+this.titulo+" Editorial: "+this.editorial+" Precio: "+this.precio+" Unidades: "+this.unidades;
+			};
+			
+		}
+		function clientes(nombre,localidad,correo){
+			this.nombre=nombre;
+			this.localidad=localidad;
+			this.correo=correo;
+			this.imprimir =function(){
+				return "Nombre: "+this.nombre+" Localidad: "+this.localidad+" Correo: "+this.correo;
+			};
+			
+		}
+		function pedidos(selClientes,selLibros,unidades){
+			this.selClientes=selClientes;
+			this.selLibros=selLibros;
+			this.unidades=unidades;
+			this.imprimir =function(){
+				return "Cliente: "+this.selClientes+" || Libro: "+this.selLibros+" || Unidades: "+this.unidades;
+			};
+			
+		}
+		
+		function guardaL(){
+			//e.preventDefault();//para pararlo
+			var titulo = document.getElementById("titulo").value;
+			var editorial = document.getElementById("editorial").value;
+			var precio = document.getElementById("precio").value;
+			var unidades = document.getElementById("unidades").value;
+			
+			var newLibro = new libro(titulo,editorial,precio,unidades);
+			
+			arrLibros[arrLibros.length]=newLibro;
+			
+			var selLibros = document.getElementById("lLibros");
+			var option = document.createElement("option");
+			option.text = titulo;
+			selLibros.add(option);
+			
+			document.getElementById("titulo").value="";
+			document.getElementById("editorial").value="";
+			document.getElementById("precio").value="";
+			document.getElementById("unidades").value="0";
+			//e.target.reset();//limpiar todos los campos
+		}
+		function guardaC(){
+			var nombre = document.getElementById("nombre").value;
+			var localidad = document.getElementById("localidad").value;
+			var correo = document.getElementById("correo").value;
+				
+			var newCliente = new clientes(nombre,localidad,correo);
+			
+			arrClientes[arrClientes.length] = newCliente;
+			
+			var selClientes = document.getElementById("lClientes");
+			var option = document.createElement("option");
+			option.text = nombre;
+			selClientes.add(option);
+			
+			document.getElementById("nombre").value="";
+			document.getElementById("localidad").value="";
+			document.getElementById("correo").value="";
+			
+		}
+		function guardaP(){
+			var selClientes = document.getElementById("lClientes").value;
+			var selLibros = document.getElementById("lLibros").value;
+			var unidades = document.getElementById("unidades").value;
+				
+			var newPedido = new pedidos(selClientes,selLibros,unidades);
+			
+			arrPedidos[arrPedidos.length] =newPedido;
+			
+		}
+		function listap(){
+			for(let i=0;i<arrPedidos.length;i++){
+				document.getElementById("lista").innerHTML+="<br>"+arrPedidos[i].imprimir();
+			}
+		};
+			
+		
+	</script>
+</head>
+
+<body>
+
+ <div id="libros">
+ 	<form id="flibros">
+    	<fieldset><legend>Libros...</legend>
+       <label for="titulo">Titulo</label>           
+    	<input type="text" id="titulo" pattern="^[A-Z].{2,}" title="Empieza Mayus y minimo 3 letras"/>
+        <label for="editorial">Editorial</label>
+        <input type="text" id="editorial" pattern="^[A-Z].{2,}" title="Empieza Mayus y minimo 3 letras"/><br><br>
+        <label for="precio">Precio</label>
+        <input type="number" id="precio"/>
+        <label for="unidades">Unidades</label>
+        <input type="number" id="unidades" min="0" max="100" value="0"/><br>
+        <input type="button" id="a" value="Guardar"  onclick="guardaL()" align="right"/>
+        </fieldset>
+    </form>
+ 
+ </div>
+ <div id="clientes">
+ 	<form id="fclientes">
+    	<fieldset><legend>Clientes...</legend>
+       <label for="nombre">Nombre</label>           
+    	<input type="text" id="nombre"/>
+        <label for="localidad">Localidad</label>
+        <input type="text" id="localidad"/><br><br>
+        <label for="correo">E-mail</label>
+        <input type="email" id="correo"/>
+        <input type="button" id="guardac" value="Guardar" align="right" 
+        onclick="guardaC()"/>
+        </fieldset>
+    </form>
+ 
+ </div>
+ <div id="pedidos">
+ 	<form id="fpedidos">
+    	<fieldset><legend>Pedidos...</legend>
+		   	<label for="lClientes">Cliente</label> 
+		   	<select id="lClientes" >
+		   	</select>
+			<label for="lLibros">Libro</label>
+			<select id="lLibros" >
+			</select>
+			<br><label for="unidades">Unidades</label>
+			<input type="number"  size="6" id="unidadesT" value="0"/>
+			<br>
+			<input type="button" value="Pedir" id="guardap" align="right" onclick="guardaP()"/>
+			<input type="button" value="Listar Pedidos" id="listado" align="left" onclick="listap()"/>
+        </fieldset>
+    </form>
+    </div>
+    <div id="lista" align="center">Listado de pedidos de Clientes...</div>
+ 
+</body>
+</html>

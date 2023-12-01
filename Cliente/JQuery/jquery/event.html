@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	var i=0;
+  $("h3").click(function(){
+	  i++;
+    $("<p style='background-color:yellow'>Otro parrafo "+i+"</p>").insertAfter("h3");
+  });
+	$("body").on("click","p",function(){
+	  i++;
+    $("<p style='background-color:lightgray'>Otro parrafo "+i+"</p>").insertAfter($(this));
+  });
+});
+</script>	
+</head>
+
+<body>
+	<h3>Clickeame</h3>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+        
+        window.onload = function (){
+            
+            empieza.onclick = startWorker;
+            para.onclick = stopWorker;
+        }
+        var w;
+        function startWorker() {
+          if (typeof(Worker) !== "undefined") {
+            if (typeof(w) == "undefined") {
+              w = new Worker("js/demo_workers.js");
+              w.postMessage({tiempo:100,inicio:20});
+            }
+            w.onmessage = function(event) {
+              document.getElementById("result").innerHTML = event.data;
+            };
+          } else {
+            document.getElementById("result").innerHTML = "Tu navegador no soporta el worker";
+          }
+        }
+
+        function stopWorker() {
+          w.terminate();
+          w = undefined;
+        }
+    </script>
+    </head>
+    
+    <body>
+        <p>Contador <output id="result"></output></p>
+        <button id="empieza" >Empieza Worker</button>
+        <button id="para" >Para Worker</button>
+    </body>
+</html>

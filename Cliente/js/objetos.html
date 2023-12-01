@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<script>
+		//1.- Usando new()
+		var libro1 = new Object();
+		libro1.titulo="Java";
+		libro1.editorial="Anaya";
+		libro1.imprimir=function(){
+			return this.titulo+"-"+this.editorial;
+		}
+		//2.- Usando literal
+		var libro2={titulo:"Java2",
+					editorial:"Anaya2",
+					imprimir:function(){
+			return this.titulo+"-"+this.editorial;
+		}};
+		//3.- Funcion constructora
+		function libro(titulo,editorial){
+					this.titulo=titulo;
+					this.editorial=editorial;
+					
+					this.imprimir=function(){
+						return this.titulo+"-"+this.editorial;
+					}
+		}
+		var libro3 = new libro ("Java3","Anaya3");
+		
+		var libreria=[];
+			libreria[0]=libro1;
+			libreria[1]=libro2;
+			libreria[2]=libro3;
+			libreria[3] = new libro("Quijote","Santillana");
+		
+		document.writeln("<br>Listado de la libreria con imprimir<br>")
+		libreria.forEach(function(libro,indice){
+			document.writeln("Libro nº: "+indice +"= "+libro.imprimir()+"<br>");
+		});
+		
+		function listaLibreria(){
+			document.writeln("<br>Listado de la libreria con imprimir<br>")
+			libreria.forEach(function(libro,indice){
+				document.writeln("<br>Libro nº: "+indice +"<br>");
+				for(propiedad in libro){
+					if(typeof(libro[propiedad])=="function")
+						document.writeln(propiedad+" = "+libro[propiedad]()+"<br>");//al poner los parentesis se ejecuta la funcion
+					else
+						document.writeln(propiedad+" = "+libro[propiedad]+"<br>");//libro[propiedad]=libro["clave1"]
+				}
+
+			});
+		}
+		//Cambio del prototipo
+		listaLibreria();
+		libreria[0].unidades=10;
+		
+		libro.prototype.unidades=20;
+		listaLibreria();
+		
+		//Convertir un array de Obj en un objeto de objetos...
+		//1.- Cargar
+		
+		var libreria2={};
+		
+		libreria.forEach(function(libro,indice){
+			//libreria2.indice=libreria[indice];asi va machacando y solo queda uno
+			libreria2[indice]=libreria[indice];
+		});
+		
+		//2.- Pintar
+		
+		for(clave in libreria2){
+			document.writeln("<br>"+JSON.stringify(libreria2.clave));//la propiedad no esta definida
+			document.writeln("<br>"+JSON.stringify(libreria2[clave]));
+		}
+		/*
+		var libreria2={
+			0:libreria[0],
+			1:libreria[1],
+			2:libreria[2],
+			3:libreria[3]
+		};
+		
+		libreria2.prototype.isbn=10;
+		
+		for(let i=0;i<libreria2;i++){
+			document.writeln();
+		}
+		*/
+		
+			
+			
+			
+			
+			
+			
+			
+			
+		
+	</script>
+	<style>
+		body{
+			background-color: black;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		var suma=0;
+		$(document).ready(function(){
+			$("#boton").on("click",function(){
+				if(suma!=0)
+				$("ul").append("<li>"+suma+"</li>");
+				
+				$("li").each(function(i,el){
+					suma+=parseInt(el.textContent);
+				});
+				
+				$("span").remove();
+				$("p").remove();
+				
+				$("ul").append("<span>------</span>");
+				$("ul").append("<p>"+suma+"</p>");
+			});//click
+		});
+	</script>
+</head>
+
+<body>
+	<button id="boton">Suma</button>
+	<ul>
+		<li>13</li>
+		<li>5</li>
+		<li>24</li>
+		<span>------</span>
+	</ul>
+	
+</body>
+</html>

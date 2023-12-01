@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<script>
+		function mensaje(ev){
+			let texto;
+			if(ev.currentTarget.tagName === undefined)
+				 texto = ev.type + " en Window en fase " + ev.eventPhase;
+			else  texto = ev.type + " en " + ev.currentTarget.tagName + " en fase ->" + ev.eventPhase;
+			
+			alert(texto);
+		}
+		window.onload=function(){
+			//evento en fase 3 Bubbling phase
+			boton.onclick = mensaje;
+			div.onclick = mensaje;
+			
+			//document.body.onclick = mensaje;
+			document.documentElement.onclick = mensaje;
+			window.onclick = mensaje;
+			//fase de captura
+			
+			window.addEventListener("click",mensaje,true);
+			document.documentElement.addEventListener("click",mensaje,true);
+			document.body.addEventListener("click",mensaje,true);
+			div.addEventListener("click",mensaje,true);
+			boton.addEventListener("click",mensaje,true);
+		}
+	</script>
+</head>
+
+<body onClick="mensaje(event)">
+	
+	<div id="div">
+		<input type="button" value="Pinchame" id="boton">
+		
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+<title> Drag-and-Drop Number Cards Game </title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+	
+<style>
+	
+	#pCrono{    width:150px;
+              	 height:auto;
+                border:4px solid #000;
+                background-color:#E2EBED;
+                padding-left:5px;
+                font-size:0.9em;
+		        position:absolute; 
+				top:3em; left:39em;with:150px;
+		
+				   }  
+</style>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+<script type="text/javascript">
+		var cartasCorrectas=0;
+	
+	//mio...................................................................................
+	$(document).ready(function(){
+		
+		var segundos=0;
+		
+		
+		ocultar();
+		
+		cartasCorrectas=0;
+		$('#cardPile').html( '' );
+  		$('#cardSlots').html( '' );
+		
+		creaCartas();
+		
+		$("fieldset input").change(function(event) {
+			switch($(event.target).val()){
+				case "1":
+					$("#segundos").text("60");
+					clearInterval(tiempo_corriendo);
+				break;
+				case "2":
+					$("#segundos").text("120");
+					clearInterval(tiempo_corriendo);
+					break;
+				case "3":
+					$("#segundos").text("180");
+					clearInterval(tiempo_corriendo);
+					break;
+				   }
+		});
+		
+		$(document).keydown(function(event){
+			if(event.keyCode == 66 && event.ctrlKey){
+				event.preventDefault();
+				cartasCorrectas=0;
+				$('#cardPile').html( '' );
+				$('#cardSlots').html( '' );
+
+				creaCartas();
+			}
+		});
+		
+	});//onload...........................
+
+	//--------------------------------------------------------
+	function creaCartas(){
+		var numeros = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];//creo los numero
+		var palabras = ["uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve","diez"];
+		
+		numeros.sort(function() {//los barajo
+			return Math.random() - .5;
+		});
+		
+		for(var i=0; i<10;i++){ //algunas cosas estan en ingles por el css-- creamos el div, añadimos el data del numero que es y lo añadimos a la fila de cartas
+			$("<div>"+numeros[i]+"</div>").data("numero",numeros[i]).attr("id","card"+numeros[i]).appendTo("#cardPile").draggable({
+				containment: "#content", //por donde se van a mover las cartas
+				stack: "#cardPile div", //se van a juntar en este contenedor
+				cursor: "grab", //propiedad del cursos
+				revert: true, //para volver en caso de que no deje hacer drop
+				create: cronoStart
+			});
+		}
+		
+		
+		
+		for(var i=1; i<=10;i++){ //creamos los divs donde se reciben las cartas,añadimos el data del numero y lo añadimos al div con el droppable
+			$("<div>"+palabras[i-1]+"</div>").data("numero", i).appendTo("#cardSlots").droppable({
+				accept:"#cardPile div", //solo puede recibir drop de este div
+				hoverClass:"hovered", //la clase se añade cuando se puede hacer un hover sobre el droppable
+				drop:sueltaCarta //al hacer el drop que haga esta funcion
+			});
+		}
+		
+	}
+	
+	
+	
+	
+	function sueltaCarta(event, ui){ //ui es el objeto que estamos cogiendo
+		var cajaNum = $(this).data("numero");//recibimos el data de la carta y el div
+		var carta = ui.draggable.data("numero");
+		
+		if(carta == cajaNum){
+			ui.draggable.addClass("correct");
+			ui.draggable.addClass("disable");
+			
+			$(this).droppable("disable");//la caja que hemos hecho drop se deshabilita
+			
+			ui.draggable.position({
+				of:$(this),
+				my:"left top",
+				at:"left top"
+			});
+			
+			ui.draggable.draggable("option","revert",false);
+			cartasCorrectas++;
+		}
+		
+		if(cartasCorrectas == 10){
+			ocultar();
+		}
+	}
+	//---------------------------------------------------------------
+	function guardarPartida(){
+		
+	}
+	//-----------------------------------------------------------------
+	function restaurarPartida(){
+		
+	}
+	//mio...................................
+	//------------------------------------------------------------------
+	
+	function cambioNivel(){
+	    
+	}
+	
+	//------------------------------------------------------------
+	$("#btn-comenzar").click(function(){
+		cronoStart();
+	});
+	
+	function cronoStart() {
+		 
+		                    
+		var tiempo_corriendo = setInterval(function(){
+			var segundos=$("#segundos").text();
+			segundos--;
+			$("#segundos").text(segundos);
+			if(segundos<=1){
+				clearInterval(tiempo_corriendo);
+			}
+
+		}, 1000);
+			
+		
+	}//cronoStart
+	//----------------------------------------------------
+
+ 
+//------------------------------------------------------------------------------------------
+function ocultar(){
+		$("#ganar").toggle();
+	}
+function repetir(){
+		$('#cardPile').html( '' );
+  		$('#cardSlots').html( '' );
+		creaCartas();
+		$("#ganar").toggle();
+}
+</script>
+ 
+
+</head>
+<body style="cursor: auto;">
+
+    <div class="wideBox"><!-- style="with:250p;float: left;"-->
+      <h1>Drag-and-Drop</h1>
+      <h2>A Number Cards Game</h2>
+    </div>
+ 
+	<div style="position:absolute; top:3em; left:20em;with:250px; height:auto; ">
+            <fieldset> 
+                <input type="radio" name="nivel" value="1" checked> Nivel 1: 1 min.<br>
+                <input type="radio" name="nivel" value="2" > Nivel 2: 2 min.<br>
+                <input type="radio" name="nivel" value="3"> Nivel 3: 3 min.<br>
+              </fieldset>
+     </div>
+     <p id="pCrono" >
+            Tiempo Partida:<br /><input type="text" id="tiempo" name="tiempo" style="width:130px"/>
+            <br />
+            Crono:...:<span id="segundos">60</span>
+      </p>
+
+ <div style="clear:both; background-color:#3C6; color:#69F">...</div>    
+
+<div id="content">
+
+  <div id="cardPile">
+ </div>
+  <div id="cardSlots">
+  </div>
+ 
+</div>
+<!-- Crono---------------------------------------->
+    
+
+<div class="wideBox" style="position:absolute; top:2em; left:47em;with:250px; ">
+	Operaciones(3 puntos)<br>
+	<button id="gp">Guardar Partida  (Ctrl+G)</button>
+    <button id="rp">Restaurar Partida(Ctrl+R)</button>
+    <button id="bc">Barajar Cartas   (Alt +B)</button>
+</div>
+
+
+<div id="ganar">
+    <h2>Has ganado</h2>
+    <button onclick="repetir()">Jugar Otra vez</button>
+  </div>
+
+</body></html>

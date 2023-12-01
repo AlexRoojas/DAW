@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generador de apuestas</title>
+    <style>
+        body{
+            margin: auto;
+            text-align: center;
+			background-color: rgba(175,255,234,1.00);
+        }
+
+        p{
+            font-size: 23px;
+            text-align: center;
+			
+        }
+
+    </style>
+	
+	 
+	
+	
+</head>
+<body>
+    
+    
+    <h3>Elige Apuesta</h3>
+  
+  <select id="selectApuestas" onchange="eval(this.value)">
+    <!--<select id="sApu" onchange="eval(this.value.replace('(','(' + numApu.value +','))";>"-->
+  	
+    <option value="generaApuesta('Números:',6,1,54,'Número Clave:',1,0,9)">
+        Gordo de la Primitiva</option>
+    
+    <option value="generaApuesta('Numeros:',6,1,49,'Reintegro:',1,0,9,'Joker:',1,0,9999999)">Primitiva</option>
+	  
+    <option value="generaApuesta('Numeros:',6,1,49)">BonoLoto</option>
+   
+    <option value="generaApuesta('Números:',5,1,50,'Estrellas:',2,1,12)">Euromillones</option>
+	  
+   </select> 
+    
+ 
+    <input type="number" value="0"  id="numApu" min="0" max="99" 
+    	onchange="eval(selectApuestas.value)"/>
+    <h1>Generador de apuestas</h1>
+    <!--<button onClick="generaApuesta()">Genera Euromillón</button>-->
+    <p id="pApuesta"> Apuesta aún no generada </p>
+  <script>
+		 
+        const apuesta = document.getElementById("pApuesta");
+		 
+        var apuestaCompleta = [];
+	  	var total;	
+	  
+       
+        function generaApuesta(){
+			apuestaCompleta = [];//limpiamos para que no se monte
+			
+			total = document.getElementById("numApu").value;
+			
+			for(let j=0; j<total; j++){//recorre las veces que quieres generarlo
+				for(let i=0; i<arguments.length;i+=4){
+					apuestaCompleta = apuestaCompleta.concat(generaCombinacion(arguments[i],arguments[i+1],arguments[i+2],arguments[i+3]));
+					
+				}
+				apuestaCompleta=apuestaCompleta.concat("<br>");//al final de cada apuesta añadimos un salto de linea
+				
+			}
+            pintaApuesta(apuestaCompleta);
+        }
+
+
+        function generaCombinacion(etiqueta,cantNums, min, max) {
+            let arrayNums = [];
+            
+            while (arrayNums.length < cantNums) {
+                var numAleatorio = getRandomInt(min, max);
+                if(!(arrayNums.includes(numAleatorio))){
+                    arrayNums[arrayNums.length] = numAleatorio ;
+                    
+                }
+            }
+
+            arrayNums.sort(function(a, b){return a-b}); //ordena
+            arrayNums.unshift(etiqueta);//añade al principio
+            return arrayNums;
+        }
+
+
+        //genera un numero random
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random()*(max-min+1))+min;
+        }
+
+
+        //pinta el array de apuesta que le pasemos por parametros
+        function pintaApuesta(arrayNums){
+            pApuesta.innerHTML = "";
+            arrayNums.forEach(function(valor) {
+				 pApuesta.innerHTML +=  valor + " "; 
+            });
+        }
+		 
+
+    </script>
+   
+</body>
+</html>

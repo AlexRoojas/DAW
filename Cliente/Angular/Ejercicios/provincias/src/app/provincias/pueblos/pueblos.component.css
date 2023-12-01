@@ -1,0 +1,9 @@
+table{
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
+    border: solid rgb(9, 161, 98) 2px;
+}
+tr{
+    border: solid rgb(9, 161, 98) 2px;
+}

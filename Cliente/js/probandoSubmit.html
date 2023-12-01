@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+	<style>
+		*{
+			background-color: rgba(49,45,45,1.00);
+			color: white;
+		}
+	</style>
+	<script>
+		function manejaSubmit(evento){
+			alert("evento submit");
+			evento.preventDefault(); //usando esto evitamos que se envie mal el formulario
+			
+			if(confirm("submit anulador... quieres reenviarlo?"))
+				evento.target.submit();//se envia el formulario
+			//return false;
+		}
+	</script>
+	
+</head>
+
+<body>
+	<form onSubmit="manejaSubmit(event)">
+		<input type="text" value="Situa el valor y pulsa enter">
+		<input type="submit" value="submit" onClick="alert('click')">
+	</form>
+</body>
+</html>
