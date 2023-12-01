@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <td *ngFor="let usuarios of listaUsuarios[0]|keyvalue">
+        {{usuarios.key}}
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let usuarios of listaUsuarios">
+         <td *ngFor="let miUsuario of usuarios|keyvalue">            
+            <ng-template [ngIf]="esUnObjeto(miUsuario.value)" [ngIfElse]="fueradeservicio">
+                {{miUsuario.value}}
+            </ng-template>
+
+            <ng-template #fueradeservicio>
+                 <app-listar-objeto [objeto]="miUsuario.value"></app-listar-objeto>
+            </ng-template>
+
+         </td>
+      </tr>
+  </tbody>
+</table>

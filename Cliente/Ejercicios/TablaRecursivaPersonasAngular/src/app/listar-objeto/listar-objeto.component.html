@@ -1,0 +1,8 @@
+<td *ngFor="let miObjeto of objeto | keyvalue">
+    <ng-template [ngIf]="esUnObjeto(miObjeto.value)" [ngIfElse]="volver">
+        {{miObjeto.value}}
+    </ng-template>
+    <ng-template #volver>
+       <app-listar-objeto [objeto]="miObjeto.value"></app-listar-objeto>
+    </ng-template>
+</td>
