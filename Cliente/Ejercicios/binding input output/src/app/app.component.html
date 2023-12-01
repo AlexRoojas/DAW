@@ -1,0 +1,11 @@
+<p>app.component funsiona!</p>
+<p>
+    Inicializa lado: <input type="number" [(ngModel)]="ladoInicial">
+</p>
+<p>
+    Lado Actual: <input type="number" [ngModel]="ladoActual">
+</p>
+<app-cuadrado
+    [lado]="ladoInicial"
+    (propagar)="actLado($event)"
+></app-cuadrado>

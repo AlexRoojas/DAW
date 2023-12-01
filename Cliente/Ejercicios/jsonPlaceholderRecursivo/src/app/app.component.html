@@ -1,0 +1,17 @@
+<p>Consumir Api JSONPlaceHolder</p>
+<table>
+    <tr>
+        <!--<th *ngFor="let cab of cabeceras">-->
+        <th *ngFor="let cab of listaUsuarios[0] | keyvalue">    
+            {{cab.key}}
+        </th>
+    </tr>
+    <tr *ngFor="let usu of listaUsuarios">
+        <td *ngFor="let propiedad of usu | keyvalue">
+            <span *ngIf="! esObjeto(propiedad.value); then valor else objetos"></span>
+                <ng-template #valor>{{propiedad.value}}</ng-template>
+                <ng-template #objetos><app-tabla-objeto [objeto]=propiedad.value></app-tabla-objeto></ng-template>
+            
+        </td>
+    </tr>
+</table>

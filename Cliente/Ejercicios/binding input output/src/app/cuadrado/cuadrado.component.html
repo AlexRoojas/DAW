@@ -1,0 +1,14 @@
+<p>Componente Cuadrado</p>
+<p>
+    Tamaño del lado {{lado}}
+</p>
+<p>
+    1 way binding [ngModel] del componente a la vista<input type="number" [ngModel]="lado">
+</p>
+<p>
+    2 way binding [(ngModel)] ^ y de la vista al componente <input type="number" [(ngModel)]="lado">
+</p>
+<p>
+    Evento ngModelChange lo mismo pero de otra forma <input type="number" [ngModel]="lado" (ngModelChange)="cambiaLado($event)">
+</p>
+<button (click)="onPropagar()">Propagar</button>

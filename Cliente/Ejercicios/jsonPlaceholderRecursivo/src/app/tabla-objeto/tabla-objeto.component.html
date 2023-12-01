@@ -1,0 +1,19 @@
+<table>
+    <tr>
+        <!--<th *ngFor="let cab of cabeceras">-->
+        <th *ngFor="let cab of objeto | keyvalue">    
+            {{cab.key}}
+        </th>
+    </tr>
+    <tr >
+        <td *ngFor="let propiedad of objeto | keyvalue">
+
+            <span *ngIf="! esObjeto(propiedad.value); then valor else objeto"></span>
+                <ng-template #valor>{{propiedad.value}}</ng-template>
+                <ng-template #objeto>
+                    <app-tabla-objeto [objeto]=propiedad.value></app-tabla-objeto>
+                </ng-template>
+            
+        </td>
+    </tr>
+</table>

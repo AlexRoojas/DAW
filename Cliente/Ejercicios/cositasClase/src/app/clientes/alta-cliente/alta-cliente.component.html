@@ -1,0 +1,29 @@
+<p>alta-cliente works!</p>
+<h2>Alta cliente</h2>
+<form [formGroup]="miForm" (ngSubmit)="onSubmit()">
+  <label for="nombre">Nombre</label>
+  <input name="nombre" type="text" formControlName="nombre">
+
+
+  <label for="cif">CIF:</label>
+  <input name="cif" type="text" formControlName="cif">
+  
+  <label for="direccion">Dirección:</label>
+  <input name="direccion" type="text" formControlName="direccion">
+
+  <label for="grupo">Grupo:</label>
+  
+    <select [(ngModel)]="cliente.grupo" name="grupo"  formControlName="grupo">
+      <option *ngFor="let grupo of grupos" value="{{grupo.id}}">{{grupo.nombre}}</option>
+    </select>
+  
+    <button (click)="register()" [disabled]="miForm.invalid">Guardar</button>
+
+    <p>Form value:{{miForm.value | json}}</p>
+    <p>Form status:{{miForm.status | json}}</p>
+    <!--p>Form invalid: {{miForm.invalid}}</p>
+    <p>Form valid: {{miForm.valid}}</p-->
+    <p>Errores nif: {{miForm.get('cif')?.errors|json}}</p>
+    <p>Errores nif: {{miForm.getError('cif') }}</p>
+  
+</form>
